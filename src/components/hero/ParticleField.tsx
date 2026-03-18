@@ -4,7 +4,7 @@ import { useRef, useMemo, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 
-const PALETTE = ["#AEBEFF", "#D0DD57", "#EF5541", "#EF554160", "#AEBEFF80"];
+const PALETTE = ["#AEBEFF", "#D0DD57", "#EF5541", "#C8A8FF", "#8FAEFF"];
 
 // Module-level pointer target — shared between event listeners and useFrame
 const pointer = { x: 0, y: 0 };
@@ -67,6 +67,8 @@ function Particles({ count = 1800 }: { count?: number }) {
 }
 
 export default function ParticleField() {
+  const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
+
   useEffect(() => {
     // Desktop: mouse parallax
     const handleMouse = (e: MouseEvent) => {
@@ -83,17 +85,40 @@ export default function ParticleField() {
     };
 
     window.addEventListener("mousemove", handleMouse);
-    window.addEventListener("deviceorientation", handleGyro);
+
+    // iOS 13+ requires permission before deviceorientation fires.
+    // Request on first touch; Android attaches the listener directly.
+    const requestGyro = () => {
+      if (
+        typeof DeviceOrientationEvent !== "undefined" &&
+        typeof (DeviceOrientationEvent as unknown as { requestPermission?: () => Promise<string> }).requestPermission === "function"
+      ) {
+        (DeviceOrientationEvent as unknown as { requestPermission: () => Promise<string> })
+          .requestPermission()
+          .then((state) => {
+            if (state === "granted") {
+              window.addEventListener("deviceorientation", handleGyro);
+            }
+          })
+          .catch(() => {});
+      } else {
+        window.addEventListener("deviceorientation", handleGyro);
+      }
+    };
+
+    window.addEventListener("touchstart", requestGyro, { once: true });
 
     return () => {
       window.removeEventListener("mousemove", handleMouse);
       window.removeEventListener("deviceorientation", handleGyro);
+      window.removeEventListener("touchstart", requestGyro);
     };
   }, []);
 
   return (
     <Canvas
       camera={{ position: [0, 0, 6], fov: 72 }}
+      dpr={[1, 2]}
       style={{ position: "absolute", inset: 0, zIndex: 1 }}
       gl={{
         antialias: false,
@@ -104,7 +129,7 @@ export default function ParticleField() {
         gl.setClearColor(0x0a0a0b, 1);
       }}
     >
-      <Particles />
+      <Particles count={isMobile ? 800 : 1800} />
     </Canvas>
   );
 }

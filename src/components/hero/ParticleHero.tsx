@@ -26,7 +26,7 @@ export default function ParticleHero() {
   return (
     <section
       id="hero"
-      className="relative w-full h-screen min-h-[80vh] overflow-hidden bg-background"
+      className="relative w-full h-svh min-h-[600px] overflow-hidden bg-background"
     >
       <ParticleField />
 
