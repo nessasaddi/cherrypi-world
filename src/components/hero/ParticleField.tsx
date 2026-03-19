@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useMemo, useEffect } from "react";
+import { useRef, useMemo, useEffect, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 
@@ -66,8 +66,31 @@ function Particles({ count = 1800 }: { count?: number }) {
   );
 }
 
+function useIsMobile() {
+  const [mobile, setMobile] = useState(false);
+  useEffect(() => {
+    const check = () => setMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+  return mobile;
+}
+
 export default function ParticleField() {
-  const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
+  const isMobile = useIsMobile();
+  const [ready, setReady] = useState(false);
+
+  useEffect(() => {
+    // Check for WebGL support before rendering Canvas
+    try {
+      const canvas = document.createElement("canvas");
+      const gl = canvas.getContext("webgl2") || canvas.getContext("webgl");
+      if (gl) setReady(true);
+    } catch {
+      // No WebGL — don't render the canvas at all
+    }
+  }, []);
 
   useEffect(() => {
     // Desktop: mouse parallax
@@ -78,16 +101,37 @@ export default function ParticleField() {
 
     // Mobile: gyroscope parallax
     const handleGyro = (e: DeviceOrientationEvent) => {
-      const gamma = e.gamma ?? 0; // left/right tilt (-90 to 90)
-      const beta  = e.beta  ?? 45; // front/back tilt (0 to 180)
+      const gamma = e.gamma ?? 0;
+      const beta  = e.beta  ?? 45;
       pointer.x = Math.max(-1, Math.min(1, gamma / 45));
       pointer.y = Math.max(-1, Math.min(1, (beta - 45) / 45));
     };
 
-    window.addEventListener("mousemove", handleMouse);
+    // Mobile: touch-drag fallback when gyroscope isn't available
+    let touchStartX = 0;
+    let touchStartY = 0;
+    const handleTouchStart = (e: TouchEvent) => {
+      touchStartX = e.touches[0].clientX;
+      touchStartY = e.touches[0].clientY;
+    };
+    const handleTouchMove = (e: TouchEvent) => {
+      const dx = e.touches[0].clientX - touchStartX;
+      const dy = e.touches[0].clientY - touchStartY;
+      pointer.x = Math.max(-1, Math.min(1, dx / (window.innerWidth * 0.3)));
+      pointer.y = Math.max(-1, Math.min(1, -dy / (window.innerHeight * 0.3)));
+    };
+    const handleTouchEnd = () => {
+      pointer.x = 0;
+      pointer.y = 0;
+    };
 
-    // iOS 13+ requires permission before deviceorientation fires.
-    // Request on first touch; Android attaches the listener directly.
+    window.addEventListener("mousemove", handleMouse);
+    window.addEventListener("touchstart", handleTouchStart, { passive: true });
+    window.addEventListener("touchmove", handleTouchMove, { passive: true });
+    window.addEventListener("touchend", handleTouchEnd);
+
+    // iOS 13+ requires permission before deviceorientation fires
+    let gyroGranted = false;
     const requestGyro = () => {
       if (
         typeof DeviceOrientationEvent !== "undefined" &&
@@ -97,12 +141,23 @@ export default function ParticleField() {
           .requestPermission()
           .then((state) => {
             if (state === "granted") {
+              gyroGranted = true;
               window.addEventListener("deviceorientation", handleGyro);
             }
           })
           .catch(() => {});
       } else {
-        window.addEventListener("deviceorientation", handleGyro);
+        // Android — just attach directly, and check if it actually fires
+        let gyroFired = false;
+        const testGyro = () => { gyroFired = true; };
+        window.addEventListener("deviceorientation", testGyro);
+        setTimeout(() => {
+          window.removeEventListener("deviceorientation", testGyro);
+          if (gyroFired) {
+            gyroGranted = true;
+            window.addEventListener("deviceorientation", handleGyro);
+          }
+        }, 1000);
       }
     };
 
@@ -112,24 +167,29 @@ export default function ParticleField() {
       window.removeEventListener("mousemove", handleMouse);
       window.removeEventListener("deviceorientation", handleGyro);
       window.removeEventListener("touchstart", requestGyro);
+      window.removeEventListener("touchstart", handleTouchStart);
+      window.removeEventListener("touchmove", handleTouchMove);
+      window.removeEventListener("touchend", handleTouchEnd);
     };
   }, []);
+
+  if (!ready) return null;
 
   return (
     <Canvas
       camera={{ position: [0, 0, 6], fov: 72 }}
-      dpr={[1, 2]}
+      dpr={isMobile ? [1, 1.5] : [1, 2]}
       style={{ position: "absolute", inset: 0, zIndex: 1 }}
       gl={{
         antialias: false,
         alpha: true,
-        powerPreference: "high-performance",
+        powerPreference: isMobile ? "low-power" : "high-performance",
       }}
       onCreated={({ gl }) => {
         gl.setClearColor(0x0a0a0b, 1);
       }}
     >
-      <Particles count={isMobile ? 800 : 1800} />
+      <Particles count={isMobile ? 600 : 1800} />
     </Canvas>
   );
 }
