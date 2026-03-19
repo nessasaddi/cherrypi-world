@@ -64,21 +64,26 @@ export default function ParticleHero() {
           data-animate
           className="mt-8 font-heading font-semibold text-4xl md:text-[52px] lg:text-[64px] leading-[1.1] tracking-[-0.04em] text-balance max-w-3xl text-foreground"
         >
-          One Studio.{" "}
+          One operator. Full stack.{" "}
           <span
             className="animate-gradient-text bg-[length:300%_auto] bg-clip-text text-transparent"
             style={{ backgroundImage: "linear-gradient(to right, var(--color-cherry), var(--color-lime), var(--color-lavender), var(--color-cherry))" }}
-          >One Mind.</span>{" "}
-          A strategic brand partner for founders in motion.
+          >Infrastructure built to run itself.</span>
         </h1>
+
+        <p
+          data-animate
+          className="mt-6 text-foreground-muted text-sm md:text-base font-body font-light tracking-wide"
+        >
+          Creative-as-a-Service for founders who move first.
+        </p>
 
         {/* Nav links */}
         <nav data-animate className="mt-12 grid grid-cols-2 gap-x-10 gap-y-4 md:flex md:items-center md:gap-8">
           {[
             { label: "About", href: "#about" },
-            { label: "Services", href: "#services" },
-            { label: "Founder", href: "#founder" },
-            { label: "Connect", href: "#connect" },
+            { label: "Capabilities", href: "#capabilities" },
+            { label: "Start a Project", href: "#connect" },
           ].map((link) => (
             <a
               key={link.href}

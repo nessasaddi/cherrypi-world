@@ -41,41 +41,21 @@ export default function About() {
       </p>
       <h2
         data-reveal
-        className="font-heading text-3xl md:text-[44px] lg:text-[52px] font-bold leading-[1.1] tracking-tight mb-20 md:mb-28 max-w-2xl mx-auto text-balance"
+        className="font-heading text-3xl md:text-[44px] lg:text-[52px] font-bold leading-[1.1] tracking-tight mb-20 md:mb-28 max-w-3xl mx-auto text-balance"
       >
-        We help founders build brands that are{" "}
-        <span className="text-cherry">clear</span>, human, and built to last.
+        Strategy, identity, content, and the automation layer that runs itself. Every system &mdash; visual, verbal, and structural &mdash; shipped to run without us.
       </h2>
 
       <div className="grid md:grid-cols-2 gap-16 md:gap-24 px-4 md:px-0">
         <div data-reveal className="text-foreground-muted text-[15px] leading-relaxed font-body font-light space-y-6 text-balance">
           <p>
-            Cherry Pi is a creative technology studio that builds brand systems —
-            visual, verbal, and structural. Strategy, identity, content, and the
-            automated infrastructure to keep it all moving.
-          </p>
-          <p>
-            Every decision runs through one mind — no handoffs, no committees, no
-            diluted vision. AI-augmented workflows let a solo operator match the
-            output of a small team without the overhead.
+            Engineered by Vanessa. Over a decade of compounding skill, from animation and storyboard to frontend development, API architecture, and autonomous systems. All in motion.
           </p>
         </div>
         <div data-reveal className="space-y-6">
           <p className="text-lime text-[15px] leading-relaxed font-body font-light">
-            The tools change. The intention doesn&apos;t.
+            The tools evolve. The vision stays the same. Get ahead.
           </p>
-          <div className="flex flex-wrap gap-2 pt-4 justify-center">
-            {["Brand Strategy", "Visual Identity", "Content Systems", "Automation", "Custom Tooling"].map(
-              (tag) => (
-                <span
-                  key={tag}
-                  className="text-[11px] uppercase tracking-[0.15em] border border-lavender/[0.35] rounded-full px-4 py-2 text-lavender/70 bg-lavender/[0.05] hover:text-lavender hover:border-lavender/60 hover:bg-lavender/[0.08] transition-all duration-300"
-                >
-                  {tag}
-                </span>
-              )
-            )}
-          </div>
         </div>
       </div>
 

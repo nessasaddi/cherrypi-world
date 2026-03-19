@@ -53,7 +53,7 @@ export default function Connect() {
 
         <div className="text-center max-w-2xl mx-auto">
           <p data-reveal className="text-[11px] uppercase tracking-[0.2em] text-cherry font-body font-medium mb-10">
-            Connect
+            Start a Project
           </p>
           <h2
             data-reveal
@@ -65,9 +65,18 @@ export default function Connect() {
             data-reveal
             className="text-foreground-muted text-sm font-body font-light mb-16 md:mb-20 leading-relaxed text-balance"
           >
-            Clear, warm, and grounded — that&apos;s how we show up. If you&apos;re a
-            founder building something real, we&apos;d love to hear from you.
+            If you&apos;re a founder building something real, we&apos;d love to hear from you.
           </p>
+
+          {/* TODO: Replace with AI chatbox component */}
+          <div data-reveal className="glass-card p-8 md:p-12 mb-12 text-left">
+            <p className="text-foreground-faint text-xs font-body font-light uppercase tracking-[0.15em] mb-4">
+              AI Chat — Coming Soon
+            </p>
+            <p className="text-foreground-muted text-sm font-body font-light leading-relaxed">
+              An AI-powered project intake chatbox will live here. For now, reach out directly.
+            </p>
+          </div>
 
           <div data-reveal className="flex flex-wrap justify-center gap-4">
             {links.map((link) => (

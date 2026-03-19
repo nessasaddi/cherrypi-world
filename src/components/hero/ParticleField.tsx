@@ -107,22 +107,48 @@ export default function ParticleField() {
       pointer.y = Math.max(-1, Math.min(1, (beta - 45) / 45));
     };
 
-    // Mobile: touch-drag fallback when gyroscope isn't available
-    let touchStartX = 0;
-    let touchStartY = 0;
+    // Mobile: touch-drag — cumulative rotation that persists after lift
+    let lastTouchX = 0;
+    let lastTouchY = 0;
+    let velocityX = 0;
+    let velocityY = 0;
+    let dragging = false;
+    let decayRaf = 0;
+
+    const decay = () => {
+      if (dragging) return;
+      velocityX *= 0.95;
+      velocityY *= 0.95;
+      pointer.x = Math.max(-2, Math.min(2, pointer.x + velocityX));
+      pointer.y = Math.max(-2, Math.min(2, pointer.y + velocityY));
+      if (Math.abs(velocityX) > 0.0005 || Math.abs(velocityY) > 0.0005) {
+        decayRaf = requestAnimationFrame(decay);
+      }
+    };
+
     const handleTouchStart = (e: TouchEvent) => {
-      touchStartX = e.touches[0].clientX;
-      touchStartY = e.touches[0].clientY;
+      dragging = true;
+      cancelAnimationFrame(decayRaf);
+      lastTouchX = e.touches[0].clientX;
+      lastTouchY = e.touches[0].clientY;
+      velocityX = 0;
+      velocityY = 0;
     };
     const handleTouchMove = (e: TouchEvent) => {
-      const dx = e.touches[0].clientX - touchStartX;
-      const dy = e.touches[0].clientY - touchStartY;
-      pointer.x = Math.max(-1, Math.min(1, dx / (window.innerWidth * 0.3)));
-      pointer.y = Math.max(-1, Math.min(1, -dy / (window.innerHeight * 0.3)));
+      const tx = e.touches[0].clientX;
+      const ty = e.touches[0].clientY;
+      const dx = (tx - lastTouchX) / window.innerWidth;
+      const dy = (ty - lastTouchY) / window.innerHeight;
+      pointer.x = Math.max(-2, Math.min(2, pointer.x + dx * 2));
+      pointer.y = Math.max(-2, Math.min(2, pointer.y - dy * 2));
+      velocityX = dx * 2;
+      velocityY = -dy * 2;
+      lastTouchX = tx;
+      lastTouchY = ty;
     };
     const handleTouchEnd = () => {
-      pointer.x = 0;
-      pointer.y = 0;
+      dragging = false;
+      decayRaf = requestAnimationFrame(decay);
     };
 
     window.addEventListener("mousemove", handleMouse);
@@ -164,6 +190,7 @@ export default function ParticleField() {
     window.addEventListener("touchstart", requestGyro, { once: true });
 
     return () => {
+      cancelAnimationFrame(decayRaf);
       window.removeEventListener("mousemove", handleMouse);
       window.removeEventListener("deviceorientation", handleGyro);
       window.removeEventListener("touchstart", requestGyro);
