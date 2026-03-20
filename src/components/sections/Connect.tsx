@@ -68,7 +68,6 @@ export default function Connect() {
             If you&apos;re a founder building something real, we&apos;d love to hear from you.
           </p>
 
-          {/* TODO: Replace with AI chatbox component */}
           <div data-reveal className="glass-card p-8 md:p-12 mb-12 text-left">
             <p className="text-foreground-faint text-xs font-body font-light uppercase tracking-[0.15em] mb-4">
               AI Chat — Coming Soon
