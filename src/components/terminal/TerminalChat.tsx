@@ -31,18 +31,25 @@ function parseChips(text: string): { content: string; chips: string[] } {
 }
 
 const SESSION_KEY = "cp_terminal_session";
+const SESSION_VERSION = 1;
+const SESSION_EXPIRY_MS = 7 * 24 * 60 * 60 * 1000; // 7 days
 
 function loadSession() {
   try {
     const raw = localStorage.getItem(SESSION_KEY);
     if (!raw) return null;
-    return JSON.parse(raw) as {
+    const parsed = JSON.parse(raw) as {
+      version: number;
+      savedAt: number;
       phase: "intake" | "chat";
       name: string;
       email: string;
       messages: Array<{ role: string; content: string }>;
       hasInteracted: boolean;
     };
+    if (parsed.version !== SESSION_VERSION) return null;
+    if (Date.now() - parsed.savedAt > SESSION_EXPIRY_MS) return null;
+    return parsed;
   } catch {
     return null;
   }
@@ -68,7 +75,7 @@ export default function TerminalChat() {
   useEffect(() => {
     if (phase === "intake" && !name && !email && messages.length === 0) return;
     try {
-      localStorage.setItem(SESSION_KEY, JSON.stringify({ phase, name, email, messages, hasInteracted }));
+      localStorage.setItem(SESSION_KEY, JSON.stringify({ version: SESSION_VERSION, savedAt: Date.now(), phase, name, email, messages, hasInteracted }));
     } catch {}
   }, [phase, name, email, messages, hasInteracted]);
 
