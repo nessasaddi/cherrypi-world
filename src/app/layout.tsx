@@ -32,6 +32,12 @@ export const metadata: Metadata = {
     "CherryPi is a creative technology studio building at the intersection of design and engineering.",
 };
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{

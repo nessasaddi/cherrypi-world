@@ -30,19 +30,47 @@ function parseChips(text: string): { content: string; chips: string[] } {
   return { content, chips };
 }
 
+const SESSION_KEY = "cp_terminal_session";
+
+function loadSession() {
+  try {
+    const raw = localStorage.getItem(SESSION_KEY);
+    if (!raw) return null;
+    return JSON.parse(raw) as {
+      phase: "intake" | "chat";
+      name: string;
+      email: string;
+      messages: Array<{ role: string; content: string }>;
+      hasInteracted: boolean;
+    };
+  } catch {
+    return null;
+  }
+}
+
 export default function TerminalChat() {
-  const [phase, setPhase] = useState<"intake" | "chat">("intake");
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [messages, setMessages] = useState<Array<{ role: string; content: string }>>([]);
+  const saved = typeof window !== "undefined" ? loadSession() : null;
+
+  const [phase, setPhase] = useState<"intake" | "chat">(saved?.phase ?? "intake");
+  const [name, setName] = useState(saved?.name ?? "");
+  const [email, setEmail] = useState(saved?.email ?? "");
+  const [messages, setMessages] = useState<Array<{ role: string; content: string }>>(saved?.messages ?? []);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [typingText, setTypingText] = useState("");
   const [isTyping, setIsTyping] = useState(false);
-  const [hasInteracted, setHasInteracted] = useState(false);
+  const [hasInteracted, setHasInteracted] = useState(saved?.hasInteracted ?? false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const typingRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  // Persist session on every relevant state change
+  useEffect(() => {
+    if (phase === "intake" && !name && !email && messages.length === 0) return;
+    try {
+      localStorage.setItem(SESSION_KEY, JSON.stringify({ phase, name, email, messages, hasInteracted }));
+    } catch {}
+  }, [phase, name, email, messages, hasInteracted]);
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -123,6 +151,7 @@ export default function TerminalChat() {
   const handleChip = (text: string) => {
     if (loading || isTyping) return;
     if (text === "Start a new conversation") {
+      localStorage.removeItem(SESSION_KEY);
       setPhase("intake");
       setName("");
       setEmail("");
@@ -197,7 +226,6 @@ export default function TerminalChat() {
                   placeholder="your name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  autoFocus
                 />
               </div>
               <div>
