@@ -63,12 +63,9 @@ export default function TerminalChat() {
   const [messages, setMessages] = useState<Array<{ role: string; content: string }>>(saved?.messages ?? []);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
-  const [typingText, setTypingText] = useState("");
-  const [isTyping, setIsTyping] = useState(false);
   const [hasInteracted, setHasInteracted] = useState(saved?.hasInteracted ?? false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
-  const typingRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   useEffect(() => {
     if (phase === "intake" && !name && !email && messages.length === 0) return;
@@ -79,31 +76,13 @@ export default function TerminalChat() {
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages, typingText]);
+  }, [messages, loading]);
 
   useEffect(() => {
     if (phase === "chat" && inputRef.current) {
       inputRef.current.focus();
     }
-  }, [phase, isTyping]);
-
-  const typeText = (text: string, onComplete: () => void) => {
-    setIsTyping(true);
-    setTypingText("");
-    let i = 0;
-    if (typingRef.current) clearInterval(typingRef.current);
-    typingRef.current = setInterval(() => {
-      if (i < text.length) {
-        setTypingText(text.slice(0, i + 1));
-        i++;
-      } else {
-        clearInterval(typingRef.current!);
-        setIsTyping(false);
-        setTypingText("");
-        onComplete();
-      }
-    }, 18);
-  };
+  }, [phase, loading]);
 
   const sendMessage = async (content: string) => {
     const userMsg = { role: "user", content };
@@ -128,9 +107,7 @@ export default function TerminalChat() {
       const assistantText = data.content || "Something went wrong. Try again.";
 
       setLoading(false);
-      typeText(assistantText, () => {
-        setMessages((prev) => [...prev, { role: "assistant", content: assistantText }]);
-      });
+      setMessages((prev) => [...prev, { role: "assistant", content: assistantText }]);
     } catch {
       setLoading(false);
       setMessages((prev) => [...prev, { role: "assistant", content: "Connection lost. Try again." }]);
@@ -149,12 +126,12 @@ export default function TerminalChat() {
 
   const handleSend = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!input.trim() || loading || isTyping) return;
+    if (!input.trim() || loading ) return;
     sendMessage(input.trim());
   };
 
   const handleChip = (text: string) => {
-    if (loading || isTyping) return;
+    if (loading ) return;
     if (text === "Start a new conversation") {
       localStorage.removeItem(SESSION_KEY);
       setPhase("intake");
@@ -170,7 +147,7 @@ export default function TerminalChat() {
   };
 
   const handleSuggestedChip = (text: string) => {
-    if (loading || isTyping) return;
+    if (loading ) return;
     setInput(text);
     setTimeout(() => inputRef.current?.focus(), 0);
   };
@@ -255,7 +232,7 @@ export default function TerminalChat() {
                 : { content: msg.content, chips: [] };
               const isUser = msg.role === "user";
               return (
-                <div key={i} className="flex flex-col gap-1" style={{ alignItems: isUser ? "flex-end" : "flex-start" }}>
+                <div key={i} className="flex flex-col gap-1 msg-appear" style={{ alignItems: isUser ? "flex-end" : "flex-start" }}>
                   <span style={{ color: isUser ? C.cherry : C.lime, fontSize: 10, fontWeight: 600, letterSpacing: "0.03em", padding: "0 4px" }}>
                     {isUser ? name : "Cherry Pi"}
                   </span>
@@ -275,7 +252,7 @@ export default function TerminalChat() {
                   >
                     {content}
                   </div>
-                  {chips.length > 0 && !loading && !isTyping && (
+                  {chips.length > 0 && !loading  && (
                     <div className="flex flex-wrap gap-1.5 mt-1.5" style={{ maxWidth: "85%" }}>
                       {chips.map((chip, ci) => (
                         <button key={ci} onClick={() => handleChip(chip)} className="terminal-chip">{chip}</button>
@@ -286,29 +263,29 @@ export default function TerminalChat() {
               );
             })}
 
-            {(loading || isTyping) && (
+            {loading && (
               <div className="flex flex-col gap-1" style={{ alignItems: "flex-start" }}>
                 <span style={{ color: C.lime, fontSize: 10, fontWeight: 600, letterSpacing: "0.03em", padding: "0 4px" }}>Cherry Pi</span>
                 <div
+                  className="flex items-center gap-2.5"
                   style={{
                     background: C.bubble,
-                    padding: "10px 14px",
+                    padding: "12px 16px",
                     borderRadius: 16,
                     borderBottomLeftRadius: 4,
-                    maxWidth: "85%",
-                    lineHeight: 1.55,
-                    fontSize: 13,
                   }}
                 >
-                  {loading && !isTyping
-                    ? <span className="animate-pulse" style={{ color: C.dim }}>thinking...</span>
-                    : <>{typingText}<span className="terminal-blink" style={{ color: C.cherry }}>_</span></>
-                  }
+                  <img src="/logos/cherry-icon.svg" alt="" width={10} height={10} className="cherry-pulse" />
+                  <div className="flex gap-1 items-center">
+                    <span className="thinking-dot" style={{ animationDelay: "0s" }} />
+                    <span className="thinking-dot" style={{ animationDelay: "0.2s" }} />
+                    <span className="thinking-dot" style={{ animationDelay: "0.4s" }} />
+                  </div>
                 </div>
               </div>
             )}
 
-            {!hasInteracted && messages.length === 1 && !loading && !isTyping && (
+            {!hasInteracted && messages.length === 1 && !loading  && (
               <div className="flex flex-col gap-2 mt-2 pt-3" style={{ borderTop: `1px solid ${C.dimmer}` }}>
                 <span style={{ color: "#444", fontSize: 10 }}>start typing — or pick a prompt below</span>
                 <div className="flex flex-wrap gap-1.5">
@@ -334,23 +311,23 @@ export default function TerminalChat() {
             ref={inputRef}
             className="terminal-text-input"
             type="text"
-            placeholder={isTyping || loading ? "waiting..." : "Type a message"}
+            placeholder={loading ? "waiting..." : "Type a message"}
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            disabled={isTyping || loading}
+            disabled={loading}
           />
           <button
             type="submit"
-            disabled={!input.trim() || isTyping || loading}
+            disabled={!input.trim()  || loading}
             className="shrink-0 flex items-center justify-center transition-all duration-150"
             style={{
               width: 32,
               height: 32,
               borderRadius: "50%",
-              background: input.trim() && !isTyping && !loading ? C.cherry : "#333",
+              background: input.trim()  && !loading ? C.cherry : "#333",
               border: "none",
               color: "#fff",
-              cursor: input.trim() && !isTyping && !loading ? "pointer" : "default",
+              cursor: input.trim()  && !loading ? "pointer" : "default",
             }}
           >
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
