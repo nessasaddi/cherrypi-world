@@ -19,7 +19,7 @@ const CHIPS = [
   "My company needs ",
   "We're missing a system for ",
   "I want to automate ",
-  "My brand needs ",
+  "Our biggest challenge is ",
 ];
 
 function parseChips(text: string): { content: string; chips: string[] } {
@@ -167,7 +167,8 @@ export default function TerminalChat() {
       setHasInteracted(false);
       return;
     }
-    sendMessage(text);
+    setInput(text);
+    setTimeout(() => inputRef.current?.focus(), 0);
   };
 
   const handleSuggestedChip = (text: string) => {
@@ -309,7 +310,7 @@ export default function TerminalChat() {
                 <span style={{ color: "#3a3a3a", fontSize: 10 }}>start typing — or pick a prompt below</span>
                 <div className="flex flex-wrap gap-1.5">
                   {CHIPS.map((chip, i) => (
-                    <button key={i} onClick={() => handleSuggestedChip(chip)} className="terminal-chip">{chip}...</button>
+                    <button key={i} onClick={() => handleSuggestedChip(chip)} className="terminal-chip">{chip}</button>
                   ))}
                 </div>
               </div>
