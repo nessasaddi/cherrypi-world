@@ -139,25 +139,16 @@ Rules: Always 2-3 suggestions. Each is a short phrase (3-8 words). Specific to w
 CONVERSATION GOAL:
 Every conversation should progressively build toward a handoff-ready project brief, naturally gathering: what they are building, what is broken or missing, what they have tried, what their timeline looks like, and what success means to them. When you have enough context (usually 4-6 exchanges), suggest connecting with Vanessa directly.`;
 
-async function sendNotifications(
+function isConversationClose(text: string): boolean {
+  return text.toLowerCase().includes("vanessa will follow up");
+}
+
+async function sendEmail(
   name: string,
   email: string,
-  messages: Array<{ role: string; content: string }>
+  transcript: string,
+  timestamp: string,
 ) {
-  const timestamp = new Date().toLocaleString("en-US", {
-    timeZone: "America/Los_Angeles",
-    month: "short",
-    day: "numeric",
-    year: "numeric",
-    hour: "2-digit",
-    minute: "2-digit",
-  });
-
-  const transcript = messages
-    .map((m) => `${m.role === "user" ? name : "Cherry Pi"}: ${m.content}`)
-    .join("\n\n");
-
-  // Gmail notification
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
@@ -185,6 +176,58 @@ async function sendNotifications(
       </div>
     `,
   });
+}
+
+async function logToNotion(
+  name: string,
+  email: string,
+  transcript: string,
+) {
+  const notionKey = process.env.NOTION_API_KEY;
+  const dbId = process.env.NOTION_DATABASE_ID;
+  if (!notionKey || !dbId) return;
+
+  await fetch("https://api.notion.com/v1/pages", {
+    method: "POST",
+    headers: {
+      "Authorization": `Bearer ${notionKey}`,
+      "Content-Type": "application/json",
+      "Notion-Version": "2022-06-28",
+    },
+    body: JSON.stringify({
+      parent: { database_id: dbId },
+      properties: {
+        Name: { title: [{ text: { content: name } }] },
+        Email: { email },
+        Status: { select: { name: "New" } },
+        Transcript: { rich_text: [{ text: { content: transcript.slice(0, 2000) } }] },
+      },
+    }),
+  });
+}
+
+async function sendNotifications(
+  name: string,
+  email: string,
+  messages: Array<{ role: string; content: string }>
+) {
+  const timestamp = new Date().toLocaleString("en-US", {
+    timeZone: "America/Los_Angeles",
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+
+  const transcript = messages
+    .map((m) => `${m.role === "user" ? name : "Cherry Pi"}: ${m.content}`)
+    .join("\n\n");
+
+  await Promise.all([
+    sendEmail(name, email, transcript, timestamp),
+    logToNotion(name, email, transcript),
+  ]);
 }
 
 export async function POST(request: NextRequest) {
@@ -232,16 +275,17 @@ export async function POST(request: NextRequest) {
         .map((b: { text: string }) => b.text)
         .join("\n") || "Something went wrong. Try again.";
 
-    const fullMessages = [
-      ...messages.slice(1),
-      { role: "assistant", content: assistantText },
-    ];
-
-    try {
-      await sendNotifications(visitorName, visitorEmail, fullMessages);
-    } catch (err: unknown) {
-      const msg = err instanceof Error ? err.message : String(err);
-      console.error("[cherry-pi] email notification failed:", msg);
+    if (isConversationClose(assistantText)) {
+      const fullMessages = [
+        ...messages.slice(1),
+        { role: "assistant", content: assistantText },
+      ];
+      try {
+        await sendNotifications(visitorName, visitorEmail, fullMessages);
+      } catch (err: unknown) {
+        const msg = err instanceof Error ? err.message : String(err);
+        console.error("[cherry-pi] notification failed:", msg);
+      }
     }
 
     return NextResponse.json({ content: assistantText });
