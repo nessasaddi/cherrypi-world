@@ -60,7 +60,7 @@ export default function Home() {
             role="img"
             aria-label="CherryPi"
           />
-          <p className="text-[10px] uppercase tracking-[0.25em] text-foreground-faint font-body font-light">
+          <p className="text-[10px] uppercase tracking-[0.25em] text-foreground-faint font-body font-light mt-[10px]">
             under construction
           </p>
         </div>
@@ -76,7 +76,7 @@ export default function Home() {
             href="/privacy"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-foreground-faint hover:text-foreground-muted transition-colors duration-200"
+            className="text-foreground-faint hover:text-foreground-muted transition-colors duration-200 uppercase"
             style={{ fontSize: 10, letterSpacing: "0.05em" }}
           >
             privacy policy

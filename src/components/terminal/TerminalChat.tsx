@@ -2,16 +2,15 @@
 
 import { useState, useRef, useEffect } from "react";
 
-// Option A palette — same brightness as brand kit, ~25-40% less saturation
 const C = {
-  cherry: "#ef5541",       // full brand kit red — chips, interactive, cursor
-  lime: "#c2ca4a",         // desaturated lime — assistant prefix, system ready
-  lavender: "#99a3e0",     // desaturated lavender — description, intake text
-  text: "#d0d0d0",         // main body text
-  dim: "#555",             // labels, timestamps
-  dimmer: "#2e2e2e",       // borders, dividers
+  cherry: "#ef5541",
+  lime: "#6b6",
+  text: "#d0d0d0",
+  dim: "#666",
+  dimmer: "#2a2a2a",
   bg: "#1a1a1a",
-  bgBar: "#222",
+  bgBar: "#1f1f1f",
+  bubble: "#252525",
 };
 
 const CHIPS = [
@@ -32,7 +31,7 @@ function parseChips(text: string): { content: string; chips: string[] } {
 
 const SESSION_KEY = "cp_terminal_session";
 const SESSION_VERSION = 1;
-const SESSION_EXPIRY_MS = 7 * 24 * 60 * 60 * 1000; // 7 days
+const SESSION_EXPIRY_MS = 7 * 24 * 60 * 60 * 1000;
 
 function loadSession() {
   try {
@@ -71,7 +70,6 @@ export default function TerminalChat() {
   const inputRef = useRef<HTMLInputElement>(null);
   const typingRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
-  // Persist session on every relevant state change
   useEffect(() => {
     if (phase === "intake" && !name && !email && messages.length === 0) return;
     try {
@@ -177,73 +175,52 @@ export default function TerminalChat() {
     setTimeout(() => inputRef.current?.focus(), 0);
   };
 
-  const now = new Date();
-  const ts = now.toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit", hour12: false });
-
   return (
     <div
       className="w-full flex flex-col overflow-hidden"
       style={{
-        fontFamily: "'JetBrains Mono', 'Fira Code', 'SF Mono', monospace",
+        fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
         fontSize: 13,
         color: C.text,
         background: C.bg,
-        borderRadius: 12,
+        borderRadius: 16,
         border: `1px solid ${C.dimmer}`,
-        boxShadow: "0 0 0 1px rgba(168,77,64,0.05), 0 24px 64px rgba(0,0,0,0.5)",
+        boxShadow: "0 24px 64px rgba(0,0,0,0.5)",
       }}
     >
-      {/* Title Bar */}
+      {/* Header */}
       <div
-        className="flex items-center justify-between px-4 py-3 shrink-0"
-        style={{ background: C.bgBar, borderBottom: `1px solid ${C.dimmer}`, borderRadius: "12px 12px 0 0" }}
+        className="flex items-center gap-2.5 px-5 py-3.5 shrink-0"
+        style={{ background: C.bgBar, borderBottom: `1px solid ${C.dimmer}`, borderRadius: "16px 16px 0 0" }}
       >
-        <div className="flex items-center gap-2">
-          <img src="/favicon.png" alt="" width={14} height={14} style={{ borderRadius: 3, opacity: 0.6 }} />
-          <span style={{ color: C.dim, fontSize: 11 }}>cherry-pi ~ terminal</span>
-        </div>
-        <span style={{ color: "#3a3a3a", fontSize: 10 }}>{ts}</span>
+        <div style={{ width: 8, height: 8, background: C.cherry, borderRadius: "50%" }} />
+        <span style={{ color: "#999", fontSize: 12, fontWeight: 500 }}>Cherry Pi</span>
       </div>
-
-      {/* Scanline overlay */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background: "repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,0.004) 2px, rgba(255,255,255,0.004) 4px)",
-          borderRadius: 12,
-          zIndex: 0,
-        }}
-      />
 
       {/* Content Area */}
       <div
-        className="overflow-y-auto p-4 flex flex-col terminal-scrollbar"
+        className="overflow-y-auto py-5 px-[25px] flex flex-col terminal-scrollbar"
         style={{ position: "relative", zIndex: 1, minHeight: phase === "chat" ? 320 : "auto", maxHeight: phase === "chat" ? 480 : "none" }}
       >
         {phase === "intake" ? (
-          <div className="flex flex-col gap-6">
-            <div style={{ color: C.dim, fontSize: 11, lineHeight: 1.6 }}>
-              <div>Cherry Pi Creative Studio v2.0</div>
-              <div style={{ color: C.lime }}>system ready.</div>
-            </div>
-
-            <p style={{ color: C.lavender, lineHeight: 1.8, fontSize: 14 }}>
+          <div className="flex flex-col gap-5">
+            <p style={{ color: "#bbb", lineHeight: 1.7, fontSize: 14 }}>
               Ask about a project, explore capabilities, or tell us what you&apos;re building. All conversations go straight to Vanessa as a project inquiry.
             </p>
 
             <form onSubmit={handleIntake} className="flex flex-col gap-3">
               <div>
-                <label className="block mb-1.5" style={{ color: C.dim, fontSize: 11 }}>name</label>
+                <label className="block mb-1.5" style={{ color: C.dim, fontSize: 11, fontWeight: 500 }}>Name</label>
                 <input
                   className="terminal-input"
                   type="text"
-                  placeholder="your name"
+                  placeholder="Your name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                 />
               </div>
               <div>
-                <label className="block mb-1.5" style={{ color: C.dim, fontSize: 11 }}>email</label>
+                <label className="block mb-1.5" style={{ color: C.dim, fontSize: 11, fontWeight: 500 }}>Email</label>
                 <input
                   className="terminal-input"
                   type="email"
@@ -254,17 +231,19 @@ export default function TerminalChat() {
               </div>
               <button
                 type="submit"
-                className="mt-1 py-3 rounded-md transition-all duration-150"
+                className="mt-2 py-3 transition-all duration-150"
                 style={{
                   fontFamily: "inherit",
                   fontSize: 13,
+                  fontWeight: 500,
                   background: name.trim() && email.trim() ? C.cherry : "#242424",
-                  color: name.trim() && email.trim() ? "#f4f4f4" : C.dim,
+                  color: name.trim() && email.trim() ? "#fff" : C.dim,
                   border: "none",
+                  borderRadius: 10,
                   cursor: name.trim() && email.trim() ? "pointer" : "default",
                 }}
               >
-                connect
+                Start conversation
               </button>
             </form>
           </div>
@@ -274,16 +253,30 @@ export default function TerminalChat() {
               const { content, chips } = msg.role === "assistant"
                 ? parseChips(msg.content)
                 : { content: msg.content, chips: [] };
+              const isUser = msg.role === "user";
               return (
-                <div key={i} className="flex flex-col gap-0.5">
-                  <span style={{ color: msg.role === "user" ? C.cherry : C.lime, fontSize: 10, letterSpacing: "0.06em", fontWeight: 600 }}>
-                    {msg.role === "user" ? `${name.toLowerCase()} $` : "cherry-pi >"}
+                <div key={i} className="flex flex-col gap-1" style={{ alignItems: isUser ? "flex-end" : "flex-start" }}>
+                  <span style={{ color: isUser ? C.cherry : C.lime, fontSize: 10, fontWeight: 600, letterSpacing: "0.03em", padding: "0 4px" }}>
+                    {isUser ? name : "Cherry Pi"}
                   </span>
-                  <span className="whitespace-pre-wrap" style={{ color: msg.role === "user" ? "#999" : C.text, lineHeight: 1.7 }}>
+                  <div
+                    className="whitespace-pre-wrap"
+                    style={{
+                      background: isUser ? C.cherry : C.bubble,
+                      color: isUser ? "#fff" : C.text,
+                      padding: "10px 14px",
+                      borderRadius: 16,
+                      borderBottomLeftRadius: isUser ? 16 : 4,
+                      borderBottomRightRadius: isUser ? 4 : 16,
+                      maxWidth: "85%",
+                      lineHeight: 1.55,
+                      fontSize: 13,
+                    }}
+                  >
                     {content}
-                  </span>
+                  </div>
                   {chips.length > 0 && !loading && !isTyping && (
-                    <div className="flex flex-wrap gap-1.5 mt-2">
+                    <div className="flex flex-wrap gap-1.5 mt-1.5" style={{ maxWidth: "85%" }}>
                       {chips.map((chip, ci) => (
                         <button key={ci} onClick={() => handleChip(chip)} className="terminal-chip">{chip}</button>
                       ))}
@@ -294,20 +287,30 @@ export default function TerminalChat() {
             })}
 
             {(loading || isTyping) && (
-              <div className="flex flex-col gap-0.5">
-                <span style={{ color: C.lime, fontSize: 10, letterSpacing: "0.06em", fontWeight: 600 }}>cherry-pi &gt;</span>
-                <span style={{ color: C.text, lineHeight: 1.7 }}>
+              <div className="flex flex-col gap-1" style={{ alignItems: "flex-start" }}>
+                <span style={{ color: C.lime, fontSize: 10, fontWeight: 600, letterSpacing: "0.03em", padding: "0 4px" }}>Cherry Pi</span>
+                <div
+                  style={{
+                    background: C.bubble,
+                    padding: "10px 14px",
+                    borderRadius: 16,
+                    borderBottomLeftRadius: 4,
+                    maxWidth: "85%",
+                    lineHeight: 1.55,
+                    fontSize: 13,
+                  }}
+                >
                   {loading && !isTyping
-                    ? <span className="animate-pulse" style={{ color: C.dim }}>processing...</span>
+                    ? <span className="animate-pulse" style={{ color: C.dim }}>thinking...</span>
                     : <>{typingText}<span className="terminal-blink" style={{ color: C.cherry }}>_</span></>
                   }
-                </span>
+                </div>
               </div>
             )}
 
             {!hasInteracted && messages.length === 1 && !loading && !isTyping && (
               <div className="flex flex-col gap-2 mt-2 pt-3" style={{ borderTop: `1px solid ${C.dimmer}` }}>
-                <span style={{ color: "#3a3a3a", fontSize: 10 }}>start typing — or pick a prompt below</span>
+                <span style={{ color: "#444", fontSize: 10 }}>start typing — or pick a prompt below</span>
                 <div className="flex flex-wrap gap-1.5">
                   {CHIPS.map((chip, i) => (
                     <button key={i} onClick={() => handleSuggestedChip(chip)} className="terminal-chip">{chip}</button>
@@ -324,15 +327,14 @@ export default function TerminalChat() {
       {phase === "chat" && (
         <form
           onSubmit={handleSend}
-          className="flex items-center gap-2 shrink-0 px-4 py-3"
-          style={{ borderTop: `1px solid ${C.dimmer}`, background: C.bg, position: "relative", zIndex: 1, borderRadius: "0 0 12px 12px" }}
+          className="flex items-center gap-2.5 shrink-0 px-4 py-3"
+          style={{ borderTop: `1px solid ${C.dimmer}`, background: C.bg, position: "relative", zIndex: 1, borderRadius: "0 0 16px 16px" }}
         >
-          <span style={{ color: C.cherry, fontSize: 13 }}>$</span>
           <input
             ref={inputRef}
             className="terminal-text-input"
             type="text"
-            placeholder={isTyping || loading ? "waiting..." : "type a message"}
+            placeholder={isTyping || loading ? "waiting..." : "Type a message"}
             value={input}
             onChange={(e) => setInput(e.target.value)}
             disabled={isTyping || loading}
@@ -340,17 +342,24 @@ export default function TerminalChat() {
           <button
             type="submit"
             disabled={!input.trim() || isTyping || loading}
-            className="bg-transparent border-none p-1 flex transition-colors duration-150 shrink-0"
-            style={{ color: input.trim() && !isTyping && !loading ? C.cherry : "#333", cursor: input.trim() && !isTyping && !loading ? "pointer" : "default" }}
+            className="shrink-0 flex items-center justify-center transition-all duration-150"
+            style={{
+              width: 32,
+              height: 32,
+              borderRadius: "50%",
+              background: input.trim() && !isTyping && !loading ? C.cherry : "#333",
+              border: "none",
+              color: "#fff",
+              cursor: input.trim() && !isTyping && !loading ? "pointer" : "default",
+            }}
           >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <line x1="22" y1="2" x2="11" y2="13" />
               <polygon points="22 2 15 22 11 13 2 9 22 2" />
             </svg>
           </button>
         </form>
       )}
-
     </div>
   );
 }
