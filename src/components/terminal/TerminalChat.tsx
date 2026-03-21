@@ -15,11 +15,11 @@ const C = {
 };
 
 const CHIPS = [
-  "What can Cherry Pi build for me?",
-  "Tell me about your capabilities",
-  "Show me what you've built",
-  "See if we'd be a good fit",
-  "I have a project in mind",
+  "I'm building ",
+  "My company needs ",
+  "We're missing a system for ",
+  "I want to automate ",
+  "My brand needs ",
 ];
 
 function parseChips(text: string): { content: string; chips: string[] } {
@@ -163,6 +163,12 @@ export default function TerminalChat() {
     sendMessage(text);
   };
 
+  const handleSuggestedChip = (text: string) => {
+    if (loading || isTyping) return;
+    setInput(text);
+    setTimeout(() => inputRef.current?.focus(), 0);
+  };
+
   const now = new Date();
   const ts = now.toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit", hour12: false });
 
@@ -293,10 +299,10 @@ export default function TerminalChat() {
 
             {!hasInteracted && messages.length === 1 && !loading && !isTyping && (
               <div className="flex flex-col gap-2 mt-2 pt-3" style={{ borderTop: `1px solid ${C.dimmer}` }}>
-                <span style={{ color: "#3a3a3a", fontSize: 10 }}>suggested topics</span>
+                <span style={{ color: "#3a3a3a", fontSize: 10 }}>start typing — or pick a prompt below</span>
                 <div className="flex flex-wrap gap-1.5">
                   {CHIPS.map((chip, i) => (
-                    <button key={i} onClick={() => handleChip(chip)} className="terminal-chip">{chip}</button>
+                    <button key={i} onClick={() => handleSuggestedChip(chip)} className="terminal-chip">{chip}...</button>
                   ))}
                 </div>
               </div>
