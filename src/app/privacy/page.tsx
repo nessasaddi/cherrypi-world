@@ -147,8 +147,8 @@ export default function PrivacyPolicy() {
             <p className="text-balance">
               If you have questions about this policy or want to exercise your
               data rights, reach out at{" "}
-              <a href="mailto:hello@cherrypi.studio" className="text-cherry hover:text-foreground transition-colors duration-300">
-                hello@cherrypi.studio
+              <a href="mailto:hello@cherrypi.world" className="text-cherry hover:text-foreground transition-colors duration-300">
+                hello@cherrypi.world
               </a>.
             </p>
           </div>
