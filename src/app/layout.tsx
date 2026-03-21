@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Syne, Outfit, Space_Grotesk } from "next/font/google";
+import { Syne, Outfit, Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
 const syne = Syne({
@@ -20,6 +20,12 @@ const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
 });
 
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+  weight: ["300", "400", "500", "700"],
+});
+
 export const metadata: Metadata = {
   title: "CherryPi — Creative Technology Studio",
   description:
@@ -34,7 +40,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth dark">
       <body
-        className={`${syne.variable} ${outfit.variable} ${spaceGrotesk.variable} antialiased bg-background text-foreground`}
+        className={`${syne.variable} ${outfit.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} antialiased bg-background text-foreground`}
       >
         {children}
       </body>

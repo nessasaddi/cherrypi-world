@@ -119,3 +119,69 @@ h1, h2, h3, h4, h5, h6 {
   0% { background-position: 0% center, 0% center; }
   100% { background-position: 0% center, 300% center; }
 }
+
+/* === Terminal Chat Widget === */
+@keyframes terminalSlideUp {
+  from { opacity: 0; transform: translateY(16px) scale(0.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes terminal-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.terminal-blink {
+  animation: terminal-blink 0.8s infinite;
+}
+
+.terminal-scrollbar::-webkit-scrollbar { width: 4px; }
+.terminal-scrollbar::-webkit-scrollbar-track { background: transparent; }
+.terminal-scrollbar::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+
+.terminal-input {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid #333;
+  border-radius: 6px;
+  padding: 10px 12px;
+  color: #f4f4f4;
+  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', monospace;
+  font-size: 13px;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 0.15s;
+  caret-color: #ef5541;
+}
+.terminal-input:focus { border-color: #ef5541; }
+.terminal-input::placeholder { color: #555; }
+
+.terminal-text-input {
+  background: transparent;
+  border: none;
+  color: #d0d0d0;
+  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', monospace;
+  font-size: 13px;
+  outline: none;
+  flex: 1;
+  caret-color: #ef5541;
+}
+.terminal-text-input::placeholder { color: #555; }
+
+.terminal-chip {
+  background: rgba(239,85,65,0.08);
+  border: 1px solid rgba(239,85,65,0.25);
+  color: #ef5541;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', monospace;
+  cursor: pointer;
+  transition: all 0.15s;
+  text-align: left;
+  line-height: 1.3;
+}
+.terminal-chip:hover {
+  background: rgba(239,85,65,0.15);
+  border-color: #ef5541;
+}
