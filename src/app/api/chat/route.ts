@@ -232,14 +232,17 @@ export async function POST(request: NextRequest) {
         .map((b: { text: string }) => b.text)
         .join("\n") || "Something went wrong. Try again.";
 
-    // Fire-and-forget notifications (don't block the response)
     const fullMessages = [
       ...messages.slice(1),
       { role: "assistant", content: assistantText },
     ];
-    sendNotifications(visitorName, visitorEmail, fullMessages).catch((err) => {
-      console.error("[cherry-pi] email notification failed:", err?.message ?? err);
-    });
+
+    try {
+      await sendNotifications(visitorName, visitorEmail, fullMessages);
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : String(err);
+      console.error("[cherry-pi] email notification failed:", msg);
+    }
 
     return NextResponse.json({ content: assistantText });
   } catch {
