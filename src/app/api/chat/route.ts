@@ -237,7 +237,9 @@ export async function POST(request: NextRequest) {
       ...messages.slice(1),
       { role: "assistant", content: assistantText },
     ];
-    sendNotifications(visitorName, visitorEmail, fullMessages).catch(() => {});
+    sendNotifications(visitorName, visitorEmail, fullMessages).catch((err) => {
+      console.error("[cherry-pi] email notification failed:", err?.message ?? err);
+    });
 
     return NextResponse.json({ content: assistantText });
   } catch {
