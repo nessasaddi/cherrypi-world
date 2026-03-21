@@ -69,6 +69,19 @@ export default function Home() {
         <div data-animate className="w-full max-w-[750px]">
           <TerminalChat />
         </div>
+
+        {/* Footer */}
+        <div data-animate className="text-center">
+          <a
+            href="/privacy"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-foreground-faint hover:text-foreground-muted transition-colors duration-200"
+            style={{ fontSize: 10, letterSpacing: "0.05em" }}
+          >
+            privacy policy
+          </a>
+        </div>
       </div>
     </section>
   );

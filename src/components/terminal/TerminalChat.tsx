@@ -337,12 +337,6 @@ export default function TerminalChat() {
         </form>
       )}
 
-      {/* Privacy link */}
-      <div className="text-center py-2 shrink-0" style={{ fontSize: 10, color: C.dim }}>
-        <a href="/privacy" target="_blank" rel="noopener noreferrer" style={{ color: C.dim, textDecoration: "none" }} className="hover:underline">
-          privacy policy
-        </a>
-      </div>
     </div>
   );
 }
