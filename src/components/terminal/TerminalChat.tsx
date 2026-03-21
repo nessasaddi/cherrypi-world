@@ -220,7 +220,7 @@ export default function TerminalChat() {
             </div>
 
             <p style={{ color: C.lavender, lineHeight: 1.8, fontSize: 14 }}>
-              This is a direct line to Vanessa. Your info and everything you share here gets sent as a project inquiry.
+              Ask about a project, explore capabilities, or tell us what you&apos;re building. All conversations go straight to Vanessa as a project inquiry.
             </p>
 
             <form onSubmit={handleIntake} className="flex flex-col gap-3">

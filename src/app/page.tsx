@@ -61,10 +61,7 @@ export default function Home() {
             aria-label="CherryPi"
           />
           <p className="text-[10px] uppercase tracking-[0.25em] text-foreground-faint font-body font-light">
-            Direct line to Vanessa
-          </p>
-          <p className="text-[11px] text-foreground-muted font-body font-light tracking-wide text-center max-w-[380px] leading-relaxed" style={{ marginTop: 6 }}>
-            Ask about a project, explore capabilities, or tell us what you&apos;re building. All conversations go straight to Vanessa as a project inquiry.
+            under construction
           </p>
         </div>
 
