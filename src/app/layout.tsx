@@ -27,7 +27,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "CherryPi — Creative Technology Studio",
+  title: "CherryPi — Start a New Project",
   description:
     "CherryPi is a creative technology studio building at the intersection of design and engineering.",
 };
