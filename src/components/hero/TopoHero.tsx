@@ -111,11 +111,11 @@ export default function TopoHero() {
   return (
     <section
       id="hero"
-      className="relative w-full h-svh min-h-[620px] overflow-hidden bg-background"
+      className="relative w-full overflow-hidden bg-background"
     >
       <div
         ref={contentRef}
-        className="relative z-10 h-full flex flex-col items-center justify-start pt-[6vh] px-6 text-center"
+        className="relative z-10 flex flex-col items-center pt-10 pb-2 px-6 text-center"
       >
         {/* Cherry icon GIF */}
         <div data-animate>
@@ -197,19 +197,6 @@ export default function TopoHero() {
           </div>
         </div>
 
-        {/* Scroll hint */}
-        <div
-          data-animate
-          className="absolute bottom-8 left-1/2 -translate-x-1/2"
-        >
-          <div
-            className="w-px h-10 origin-top"
-            style={{
-              background: "linear-gradient(to bottom, transparent, var(--color-foreground-faint))",
-              animation: "scroll-line 2s ease-in-out infinite",
-            }}
-          />
-        </div>
       </div>
 
       {/* Bottom fade */}
