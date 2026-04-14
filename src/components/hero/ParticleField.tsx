@@ -197,13 +197,14 @@ export default function ParticleField({ transparent = false, particleCount, part
       }
     };
 
-    window.addEventListener("touchstart", requestGyro, { once: true });
+    // touchend is more reliable than touchstart for iOS permission dialogs
+    window.addEventListener("touchend", requestGyro, { once: true });
 
     return () => {
       cancelAnimationFrame(decayRaf);
       window.removeEventListener("mousemove", handleMouse);
       window.removeEventListener("deviceorientation", handleGyro);
-      window.removeEventListener("touchstart", requestGyro);
+      window.removeEventListener("touchend", requestGyro);
       window.removeEventListener("touchstart", handleTouchStart);
       window.removeEventListener("touchmove", handleTouchMove);
       window.removeEventListener("touchend", handleTouchEnd);

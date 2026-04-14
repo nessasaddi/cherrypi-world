@@ -2,8 +2,6 @@
 
 import { useState, useEffect } from "react";
 
-const DISMISSED_KEY = "cp-toasts-v1";
-
 const TOASTS = [
   {
     id: "workflow",
@@ -72,7 +70,7 @@ function Toast({
 
   const handleDismiss = () => {
     setExiting(true);
-    setTimeout(onDismiss, 260);
+    setTimeout(onDismiss, 240);
   };
 
   return (
@@ -80,9 +78,14 @@ function Toast({
       className="pointer-events-auto"
       style={{
         opacity: exiting ? 0 : entered ? 1 : 0,
+        transform: exiting
+          ? "translateY(-6px)"
+          : entered
+          ? "translateY(0px)"
+          : "translateY(-14px)",
         transition: exiting
-          ? "opacity 0.2s ease"
-          : "opacity 0.5s ease",
+          ? "opacity 0.22s ease, transform 0.22s ease"
+          : "opacity 0.5s cubic-bezier(0.34, 1.4, 0.64, 1), transform 0.5s cubic-bezier(0.34, 1.4, 0.64, 1)",
       }}
     >
       <div
@@ -139,23 +142,14 @@ function Toast({
 
 export default function AnnouncementBanner() {
   const [dismissed, setDismissed] = useState<string[]>([]);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    const stored = localStorage.getItem(DISMISSED_KEY);
-    setDismissed(stored ? JSON.parse(stored) : []);
-    setMounted(true);
-  }, []);
 
   const handleDismiss = (id: string) => {
-    const next = [...dismissed, id];
-    setDismissed(next);
-    localStorage.setItem(DISMISSED_KEY, JSON.stringify(next));
+    setDismissed((prev) => [...prev, id]);
   };
 
   const visible = TOASTS.filter((t) => !dismissed.includes(t.id));
 
-  if (!mounted || visible.length === 0) return null;
+  if (visible.length === 0) return null;
 
   return (
     <div className="flex flex-col items-center gap-2 py-3 px-4 w-full">

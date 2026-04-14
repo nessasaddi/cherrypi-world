@@ -97,14 +97,13 @@ export default function TopoHero() {
   useEffect(() => {
     if (!contentRef.current) return;
     const els = contentRef.current.querySelectorAll("[data-animate]");
-    gsap.set(els, { opacity: 0, y: 28 });
+    gsap.set(els, { opacity: 0 });
     gsap.to(els, {
       opacity: 1,
-      y: 0,
-      duration: 1,
+      duration: 0.9,
       stagger: 0.13,
-      ease: "power3.out",
-      delay: 0.25,
+      ease: "power2.out",
+      delay: 0.2,
     });
   }, []);
 
