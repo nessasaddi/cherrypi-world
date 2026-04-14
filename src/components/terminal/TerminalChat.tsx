@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import ParticleField from "@/components/hero/ParticleField";
 
 const C = {
   cherry: "#ef5541",
@@ -163,12 +164,17 @@ export default function TerminalChat() {
         borderRadius: 16,
         border: `1px solid ${C.dimmer}`,
         boxShadow: "0 24px 64px rgba(0,0,0,0.5)",
+        position: "relative",
       }}
     >
+      {/* Particle field background */}
+      <div style={{ position: "absolute", inset: 0, zIndex: 0, borderRadius: 16, overflow: "hidden", pointerEvents: "none" }}>
+        <ParticleField transparent particleCount={300} />
+      </div>
       {/* Header */}
       <div
         className="flex items-center gap-2.5 px-5 py-3.5 shrink-0"
-        style={{ background: C.bgBar, borderBottom: `1px solid ${C.dimmer}`, borderRadius: "16px 16px 0 0" }}
+        style={{ background: C.bgBar, borderBottom: `1px solid ${C.dimmer}`, borderRadius: "16px 16px 0 0", position: "relative", zIndex: 2 }}
       >
         <div style={{ width: 8, height: 8, background: C.cherry, borderRadius: "50%" }} />
         <span style={{ color: "#999", fontSize: 12, fontWeight: 500 }}>Cherry Pi</span>
@@ -177,7 +183,7 @@ export default function TerminalChat() {
       {/* Content Area */}
       <div
         className="overflow-y-auto py-5 px-[25px] flex flex-col terminal-scrollbar"
-        style={{ position: "relative", zIndex: 1, minHeight: phase === "chat" ? 320 : "auto", maxHeight: phase === "chat" ? 480 : "none" }}
+        style={{ position: "relative", zIndex: 2, minHeight: phase === "chat" ? 320 : "auto", maxHeight: phase === "chat" ? 480 : "none" }}
       >
         {phase === "intake" ? (
           <div className="flex flex-col gap-5">

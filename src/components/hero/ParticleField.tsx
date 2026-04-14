@@ -77,9 +77,15 @@ function useIsMobile() {
   return mobile;
 }
 
-export default function ParticleField() {
+interface ParticleFieldProps {
+  transparent?: boolean;
+  particleCount?: number;
+}
+
+export default function ParticleField({ transparent = false, particleCount }: ParticleFieldProps = {}) {
   const isMobile = useIsMobile();
   const [ready, setReady] = useState(false);
+  const count = particleCount ?? (isMobile ? 600 : 1800);
 
   useEffect(() => {
     // Check for WebGL support before rendering Canvas
@@ -213,10 +219,14 @@ export default function ParticleField() {
         powerPreference: isMobile ? "low-power" : "high-performance",
       }}
       onCreated={({ gl }) => {
-        gl.setClearColor(0x0a0a0b, 1);
+        if (transparent) {
+          gl.setClearColor(0x000000, 0);
+        } else {
+          gl.setClearColor(0x0a0a0b, 1);
+        }
       }}
     >
-      <Particles count={isMobile ? 600 : 1800} />
+      <Particles count={count} />
     </Canvas>
   );
 }
