@@ -39,13 +39,14 @@ function Particles({ count = 1800, opacity = 0.6, size = 0.02 }: { count?: numbe
     if (!points.current) return;
     const t = state.clock.elapsedTime;
 
-    // Smooth lerp toward pointer target
-    lerped.x += (pointer.x - lerped.x) * 0.04;
-    lerped.y += (pointer.y - lerped.y) * 0.04;
+    // Smooth lerp toward pointer target — faster on mobile for gyro responsiveness
+    const lerpFactor = 0.08;
+    lerped.x += (pointer.x - lerped.x) * lerpFactor;
+    lerped.y += (pointer.y - lerped.y) * lerpFactor;
 
     // Base animation + parallax offset
-    points.current.rotation.y = t * 0.012 + lerped.x * 0.3;
-    points.current.rotation.x = Math.sin(t * 0.006) * 0.08 + lerped.y * 0.2;
+    points.current.rotation.y = t * 0.012 + lerped.x * 0.7;
+    points.current.rotation.x = Math.sin(t * 0.006) * 0.08 + lerped.y * 0.5;
 
     const breathe = 1 + Math.sin(t * 0.3) * 0.02;
     points.current.scale.setScalar(breathe);
@@ -110,11 +111,13 @@ export default function ParticleField({ transparent = false, particleCount, part
     };
 
     // Mobile: gyroscope parallax
+    // gamma = left/right tilt (-90 to 90), beta = front/back tilt (-180 to 180)
+    // Divide by smaller numbers so normal hand movements (~10-20°) give full range
     const handleGyro = (e: DeviceOrientationEvent) => {
       const gamma = e.gamma ?? 0;
       const beta  = e.beta  ?? 45;
-      pointer.x = Math.max(-1, Math.min(1, gamma / 45));
-      pointer.y = Math.max(-1, Math.min(1, (beta - 45) / 45));
+      pointer.x = Math.max(-1.5, Math.min(1.5, gamma / 18));
+      pointer.y = Math.max(-1.5, Math.min(1.5, (beta - 45) / 20));
     };
 
     // Mobile: touch-drag — cumulative rotation that persists after lift
