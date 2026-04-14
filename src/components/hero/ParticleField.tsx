@@ -39,8 +39,7 @@ function Particles({ count = 1800, opacity = 0.6, size = 0.02 }: { count?: numbe
     if (!points.current) return;
     const t = state.clock.elapsedTime;
 
-    // Faster lerp on mobile so gyro tracks without lag
-    const lerpFactor = 0.18;
+    const lerpFactor = 0.22;
     lerped.x += (pointer.x - lerped.x) * lerpFactor;
     lerped.y += (pointer.y - lerped.y) * lerpFactor;
 
@@ -111,12 +110,11 @@ export default function ParticleField({ transparent = false, particleCount, part
     };
 
     // Mobile: gyroscope parallax
-    // Write directly to lerped (skip software smoothing — hardware already smooths it)
     const handleGyro = (e: DeviceOrientationEvent) => {
       const gamma = e.gamma ?? 0;
       const beta  = e.beta  ?? 45;
-      lerped.x = Math.max(-1.5, Math.min(1.5, gamma / 18));
-      lerped.y = Math.max(-1.5, Math.min(1.5, (beta - 45) / 20));
+      pointer.x = Math.max(-1.5, Math.min(1.5, gamma / 18));
+      pointer.y = Math.max(-1.5, Math.min(1.5, (beta - 45) / 20));
     };
 
     // Mobile: touch-drag — cumulative rotation that persists after lift
