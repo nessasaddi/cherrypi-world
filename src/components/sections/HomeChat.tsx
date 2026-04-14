@@ -5,7 +5,7 @@ import TerminalChat from "@/components/terminal/TerminalChat";
 
 export default function HomeChat() {
   return (
-    <section className="relative py-24 md:py-32 px-6 overflow-hidden bg-background">
+    <section id="chat" className="relative py-24 md:py-32 px-6 overflow-hidden bg-background">
       {/* Ambient blobs */}
       <div
         className="absolute pointer-events-none rounded-full"

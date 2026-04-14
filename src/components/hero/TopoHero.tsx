@@ -115,7 +115,7 @@ export default function TopoHero() {
     >
       <div
         ref={contentRef}
-        className="relative z-10 h-full flex flex-col items-center justify-center px-6 text-center"
+        className="relative z-10 h-full flex flex-col items-center justify-start pt-[6vh] px-6 text-center"
       >
         {/* Cherry icon GIF */}
         <div data-animate>
@@ -165,7 +165,7 @@ export default function TopoHero() {
         {/* App stack marquee — full-width breakout */}
         <div
           data-animate
-          className="relative mt-10"
+          className="relative mt-10 pb-16"
           style={{ width: "100vw", marginLeft: "calc(-50vw + 50%)" }}
         >
           {/* Edge fades */}

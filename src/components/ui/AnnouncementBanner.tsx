@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Link from "next/link";
 
 const DISMISSED_KEY = "cp-toasts-v1";
 
@@ -10,15 +9,21 @@ const TOASTS = [
     id: "workflow",
     plain: "Workflow broken?",
     linked: "Tell Vanessa — she'll build the fix.",
-    href: "/chat",
   },
   {
     id: "brand",
     plain: "Need brand systems?",
     linked: "Tell Vanessa your goals.",
-    href: "/chat",
   },
 ];
+
+function scrollToChat() {
+  const el = document.getElementById("chat");
+  if (!el) return;
+  const offset = 80; // clear the sticky header
+  const top = el.getBoundingClientRect().top + window.scrollY - offset;
+  window.scrollTo({ top, behavior: "smooth" });
+}
 
 function GridPattern({ id }: { id: string }) {
   return (
@@ -60,7 +65,7 @@ function Toast({
   const [exiting, setExiting] = useState(false);
 
   useEffect(() => {
-    const t = setTimeout(() => setEntered(true), 40 + index * 110);
+    const t = setTimeout(() => setEntered(true), 2000 + index * 380);
     return () => clearTimeout(t);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -106,13 +111,13 @@ function Toast({
             style={{ fontSize: "0.78rem" }}
           >
             {toast.plain}{" "}
-            <Link
-              href={toast.href}
+            <button
+              onClick={scrollToChat}
               className="font-medium underline underline-offset-2 decoration-dotted transition-colors duration-200"
-              style={{ color: "var(--color-cherry)" }}
+              style={{ color: "var(--color-cherry)", background: "none", border: "none", padding: 0, cursor: "pointer", font: "inherit" }}
             >
               {toast.linked}
-            </Link>
+            </button>
           </p>
           <button
             onClick={handleDismiss}
