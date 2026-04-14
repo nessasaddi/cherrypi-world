@@ -39,8 +39,8 @@ function Particles({ count = 1800, opacity = 0.6, size = 0.02 }: { count?: numbe
     if (!points.current) return;
     const t = state.clock.elapsedTime;
 
-    // Smooth lerp toward pointer target — faster on mobile for gyro responsiveness
-    const lerpFactor = 0.08;
+    // Faster lerp on mobile so gyro tracks without lag
+    const lerpFactor = 0.18;
     lerped.x += (pointer.x - lerped.x) * lerpFactor;
     lerped.y += (pointer.y - lerped.y) * lerpFactor;
 
