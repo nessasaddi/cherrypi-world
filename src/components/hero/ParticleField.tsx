@@ -111,13 +111,12 @@ export default function ParticleField({ transparent = false, particleCount, part
     };
 
     // Mobile: gyroscope parallax
-    // gamma = left/right tilt (-90 to 90), beta = front/back tilt (-180 to 180)
-    // Divide by smaller numbers so normal hand movements (~10-20°) give full range
+    // Write directly to lerped (skip software smoothing — hardware already smooths it)
     const handleGyro = (e: DeviceOrientationEvent) => {
       const gamma = e.gamma ?? 0;
       const beta  = e.beta  ?? 45;
-      pointer.x = Math.max(-1.5, Math.min(1.5, gamma / 18));
-      pointer.y = Math.max(-1.5, Math.min(1.5, (beta - 45) / 20));
+      lerped.x = Math.max(-1.5, Math.min(1.5, gamma / 18));
+      lerped.y = Math.max(-1.5, Math.min(1.5, (beta - 45) / 20));
     };
 
     // Mobile: touch-drag — cumulative rotation that persists after lift
