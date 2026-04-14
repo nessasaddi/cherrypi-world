@@ -10,7 +10,7 @@ const PALETTE = ["#AEBEFF", "#D0DD57", "#EF5541", "#C8A8FF", "#8FAEFF"];
 const pointer = { x: 0, y: 0 };
 const lerped = { x: 0, y: 0 };
 
-function Particles({ count = 1800 }: { count?: number }) {
+function Particles({ count = 1800, opacity = 0.6, size = 0.02 }: { count?: number; opacity?: number; size?: number }) {
   const points = useRef<THREE.Points>(null);
 
   const geometry = useMemo(() => {
@@ -54,11 +54,11 @@ function Particles({ count = 1800 }: { count?: number }) {
   return (
     <points ref={points} geometry={geometry}>
       <pointsMaterial
-        size={0.02}
+        size={size}
         sizeAttenuation
         vertexColors
         transparent
-        opacity={0.6}
+        opacity={opacity}
         depthWrite={false}
         blending={THREE.AdditiveBlending}
       />
@@ -80,12 +80,16 @@ function useIsMobile() {
 interface ParticleFieldProps {
   transparent?: boolean;
   particleCount?: number;
+  particleOpacity?: number;
+  particleSize?: number;
 }
 
-export default function ParticleField({ transparent = false, particleCount }: ParticleFieldProps = {}) {
+export default function ParticleField({ transparent = false, particleCount, particleOpacity, particleSize }: ParticleFieldProps = {}) {
   const isMobile = useIsMobile();
   const [ready, setReady] = useState(false);
   const count = particleCount ?? (isMobile ? 600 : 1800);
+  const opacity = particleOpacity ?? 0.6;
+  const size = particleSize ?? 0.02;
 
   useEffect(() => {
     // Check for WebGL support before rendering Canvas
@@ -226,7 +230,7 @@ export default function ParticleField({ transparent = false, particleCount }: Pa
         }
       }}
     >
-      <Particles count={count} />
+      <Particles count={count} opacity={opacity} size={size} />
     </Canvas>
   );
 }

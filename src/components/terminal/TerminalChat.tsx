@@ -169,7 +169,7 @@ export default function TerminalChat() {
     >
       {/* Particle field background */}
       <div style={{ position: "absolute", inset: 0, zIndex: 0, borderRadius: 16, overflow: "hidden", pointerEvents: "none" }}>
-        <ParticleField transparent particleCount={300} />
+        <ParticleField transparent particleCount={600} particleOpacity={0.9} particleSize={0.05} />
       </div>
       {/* Header */}
       <div
