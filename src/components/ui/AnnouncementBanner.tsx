@@ -80,14 +80,9 @@ function Toast({
       className="pointer-events-auto"
       style={{
         opacity: exiting ? 0 : entered ? 1 : 0,
-        transform: exiting
-          ? "translateY(-8px) scale(0.95)"
-          : entered
-          ? "translateY(0px) scale(1)"
-          : "translateY(-16px) scale(0.93)",
         transition: exiting
-          ? "opacity 0.24s ease, transform 0.24s ease"
-          : "opacity 0.42s cubic-bezier(0.34, 1.56, 0.64, 1), transform 0.42s cubic-bezier(0.34, 1.56, 0.64, 1)",
+          ? "opacity 0.2s ease"
+          : "opacity 0.5s ease",
       }}
     >
       <div
