@@ -3,10 +3,9 @@
 import { useState, useEffect } from "react";
 
 const navLinks = [
-  { label: "About", href: "#about" },
+  { label: "What we build", href: "#what-we-build" },
+  { label: "How we work", href: "#how-we-work" },
   { label: "Services", href: "#services" },
-  { label: "Founder", href: "#founder" },
-  { label: "Connect", href: "#connect" },
 ];
 
 export default function Navbar() {
@@ -21,25 +20,56 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 px-8 md:px-16 lg:px-24 py-5 flex items-center justify-end transition-all duration-500 ${
+      className={`fixed top-0 left-0 right-0 z-50 px-8 md:px-16 lg:px-24 py-5 flex items-center justify-between transition-all duration-500 ${
         scrolled
-          ? "bg-background/80 backdrop-blur-xl border-b border-white/[0.04]"
+          ? "bg-background/90 backdrop-blur-xl border-b border-black/[0.06]"
           : "bg-transparent"
       }`}
     >
-      {/* Desktop links */}
-      <ul className="hidden md:flex items-center gap-10 text-[12px] font-body text-foreground-muted tracking-[0.15em] uppercase">
-        {navLinks.map((link) => (
-          <li key={link.href}>
-            <a
-              href={link.href}
-              className="hover:text-foreground transition-colors duration-300 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-px after:bg-cherry after:transition-all after:duration-300 hover:after:w-full"
-            >
-              {link.label}
-            </a>
-          </li>
-        ))}
-      </ul>
+      {/* Wordmark */}
+      <a href="#" aria-label="CherryPi home">
+        <div
+          className="w-[90px] h-[38px] animate-gradient-text bg-[length:300%_auto]"
+          style={{
+            backgroundImage:
+              "linear-gradient(to right, var(--color-cherry), var(--color-lime), var(--color-lavender), var(--color-cherry))",
+            WebkitMaskImage: "url(/logos/wordmark-gradient.svg)",
+            WebkitMaskSize: "contain",
+            WebkitMaskRepeat: "no-repeat",
+            WebkitMaskPosition: "center",
+            maskImage: "url(/logos/wordmark-gradient.svg)",
+            maskSize: "contain",
+            maskRepeat: "no-repeat",
+            maskPosition: "center",
+          }}
+        />
+      </a>
+
+      {/* Desktop links + CTA */}
+      <div className="hidden md:flex items-center gap-8">
+        <ul className="flex items-center gap-8 text-[11px] font-body text-foreground-muted tracking-[0.15em] uppercase">
+          {navLinks.map((link) => (
+            <li key={link.href}>
+              <a
+                href={link.href}
+                className="hover:text-foreground transition-colors duration-300 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-px after:bg-cherry after:transition-all after:duration-300 hover:after:w-full"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+        <a
+          href="/chat"
+          className="text-[11px] font-body tracking-[0.1em] uppercase px-5 py-2 rounded-full transition-all duration-300"
+          style={{
+            background: "var(--color-foreground)",
+            color: "var(--color-background)",
+          }}
+        >
+          Start a project
+        </a>
+      </div>
 
       {/* Mobile toggle */}
       <button
@@ -65,7 +95,7 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="absolute top-full left-0 right-0 bg-background/95 backdrop-blur-2xl border-b border-white/[0.04] md:hidden">
+        <div className="absolute top-full left-0 right-0 bg-background/95 backdrop-blur-2xl border-b border-black/[0.06] md:hidden">
           <ul className="flex flex-col px-8 py-8 gap-6 text-sm font-body tracking-[0.15em] uppercase">
             {navLinks.map((link) => (
               <li key={link.href}>
@@ -78,6 +108,15 @@ export default function Navbar() {
                 </a>
               </li>
             ))}
+            <li>
+              <a
+                href="/chat"
+                className="text-cherry font-medium"
+                onClick={() => setMobileOpen(false)}
+              >
+                Start a project →
+              </a>
+            </li>
           </ul>
         </div>
       )}

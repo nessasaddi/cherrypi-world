@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Syne, Outfit, Space_Grotesk, JetBrains_Mono } from "next/font/google";
+import { Syne, Outfit, Space_Grotesk, DM_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
 const syne = Syne({
@@ -10,6 +10,12 @@ const syne = Syne({
 
 const outfit = Outfit({
   variable: "--font-outfit",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
+});
+
+const dmSans = DM_Sans({
+  variable: "--font-dm-sans",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600"],
 });
@@ -44,9 +50,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth dark">
+    <html lang="en" className="scroll-smooth">
       <body
-        className={`${syne.variable} ${outfit.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} antialiased bg-background text-foreground`}
+        className={`${syne.variable} ${outfit.variable} ${spaceGrotesk.variable} ${dmSans.variable} ${jetbrainsMono.variable} antialiased bg-background text-foreground`}
       >
         {children}
       </body>

@@ -30,7 +30,7 @@ function parseChips(text: string): { content: string; chips: string[] } {
 }
 
 const SESSION_KEY = "cp_terminal_session";
-const SESSION_VERSION = 3;
+const SESSION_VERSION = 4;
 const SESSION_EXPIRY_MS = 7 * 24 * 60 * 60 * 1000;
 
 function loadSession() {
@@ -182,7 +182,7 @@ export default function TerminalChat() {
         {phase === "intake" ? (
           <div className="flex flex-col gap-5">
             <p style={{ color: "#bbb", lineHeight: 1.7, fontSize: 14 }}>
-              Ask about a project, explore capabilities, or tell us what you&apos;re building. All conversations go straight to Vanessa as a project inquiry.
+              Describe a problem, project, or goal — in plain language. Cherry Pi will help you think through a plan and connect everything directly to Vanessa. It&apos;s also a good way to learn how she works before committing to anything.
             </p>
 
             <form onSubmit={handleIntake} className="flex flex-col gap-3">

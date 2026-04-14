@@ -2,29 +2,29 @@
 
 @theme inline {
   /* ── Surface layers ── */
-  --color-background: #0A0A0B;
-  --color-surface: #111113;
-  --color-surface-raised: #18181B;
-  --color-surface-overlay: #1C1C1F;
-  --color-surface-glass: rgba(255, 255, 255, 0.03);
+  --color-background: #f4f4f4;
+  --color-surface: #ebebeb;
+  --color-surface-raised: #e2e2e2;
+  --color-surface-overlay: #dadada;
+  --color-surface-glass: rgba(0, 0, 0, 0.03);
 
   /* ── Content ── */
-  --color-foreground: #E8E6E3;
-  --color-foreground-muted: #8A8A8F;
-  --color-foreground-faint: #4A4A50;
+  --color-foreground: #242424;
+  --color-foreground-muted: #5c5c5c;
+  --color-foreground-faint: #9a9a9a;
 
   /* ── Accent ── */
   --color-cherry: #EF5541;
-  --color-cherry-soft: #EF554130;
-  --color-cherry-glow: #EF554118;
+  --color-cherry-soft: #EF554120;
+  --color-cherry-glow: #EF554110;
   --color-lavender: #AEBEFF;
-  --color-lavender-soft: #AEBEFF20;
+  --color-lavender-soft: #AEBEFF30;
   --color-lime: #D0DD57;
-  --color-lime-soft: #D0DD5720;
+  --color-lime-soft: #D0DD5730;
 
   /* ── Typography ── */
-  --font-heading: var(--font-syne);
-  --font-body: var(--font-outfit);
+  --font-heading: var(--font-space-grotesk);
+  --font-body: var(--font-dm-sans);
 
   /* ── Radii ── */
   --radius-sm: 6px;
@@ -43,8 +43,8 @@
 }
 
 html {
-  color-scheme: dark;
-  scrollbar-color: #2a2a2e transparent;
+  color-scheme: light;
+  scrollbar-color: #c8c8c8 transparent;
 }
 
 body {
@@ -82,7 +82,7 @@ h1, h2, h3, h4, h5, h6 {
 /* ── Glass card ── */
 .glass-card {
   background: var(--color-surface-glass);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.07);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-radius: var(--radius-lg);
@@ -92,8 +92,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .glass-card:hover {
-  border-color: rgba(255, 255, 255, 0.1);
-  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(0, 0, 0, 0.12);
+  background: rgba(0, 0, 0, 0.04);
   transform: translateY(-2px);
 }
 
@@ -118,6 +118,16 @@ h1, h2, h3, h4, h5, h6 {
 @keyframes gradient-border {
   0% { background-position: 0% center, 0% center; }
   100% { background-position: 0% center, 300% center; }
+}
+
+/* === App Stack Marquee === */
+@keyframes scroll-left {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@keyframes scroll-right {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
 }
 
 /* === Terminal Chat Widget === */
@@ -209,4 +219,33 @@ h1, h2, h3, h4, h5, h6 {
 .terminal-chip:hover {
   background: rgba(239,85,65,0.1);
   border-color: #ef5541;
+}
+
+/* === Gradient border card === */
+@property --border-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes border-rotate {
+  to { --border-angle: 360deg; }
+}
+
+.gradient-border-card {
+  padding: 1.5px;
+  border-radius: 18px;
+  background: conic-gradient(
+    from var(--border-angle),
+    #ef5541 0%,
+    #aebeff 25%,
+    #d0dd57 50%,
+    #aebeff 75%,
+    #ef5541 100%
+  );
+  animation: border-rotate 6s linear infinite;
+  box-shadow:
+    0 0 40px rgba(239, 85, 65, 0.12),
+    0 0 80px rgba(174, 190, 255, 0.08),
+    0 24px 64px rgba(0, 0, 0, 0.45);
 }
