@@ -5,29 +5,18 @@ import gsap from "gsap";
 
 // Row 1 — Google suite + creative/design tools
 const ROW1 = [
-  { name: "Gmail", slug: "gmail" },
-  { name: "Google Drive", slug: "googledrive" },
-  { name: "Google Docs", slug: "googledocs" },
-  { name: "Google Sheets", slug: "googlesheets" },
-  { name: "Google Slides", slug: "googleslides" },
-  { name: "Google Calendar", slug: "googlecalendar" },
-  { name: "Google Meet", slug: "googlemeet" },
+  { name: "Google", slug: "google" },
   { name: "Google Analytics", slug: "googleanalytics" },
-  { name: "YouTube", slug: "youtube" },
   { name: "Figma", slug: "figma" },
   { name: "Canva", slug: "canva" },
   { name: "Blender", slug: "blender" },
   { name: "Photoshop", slug: "adobephotoshop" },
   { name: "Illustrator", slug: "adobeillustrator" },
-  { name: "Premiere Pro", slug: "adobepremierepro" },
-  { name: "After Effects", slug: "adobeaftereffects" },
-  { name: "Lightroom", slug: "adobelightroom" },
-  { name: "InDesign", slug: "adobeindesign" },
 ];
 
-// Row 2 — Dev stack + social + comms + AI
+// Row 2 — Dev stack + comms + AI
 const ROW2 = [
-  { name: "VSCode", slug: "visualstudiocode" },
+  { name: "Cursor", slug: "cursor" },
   { name: "GitHub", slug: "github" },
   { name: "Next.js", slug: "nextdotjs" },
   { name: "React", slug: "react" },
@@ -35,23 +24,12 @@ const ROW2 = [
   { name: "Tailwind", slug: "tailwindcss" },
   { name: "Vercel", slug: "vercel" },
   { name: "Python", slug: "python" },
-  { name: "Cloudflare", slug: "cloudflare" },
-  { name: "Shopify", slug: "shopify" },
-  { name: "Airtable", slug: "airtable" },
-  { name: "Zapier", slug: "zapier" },
-  { name: "Klaviyo", slug: "klaviyo" },
   { name: "Notion", slug: "notion" },
   { name: "Slack", slug: "slack" },
   { name: "Discord", slug: "discord" },
   { name: "Telegram", slug: "telegram" },
   { name: "Signal", slug: "signal" },
-  { name: "LinkedIn", slug: "linkedin" },
-  { name: "Instagram", slug: "instagram" },
-  { name: "Pinterest", slug: "pinterest" },
-  { name: "X", slug: "x" },
-  { name: "TikTok", slug: "tiktok" },
   { name: "Meta", slug: "meta" },
-  { name: "OpenAI", slug: "openai" },
   { name: "Anthropic", slug: "anthropic" },
   { name: "Gemini", slug: "googlegemini" },
 ];
@@ -69,7 +47,7 @@ function AppIcon({ name, slug }: { name: string; slug: string }) {
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src={`https://cdn.simpleicons.org/${slug}`}
+        src={`/icons/${slug}.svg`}
         alt={name}
         width={22}
         height={22}
@@ -78,12 +56,14 @@ function AppIcon({ name, slug }: { name: string; slug: string }) {
         onError={(e) => {
           const img = e.currentTarget as HTMLImageElement;
           if (!img.dataset.fallback) {
-            // First failure: try jsDelivr (correct slug, black icon)
             img.dataset.fallback = "1";
-            img.src = `https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/${slug}.svg`;
+            img.src = `https://cdn.simpleicons.org/${slug}`;
           } else {
-            // Both CDNs failed — hide silently
             img.style.display = "none";
+            const span = document.createElement("span");
+            span.textContent = name.charAt(0);
+            span.style.cssText = "font-size:14px;font-weight:600;color:#888;";
+            img.parentElement?.appendChild(span);
           }
         }}
       />
