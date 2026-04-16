@@ -3,14 +3,9 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { LiquidMetalButton } from "@/components/ui/LiquidMetalButton";
 
 gsap.registerPlugin(ScrollTrigger);
-
-const links = [
-  { label: "LinkedIn", href: "https://linkedin.com/company/cherrypi" },
-  { label: "Instagram", href: "https://instagram.com/ch3rryp1" },
-  { label: "Email", href: "mailto:hello@cherrypi.studio" },
-];
 
 export default function Connect() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -49,46 +44,44 @@ export default function Connect() {
 
       <div className="relative max-w-5xl mx-auto">
         {/* Decorative divider */}
-        <div className="mb-24 md:mb-28 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
+        <div className="mb-16 md:mb-20 h-px bg-gradient-to-r from-transparent via-foreground/[0.08] to-transparent" />
 
         <div className="text-center max-w-2xl mx-auto">
-          <p data-reveal className="text-[11px] uppercase tracking-[0.2em] text-cherry font-body font-medium mb-10">
-            Start a Project
+          <p data-reveal className="text-[11px] uppercase tracking-[0.22em] text-cherry font-body font-medium mb-6">
+            Connect
           </p>
           <h2
             data-reveal
-            className="font-heading text-3xl md:text-[44px] lg:text-[52px] font-bold leading-[1.1] tracking-tight mb-6 text-balance"
+            className="font-heading font-semibold text-foreground leading-[1.05] tracking-[-0.03em] mb-5 text-balance"
+            style={{ fontSize: "clamp(2rem, 4vw, 3rem)" }}
           >
-            Let&apos;s work together.
+            Get in touch.
           </h2>
           <p
             data-reveal
-            className="text-foreground-muted text-sm font-body font-light mb-16 md:mb-20 leading-relaxed text-balance"
+            className="text-foreground-muted text-sm md:text-[15px] font-body font-light mb-10 md:mb-12 leading-relaxed text-balance"
           >
-            If you&apos;re a founder building something real, we&apos;d love to hear from you.
+            LinkedIn or email — both go directly to Vanessa.
           </p>
 
-          <div data-reveal className="glass-card p-8 md:p-12 mb-12 text-left">
-            <p className="text-foreground-faint text-xs font-body font-light uppercase tracking-[0.15em] mb-4">
-              AI Chat — Coming Soon
-            </p>
-            <p className="text-foreground-muted text-sm font-body font-light leading-relaxed">
-              An AI-powered project intake chatbox will live here. For now, reach out directly.
-            </p>
-          </div>
-
-          <div data-reveal className="flex flex-wrap justify-center gap-4">
-            {links.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="border border-lime/[0.35] rounded-full px-8 py-3.5 text-[12px] font-body text-lime/70 tracking-[0.15em] uppercase bg-lime/[0.05] hover:text-lime hover:border-lime/60 hover:bg-lime/[0.08] hover:shadow-[0_0_30px_rgba(208,221,87,0.1)] transition-all duration-500"
-              >
-                {link.label}
-              </a>
-            ))}
+          <div data-reveal className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-5">
+            <LiquidMetalButton
+              label="hello@cherrypi.world"
+              href="mailto:hello@cherrypi.world"
+              icon={
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#2a2a2a" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              }
+            />
+            <a
+              href="https://linkedin.com/company/cherrypi"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center h-10 rounded-full px-7 text-[13px] font-body font-medium tracking-wide border border-foreground/15 text-foreground/80 bg-white/40 hover:text-foreground hover:border-foreground/35 hover:bg-white/70 transition-all duration-300"
+            >
+              LinkedIn
+            </a>
           </div>
         </div>
       </div>

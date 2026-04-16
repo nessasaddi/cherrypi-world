@@ -274,8 +274,8 @@ export default function TheStack() {
         }}
       >
         {/* Section header */}
-        <div className="relative px-6 md:px-12 lg:px-24 pt-8 pb-10">
-          <div className="max-w-7xl mx-auto">
+        <div className="relative px-6 md:px-8 pt-6 pb-8 md:pb-10">
+          <div className="max-w-[640px] mx-auto md:text-center">
             <p
               className="text-[11px] uppercase tracking-[0.22em] font-body font-medium mb-3"
               style={{ color: "var(--color-cherry)" }}
@@ -285,7 +285,7 @@ export default function TheStack() {
             <h2
               className="font-heading font-semibold text-foreground text-balance mb-3"
               style={{
-                fontSize: "clamp(1.6rem, 3.5vw, 2.6rem)",
+                fontSize: "clamp(1.6rem, 3.5vw, 2.4rem)",
                 lineHeight: 1.1,
                 letterSpacing: "-0.03em",
               }}
@@ -296,11 +296,11 @@ export default function TheStack() {
               </span>
             </h2>
             <p
-              className="font-body font-light text-foreground-muted"
+              className="font-body font-light text-foreground-muted md:mx-auto"
               style={{
                 fontSize: "clamp(0.85rem, 1.4vw, 0.95rem)",
                 lineHeight: 1.65,
-                maxWidth: "56ch",
+                maxWidth: "52ch",
               }}
             >
               Live infrastructure — not demos, not concepts. Every system below
@@ -311,8 +311,8 @@ export default function TheStack() {
 
         {/* Cards stacking area */}
         <div
-          className="relative px-6 md:px-12 lg:px-24 pb-16 overflow-hidden"
-          style={{ minHeight: "60vh" }}
+          className="relative px-6 md:px-8 pb-10 md:pb-14 overflow-hidden"
+          style={{ minHeight: "54vh" }}
         >
           <div
             className="relative max-w-[640px] mx-auto"

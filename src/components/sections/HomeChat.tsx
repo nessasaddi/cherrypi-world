@@ -6,7 +6,7 @@ import { LiquidMetalBorder } from "@/components/ui/LiquidMetalBorder";
 
 export default function HomeChat() {
   return (
-    <section id="chat" className="snap-section relative flex flex-col justify-center pt-12 pb-24 md:pt-16 md:pb-32 px-6 overflow-hidden bg-background">
+    <section id="chat" className="snap-section relative flex flex-col justify-center pt-8 pb-16 md:pt-12 md:pb-20 px-6 overflow-hidden bg-background">
       {/* Ambient blobs */}
       <div
         className="absolute pointer-events-none rounded-full"
@@ -32,26 +32,30 @@ export default function HomeChat() {
       />
 
       <div className="relative z-10 max-w-[540px] mx-auto">
-        {/* Label */}
+        {/* Eyebrow */}
         <p
-          className="text-[11px] uppercase tracking-[0.22em] font-body font-medium mb-4 text-center"
+          className="text-[11px] uppercase tracking-[0.22em] font-body font-medium mb-3 text-center"
           style={{ color: "var(--color-cherry)" }}
         >
-          Start a conversation
+          Terminal
         </p>
 
         {/* Headline */}
         <h2
-          className="font-heading font-semibold text-foreground text-balance mb-10 text-center"
+          className="font-heading font-semibold text-foreground text-balance mb-4 text-center"
           style={{
             fontSize: "clamp(1.6rem, 3.5vw, 2.4rem)",
             lineHeight: 1.1,
             letterSpacing: "-0.03em",
           }}
         >
-          Tell Vanessa{" "}
-          <span className="text-foreground-muted">what you&apos;re building.</span>
+          Start a conversation.
         </h2>
+
+        {/* Body */}
+        <p className="text-foreground-muted text-sm md:text-[15px] font-body font-light text-balance text-center mb-10 leading-relaxed max-w-[460px] mx-auto">
+          Describe a problem, a project, or an idea. Cherry Pi will help you think through it and connect everything to Vanessa directly.
+        </p>
 
         {/* Liquid metal border wrapper */}
         <LiquidMetalBorder borderWidth={2} borderRadius={20}>

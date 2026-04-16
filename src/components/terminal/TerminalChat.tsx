@@ -15,11 +15,10 @@ const C = {
 };
 
 const CHIPS = [
-  "I'm building ",
-  "My company needs ",
-  "We're missing a system for ",
-  "I want to automate ",
-  "Our biggest challenge is ",
+  "I'm building something and need a thought partner",
+  "I want to understand how your systems work",
+  "Tell me about the content engine",
+  "What does working with a solo operator look like?",
 ];
 
 function parseChips(text: string): { content: string; chips: string[] } {
@@ -31,7 +30,7 @@ function parseChips(text: string): { content: string; chips: string[] } {
 }
 
 const SESSION_KEY = "cp_terminal_session";
-const SESSION_VERSION = 6;
+const SESSION_VERSION = 7;
 const SESSION_EXPIRY_MS = 7 * 24 * 60 * 60 * 1000;
 
 function loadSession() {

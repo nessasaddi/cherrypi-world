@@ -122,15 +122,15 @@ export default function TopoHero() {
         {/* Headline */}
         <h1
           data-animate
-          className="mt-8 font-heading font-semibold leading-[1.05] tracking-[-0.04em] text-foreground text-center"
+          className="mt-8 font-heading font-semibold leading-[1.02] tracking-[-0.045em] text-foreground text-center"
         >
-          <span className="block" style={{ fontSize: "clamp(2.8rem, 8vw, 7rem)" }}>
+          <span className="block" style={{ fontSize: "clamp(2.8rem, 7.2vw, 5.4rem)" }}>
             One operator.
           </span>
           <span
             className="block animate-gradient-text bg-[length:300%_auto] bg-clip-text text-transparent"
             style={{
-              fontSize: "clamp(3.7rem, 10.5vw, 9.2rem)",
+              fontSize: "clamp(3.7rem, 9.4vw, 7rem)",
               backgroundImage:
                 "linear-gradient(to right, var(--color-cherry), #ff8a6e, var(--color-lavender), var(--color-cherry))",
             }}
@@ -142,14 +142,14 @@ export default function TopoHero() {
         {/* Subtext */}
         <p
           data-animate
-          className="mt-6 font-body font-light text-foreground-muted text-balance max-w-lg"
-          style={{ fontSize: "clamp(0.9rem, 2vw, 1.1rem)", lineHeight: 1.65 }}
+          className="mt-8 font-body font-light text-foreground-muted text-balance max-w-xl"
+          style={{ fontSize: "clamp(0.95rem, 1.6vw, 1.2rem)", lineHeight: 1.6 }}
         >
           Brand systems, content engines, and the autonomous infrastructure that runs them.
         </p>
 
         {/* CTA */}
-        <div data-animate className="mt-8">
+        <div data-animate className="mt-10">
           <LiquidMetalButton
             label="Start a conversation"
             href="#chat"

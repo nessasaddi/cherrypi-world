@@ -44,17 +44,16 @@ export default function Founder() {
         {/* Left — label + decorative */}
         <div className="md:col-span-2">
           <p data-reveal className="text-[11px] uppercase tracking-[0.2em] text-cherry font-body font-medium mb-10">
-            Founder
+            The Operator
           </p>
           <h2
             data-reveal
             className="font-heading text-3xl md:text-[44px] font-bold leading-[1.1] tracking-tight mb-8 text-balance"
           >
-            Built by<br />
             <span
               className="animate-gradient-text bg-[length:300%_auto] bg-clip-text text-transparent"
               style={{ backgroundImage: "linear-gradient(to right, var(--color-cherry), var(--color-lime), var(--color-lavender), var(--color-cherry))" }}
-            >Vanessa.</span>
+            >Vanessa Saddi</span>
           </h2>
 
           {/* Decorative element */}
@@ -71,30 +70,24 @@ export default function Founder() {
             data-reveal
             className="text-foreground-muted text-[15px] md:text-base leading-relaxed font-body font-light text-balance"
           >
-            A creative director, brand strategist, and self-taught builder based
-            in California. Cherry Pi draws from over a decade of hands-on creative
-            work — animation, storyboard, graphic design, and frontend
-            development.
+            Cherry Pi is a one-person studio by design, not by constraint. Every brand system, every automation pipeline, every line of code runs through one creative mind — which means nothing gets lost in translation between strategy and execution.
           </p>
           <p
             data-reveal
             className="text-foreground-muted text-[15px] md:text-base leading-relaxed font-body font-light text-balance"
           >
-            Vanessa builds brands, content systems, and the automated
-            infrastructure that keeps them running — working directly with every
-            client, no handoffs, no layers.
+            I build brands, content systems, and the autonomous infrastructure that keeps them running. Direct work. No handoffs. No layers.
           </p>
           <p
             data-reveal
             className="text-foreground-faint text-[15px] md:text-base leading-relaxed font-body font-light text-balance"
           >
-            Working with founders across cannabis, tech, collectibles, lifestyle,
-            and food since 2023.
+            Based in California. Working across cannabis, tech, collectibles, and lifestyle.
           </p>
 
           {/* Industries */}
           <div data-reveal className="flex flex-wrap gap-2 pt-4">
-            {["Tech", "Collectibles", "Lifestyle", "Food"].map((tag) => (
+            {["Cannabis", "Tech", "Collectibles", "Lifestyle", "Food"].map((tag) => (
               <span
                 key={tag}
                 className="text-[10px] uppercase tracking-[0.15em] border border-lavender/[0.35] rounded-full px-4 py-2 text-lavender/70 bg-lavender/[0.05] hover:text-lavender hover:border-lavender/60 hover:bg-lavender/[0.08] transition-all duration-300"
