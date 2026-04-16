@@ -45,16 +45,10 @@
 html {
   color-scheme: light;
   scrollbar-color: #c8c8c8 transparent;
-  scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
 }
 
-/* Each top-level section locks to viewport on scroll */
-.snap-section {
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
-  min-height: 100svh;
-}
+/* .snap-section is left for semantic reference; no min-height so sections size to content */
 
 body {
   background: var(--color-background);

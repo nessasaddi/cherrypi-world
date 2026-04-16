@@ -91,7 +91,7 @@ export default function TopoHero() {
   return (
     <section
       id="hero"
-      className="snap-section relative flex flex-col overflow-hidden bg-background"
+      className="relative flex flex-col overflow-hidden bg-background min-h-svh"
     >
       {/* Main content — vertically centered */}
       <div
