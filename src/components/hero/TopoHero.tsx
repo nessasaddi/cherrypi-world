@@ -96,7 +96,12 @@ export default function TopoHero() {
       {/* Main content — vertically centered */}
       <div
         ref={contentRef}
-        className="relative z-10 flex flex-col items-center justify-center flex-1 px-6 text-center py-32"
+        className="relative z-10 flex flex-col items-center justify-center flex-1 px-6 text-center"
+        style={{
+          paddingTop: "calc(var(--header-h, 54px) + 1rem)",
+          paddingBottom: "8rem",
+          transition: "padding-top 0.5s cubic-bezier(0.34, 1.4, 0.64, 1)",
+        }}
       >
         {/* Cherry icon GIF */}
         <div data-animate>

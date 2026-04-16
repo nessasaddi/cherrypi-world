@@ -68,19 +68,23 @@ const items = [
 type AccordionItemProps = {
   item: (typeof items)[number];
   isActive: boolean;
-  onActivate: () => void;
+  onToggle: () => void;
 };
 
-function AccordionItem({ item, isActive, onActivate }: AccordionItemProps) {
+function AccordionItem({ item, isActive, onToggle }: AccordionItemProps) {
   return (
     <div
-      onMouseEnter={onActivate}
-      onFocus={onActivate}
-      onClick={onActivate}
+      onClick={onToggle}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          onToggle();
+        }
+      }}
       tabIndex={0}
       role="button"
       aria-pressed={isActive}
-      aria-label={item.title}
+      aria-label={isActive ? `Collapse ${item.title}` : `Expand ${item.title}`}
       className={[
         "relative rounded-2xl overflow-hidden cursor-pointer flex-shrink-0",
         "transition-[flex-basis,width] duration-700 ease-[cubic-bezier(0.34,1.2,0.64,1)]",
@@ -152,7 +156,7 @@ function AccordionItem({ item, isActive, onActivate }: AccordionItemProps) {
 
 export default function WhatWeBuild() {
   const sectionRef = useRef<HTMLElement>(null);
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState<number | null>(0);
 
   useEffect(() => {
     if (!sectionRef.current) return;
@@ -230,7 +234,9 @@ export default function WhatWeBuild() {
               key={item.id}
               item={item}
               isActive={index === activeIndex}
-              onActivate={() => setActiveIndex(index)}
+              onToggle={() =>
+                setActiveIndex((prev) => (prev === index ? null : index))
+              }
             />
           ))}
         </div>

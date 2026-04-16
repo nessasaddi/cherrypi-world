@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import ParticleField from "@/components/hero/ParticleField";
+import StarsBackground from "@/components/ui/StarsBackground";
 
 const C = {
   cherry: "#ef5541",
@@ -31,7 +31,7 @@ function parseChips(text: string): { content: string; chips: string[] } {
 }
 
 const SESSION_KEY = "cp_terminal_session";
-const SESSION_VERSION = 5;
+const SESSION_VERSION = 6;
 const SESSION_EXPIRY_MS = 7 * 24 * 60 * 60 * 1000;
 
 function loadSession() {
@@ -167,9 +167,9 @@ export default function TerminalChat() {
         position: "relative",
       }}
     >
-      {/* Particle field background */}
+      {/* Stars background */}
       <div style={{ position: "absolute", inset: 0, zIndex: 0, borderRadius: 16, overflow: "hidden", pointerEvents: "none" }}>
-        <ParticleField transparent particleCount={500} particleOpacity={0.85} particleSize={0.032} />
+        <StarsBackground className="w-full h-full" speed={180} />
       </div>
       {/* Header */}
       <div

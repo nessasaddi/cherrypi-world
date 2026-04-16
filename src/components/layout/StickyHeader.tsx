@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import AnnouncementBanner from "@/components/ui/AnnouncementBanner";
 
@@ -106,8 +106,24 @@ function BookmarkButton() {
 }
 
 export default function StickyHeader() {
+  const headerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!headerRef.current) return;
+    const el = headerRef.current;
+    const observer = new ResizeObserver(([entry]) => {
+      const h = entry.contentRect.height;
+      document.documentElement.style.setProperty("--header-h", `${h}px`);
+    });
+    observer.observe(el);
+    // Set initial value
+    document.documentElement.style.setProperty("--header-h", `${el.getBoundingClientRect().height}px`);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div
+      ref={headerRef}
       className="fixed top-0 left-0 z-50 w-full"
       style={{
         background: "rgba(244, 244, 244, 0.60)",
