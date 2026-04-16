@@ -40,7 +40,7 @@ export function LiquidMetalBorder({
     }
 
     if (shaderRef.current) {
-      shaderMount.current?.destroy?.();
+      shaderMount.current?.dispose?.();
       shaderMount.current = new ShaderMount(
         shaderRef.current,
         liquidMetalFragmentShader,
@@ -63,7 +63,7 @@ export function LiquidMetalBorder({
     }
 
     return () => {
-      shaderMount.current?.destroy?.();
+      shaderMount.current?.dispose?.();
       shaderMount.current = null;
     };
   }, []);
