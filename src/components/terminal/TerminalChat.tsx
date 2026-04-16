@@ -31,7 +31,7 @@ function parseChips(text: string): { content: string; chips: string[] } {
 }
 
 const SESSION_KEY = "cp_terminal_session";
-const SESSION_VERSION = 4;
+const SESSION_VERSION = 5;
 const SESSION_EXPIRY_MS = 7 * 24 * 60 * 60 * 1000;
 
 function loadSession() {

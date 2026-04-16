@@ -63,7 +63,7 @@ function Toast({
   const [exiting, setExiting] = useState(false);
 
   useEffect(() => {
-    const t = setTimeout(() => setEntered(true), 2000 + index * 380);
+    const t = setTimeout(() => setEntered(true), index * 380);
     return () => clearTimeout(t);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -142,6 +142,12 @@ function Toast({
 
 export default function AnnouncementBanner() {
   const [dismissed, setDismissed] = useState<string[]>([]);
+  const [ready, setReady] = useState(false);
+
+  useEffect(() => {
+    const t = setTimeout(() => setReady(true), 20000);
+    return () => clearTimeout(t);
+  }, []);
 
   const handleDismiss = (id: string) => {
     setDismissed((prev) => [...prev, id]);
@@ -149,7 +155,7 @@ export default function AnnouncementBanner() {
 
   const visible = TOASTS.filter((t) => !dismissed.includes(t.id));
 
-  if (visible.length === 0) return null;
+  if (!ready || visible.length === 0) return null;
 
   return (
     <div className="flex flex-col items-center gap-2 py-3 px-4 w-full">

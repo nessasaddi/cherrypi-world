@@ -108,7 +108,7 @@ function BookmarkButton() {
 export default function StickyHeader() {
   return (
     <div
-      className="sticky top-0 z-50 w-full relative"
+      className="fixed top-0 left-0 z-50 w-full"
       style={{
         background: "rgba(244, 244, 244, 0.60)",
         backdropFilter: "blur(16px)",

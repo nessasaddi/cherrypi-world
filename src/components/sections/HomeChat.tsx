@@ -2,10 +2,11 @@
 
 import Link from "next/link";
 import TerminalChat from "@/components/terminal/TerminalChat";
+import { LiquidMetalBorder } from "@/components/ui/LiquidMetalBorder";
 
 export default function HomeChat() {
   return (
-    <section id="chat" className="relative pt-12 pb-24 md:pt-16 md:pb-32 px-6 overflow-hidden bg-background">
+    <section id="chat" className="snap-section relative flex flex-col justify-center pt-12 pb-24 md:pt-16 md:pb-32 px-6 overflow-hidden bg-background">
       {/* Ambient blobs */}
       <div
         className="absolute pointer-events-none rounded-full"
@@ -52,12 +53,10 @@ export default function HomeChat() {
           <span className="text-foreground-muted">what you&apos;re building.</span>
         </h2>
 
-        {/* Gradient rotating border wrapper */}
-        <div className="gradient-border-card">
-          <div style={{ borderRadius: "16.5px", overflow: "hidden" }}>
-            <TerminalChat />
-          </div>
-        </div>
+        {/* Liquid metal border wrapper */}
+        <LiquidMetalBorder borderWidth={2} borderRadius={20}>
+          <TerminalChat />
+        </LiquidMetalBorder>
 
         {/* Privacy link */}
         <p className="text-center mt-5 font-body" style={{ fontSize: "0.7rem", color: "var(--color-foreground-faint)", letterSpacing: "0.05em" }}>

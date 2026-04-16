@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { LiquidMetalButton } from "@/components/ui/LiquidMetalButton";
 import gsap from "gsap";
 
 // Row 1 — Google suite + creative/design tools
@@ -90,11 +91,12 @@ export default function TopoHero() {
   return (
     <section
       id="hero"
-      className="relative w-full overflow-hidden bg-background"
+      className="snap-section relative flex flex-col overflow-hidden bg-background"
     >
+      {/* Main content — vertically centered */}
       <div
         ref={contentRef}
-        className="relative z-10 flex flex-col items-center pt-10 pb-2 px-6 text-center"
+        className="relative z-10 flex flex-col items-center justify-center flex-1 px-6 text-center pb-48"
       >
         {/* Cherry icon GIF */}
         <div data-animate>
@@ -102,8 +104,8 @@ export default function TopoHero() {
           <img
             src="/logos/cherry-animated.gif"
             alt="Cherry Pi"
-            width={76}
-            height={76}
+            width={68}
+            height={68}
             style={{
               mixBlendMode: "screen",
               display: "block",
@@ -115,14 +117,15 @@ export default function TopoHero() {
         {/* Headline */}
         <h1
           data-animate
-          className="mt-10 font-heading font-semibold leading-[1.05] tracking-[-0.04em] text-foreground text-balance"
-          style={{ fontSize: "clamp(2.8rem, 8vw, 7rem)" }}
+          className="mt-8 font-heading font-semibold leading-[1.05] tracking-[-0.04em] text-foreground text-center"
         >
-          One operator.{" "}
-          <br />
+          <span className="block" style={{ fontSize: "clamp(2.8rem, 8vw, 7rem)" }}>
+            One operator.
+          </span>
           <span
-            className="animate-gradient-text bg-[length:300%_auto] bg-clip-text text-transparent"
+            className="block animate-gradient-text bg-[length:300%_auto] bg-clip-text text-transparent"
             style={{
+              fontSize: "clamp(3.7rem, 10.5vw, 9.2rem)",
               backgroundImage:
                 "linear-gradient(to right, var(--color-cherry), #ff8a6e, var(--color-lavender), var(--color-cherry))",
             }}
@@ -137,45 +140,54 @@ export default function TopoHero() {
           className="mt-6 font-body font-light text-foreground-muted text-balance max-w-lg"
           style={{ fontSize: "clamp(0.9rem, 2vw, 1.1rem)", lineHeight: 1.65 }}
         >
-          Strategy, identity, content, and the automation layer
-          that runs itself.
+          Brand systems, content engines, and the autonomous infrastructure that runs them.
         </p>
 
-        {/* App stack marquee — full-width breakout */}
+        {/* CTA */}
+        <div data-animate className="mt-8">
+          <LiquidMetalButton
+            label="Start a conversation"
+            href="#chat"
+            icon={
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#2a2a2a" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            }
+          />
+        </div>
+      </div>
+
+      {/* App stack marquee — pinned to bottom */}
+      <div
+        className="absolute bottom-0 left-0 right-0 z-10 pb-6"
+      >
+        {/* Edge fades */}
         <div
-          data-animate
-          className="relative mt-10 pb-16"
-          style={{ width: "100vw", marginLeft: "calc(-50vw + 50%)" }}
-        >
-          {/* Edge fades */}
-          <div
-            className="absolute left-0 top-0 bottom-0 w-16 z-10 pointer-events-none"
-            style={{ background: "linear-gradient(to right, var(--color-background), transparent)" }}
-          />
-          <div
-            className="absolute right-0 top-0 bottom-0 w-16 z-10 pointer-events-none"
-            style={{ background: "linear-gradient(to left, var(--color-background), transparent)" }}
-          />
+          className="absolute left-0 top-0 bottom-0 w-16 z-10 pointer-events-none"
+          style={{ background: "linear-gradient(to right, var(--color-background), transparent)" }}
+        />
+        <div
+          className="absolute right-0 top-0 bottom-0 w-16 z-10 pointer-events-none"
+          style={{ background: "linear-gradient(to left, var(--color-background), transparent)" }}
+        />
 
-          {/* Row 1 — scrolls left */}
-          <div className="overflow-hidden mb-3">
-            <div className="flex gap-3 w-max" style={{ animation: "scroll-left 40s linear infinite" }}>
-              {repeat(ROW1, 4).map((app, i) => (
-                <AppIcon key={i} name={app.name} slug={app.slug} />
-              ))}
-            </div>
-          </div>
-
-          {/* Row 2 — scrolls right */}
-          <div className="overflow-hidden">
-            <div className="flex gap-3 w-max" style={{ animation: "scroll-right 35s linear infinite" }}>
-              {repeat(ROW2, 4).map((app, i) => (
-                <AppIcon key={i} name={app.name} slug={app.slug} />
-              ))}
-            </div>
+        {/* Row 1 — scrolls left */}
+        <div className="overflow-hidden mb-3">
+          <div className="flex gap-3 w-max" style={{ animation: "scroll-left 40s linear infinite" }}>
+            {repeat(ROW1, 4).map((app, i) => (
+              <AppIcon key={i} name={app.name} slug={app.slug} />
+            ))}
           </div>
         </div>
 
+        {/* Row 2 — scrolls right */}
+        <div className="overflow-hidden">
+          <div className="flex gap-3 w-max" style={{ animation: "scroll-right 35s linear infinite" }}>
+            {repeat(ROW2, 4).map((app, i) => (
+              <AppIcon key={i} name={app.name} slug={app.slug} />
+            ))}
+          </div>
+        </div>
       </div>
 
       {/* Bottom fade */}
