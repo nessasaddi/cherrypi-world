@@ -1,82 +1,161 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const capabilities = [
+const items = [
   {
+    id: 1,
     number: "01",
     title: "Brand Strategy",
-    description:
-      "Positioning, narrative architecture, and the strategic foundation that makes every channel pull in the same direction.",
-    accent: "cherry",
+    gradient: "linear-gradient(145deg, #ef5541 0%, #d44332 100%)",
+    textColor: "#ffffff",
   },
   {
+    id: 2,
     number: "02",
     title: "Visual Identity",
-    description:
-      "Visual language, naming, and the system behind it. Built to scale without losing itself.",
-    accent: "lavender",
+    gradient: "linear-gradient(145deg, #aebeff 0%, #8a9ef5 100%)",
+    textColor: "#1a1a1a",
   },
   {
+    id: 3,
     number: "03",
     title: "Creative Direction",
-    description:
-      "Art direction, campaign concepting, and the creative throughline that holds a brand together across every surface.",
-    accent: "lime",
+    gradient: "linear-gradient(145deg, #eda599 0%, #d48578 100%)",
+    textColor: "#1a1a1a",
   },
   {
+    id: 4,
     number: "04",
     title: "Web Development",
-    description:
-      "Production websites and applications built to the same quality standard as everything else in the stack.",
-    accent: "cherry",
+    gradient: "linear-gradient(145deg, #2a2a2a 0%, #0a0a0a 100%)",
+    textColor: "#ffffff",
   },
   {
+    id: 5,
     number: "05",
     title: "Content Systems",
-    description:
-      "Editorial strategy, multi-platform production, and the workflows that keep it moving without constant input.",
-    accent: "lavender",
+    gradient: "linear-gradient(145deg, #d0dd57 0%, #b0bf3f 100%)",
+    textColor: "#1a1a1a",
   },
   {
+    id: 6,
     number: "06",
     title: "AI Workflow Automation",
-    description:
-      "Custom pipelines, agents, and automations that handle the operational layer — built once, running without oversight.",
-    accent: "lime",
+    gradient: "linear-gradient(145deg, #aebeff 0%, #ef5541 100%)",
+    textColor: "#ffffff",
   },
   {
+    id: 7,
     number: "07",
     title: "Custom Tooling & APIs",
-    description:
-      "Purpose-built tools that encode domain methodology. Not generic prompts — specific workflows with guardrails and production output.",
-    accent: "cherry",
+    gradient: "linear-gradient(145deg, #1a1a1a 0%, #3a3a3a 100%)",
+    textColor: "#ffffff",
   },
   {
+    id: 8,
     number: "08",
     title: "Paid Media Infrastructure",
-    description:
-      "Campaign architecture, creative systems, and the performance layer that connects brand investment to measurable return.",
-    accent: "lavender",
+    gradient: "linear-gradient(145deg, #d0dd57 0%, #aebeff 100%)",
+    textColor: "#1a1a1a",
   },
 ];
 
-const accentColors: Record<string, string> = {
-  cherry: "var(--color-cherry)",
-  lavender: "var(--color-lavender)",
-  lime: "var(--color-lime)",
+type AccordionItemProps = {
+  item: (typeof items)[number];
+  isActive: boolean;
+  onActivate: () => void;
 };
+
+function AccordionItem({ item, isActive, onActivate }: AccordionItemProps) {
+  return (
+    <div
+      onMouseEnter={onActivate}
+      onFocus={onActivate}
+      onClick={onActivate}
+      tabIndex={0}
+      role="button"
+      aria-pressed={isActive}
+      aria-label={item.title}
+      className={[
+        "relative rounded-2xl overflow-hidden cursor-pointer flex-shrink-0",
+        "transition-[flex-basis,width] duration-700 ease-[cubic-bezier(0.34,1.2,0.64,1)]",
+        "h-[360px] md:h-[440px]",
+        "focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60",
+      ].join(" ")}
+      style={{
+        width: isActive ? "min(420px, 78vw)" : "64px",
+      }}
+    >
+      {/* Brand color gradient background */}
+      <div
+        className="absolute inset-0 transition-transform duration-700 ease-[cubic-bezier(0.34,1.2,0.64,1)]"
+        style={{ background: item.gradient }}
+      />
+
+      {/* Subtle inner shadow for depth */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          boxShadow: "inset 0 0 80px rgba(0,0,0,0.15)",
+        }}
+      />
+
+      {/* Number (top-left) — only in active state */}
+      <span
+        className="absolute top-5 left-5 font-mono text-[10px] tracking-[0.2em] transition-opacity duration-500"
+        style={{
+          opacity: isActive ? 0.7 : 0,
+          color: item.textColor,
+        }}
+      >
+        {item.number}
+      </span>
+
+      {/* Active title — horizontal, bottom-aligned */}
+      <span
+        className="absolute left-5 right-5 bottom-5 font-heading font-semibold transition-opacity duration-300"
+        style={{
+          opacity: isActive ? 1 : 0,
+          pointerEvents: "none",
+          color: item.textColor,
+          fontSize: "clamp(1.2rem, 2.2vw, 1.6rem)",
+          letterSpacing: "-0.02em",
+          lineHeight: 1.15,
+        }}
+      >
+        {item.title}
+      </span>
+
+      {/* Collapsed title — vertical via writing-mode */}
+      <span
+        className="absolute top-1/2 left-1/2 font-body font-medium whitespace-nowrap transition-opacity duration-300"
+        style={{
+          opacity: isActive ? 0 : 0.92,
+          pointerEvents: "none",
+          color: item.textColor,
+          transform: "translate(-50%, -50%) rotate(180deg)",
+          writingMode: "vertical-rl",
+          fontSize: "0.78rem",
+          letterSpacing: "0.04em",
+        }}
+      >
+        {item.title}
+      </span>
+    </div>
+  );
+}
 
 export default function WhatWeBuild() {
   const sectionRef = useRef<HTMLElement>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
     if (!sectionRef.current) return;
-
     const els = sectionRef.current.querySelectorAll("[data-reveal]");
     els.forEach((el) => {
       gsap.from(el, {
@@ -91,7 +170,6 @@ export default function WhatWeBuild() {
         },
       });
     });
-
     return () => ScrollTrigger.getAll().forEach((t) => t.kill());
   }, []);
 
@@ -99,86 +177,63 @@ export default function WhatWeBuild() {
     <section
       ref={sectionRef}
       id="what-we-build"
-      className="relative py-24 md:py-32 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto"
+      className="snap-section relative flex flex-col justify-center py-20 md:py-24 px-6 md:px-12 lg:px-24 bg-background"
     >
-      {/* Section label */}
-      <p
-        data-reveal
-        className="text-[11px] uppercase tracking-[0.22em] font-body font-medium mb-5"
-        style={{ color: "var(--color-cherry)" }}
-      >
-        What I Build
-      </p>
-
-      {/* Heading */}
-      <h2
-        data-reveal
-        className="font-heading font-semibold text-foreground text-balance mb-6"
-        style={{
-          fontSize: "clamp(1.8rem, 4vw, 3rem)",
-          lineHeight: 1.1,
-          letterSpacing: "-0.03em",
-          maxWidth: "36ch",
-        }}
-      >
-        The full stack,{" "}
-        <span className="text-foreground-muted">
-          under one roof.
-        </span>
-      </h2>
-
-      {/* Body */}
-      <p
-        data-reveal
-        className="font-body font-light text-foreground-muted mb-16 md:mb-20"
-        style={{ fontSize: "clamp(0.875rem, 1.5vw, 1rem)", lineHeight: 1.7, maxWidth: "60ch" }}
-      >
-        Cherry Pi operates at the intersection of creative depth and autonomous infrastructure. Brand strategy and visual identity. Web development and custom tooling. Content systems and AI pipelines that produce finished, on-brand work without human input. Everything below is built and maintained by one operator.
-      </p>
-
-      {/* Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-black/[0.06]">
-        {capabilities.map((cap) => (
-          <div
-            key={cap.number}
+      <div className="max-w-7xl w-full mx-auto">
+        {/* Header */}
+        <div className="max-w-3xl mb-12 md:mb-16">
+          <p
             data-reveal
-            className="group relative bg-background p-8 md:p-10 transition-colors duration-300 hover:bg-surface"
+            className="text-[11px] uppercase tracking-[0.22em] font-body font-medium mb-5"
+            style={{ color: "var(--color-cherry)" }}
           >
-            {/* Number + accent line */}
-            <div className="flex items-center gap-3 mb-6">
-              <span
-                className="text-[11px] font-mono tracking-widest"
-                style={{ color: "var(--color-foreground-faint)" }}
-              >
-                {cap.number}
-              </span>
-              <div
-                className="h-px flex-1 transition-all duration-500 group-hover:opacity-100 opacity-30"
-                style={{ background: accentColors[cap.accent] }}
-              />
-            </div>
+            What I Build
+          </p>
 
-            <h3
-              className="font-heading font-semibold text-foreground mb-3"
-              style={{ fontSize: "1.1rem", letterSpacing: "-0.02em" }}
-            >
-              {cap.title}
-            </h3>
+          <h2
+            data-reveal
+            className="font-heading font-semibold text-foreground text-balance mb-6"
+            style={{
+              fontSize: "clamp(1.8rem, 4vw, 3rem)",
+              lineHeight: 1.1,
+              letterSpacing: "-0.03em",
+            }}
+          >
+            The full stack,{" "}
+            <span className="text-foreground-muted">under one roof.</span>
+          </h2>
 
-            <p
-              className="font-body font-light text-foreground-muted leading-relaxed"
-              style={{ fontSize: "0.875rem" }}
-            >
-              {cap.description}
-            </p>
+          <p
+            data-reveal
+            className="font-body font-light text-foreground-muted"
+            style={{
+              fontSize: "clamp(0.875rem, 1.4vw, 1rem)",
+              lineHeight: 1.7,
+              maxWidth: "56ch",
+            }}
+          >
+            Brand strategy and visual identity. Web development and custom
+            tooling. Content systems and AI pipelines that produce finished,
+            on-brand work without human input. Everything below is built and
+            maintained by one operator.
+          </p>
+        </div>
 
-            {/* Accent dot */}
-            <div
-              className="absolute bottom-8 right-8 w-1.5 h-1.5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-              style={{ background: accentColors[cap.accent] }}
+        {/* Accordion */}
+        <div
+          data-reveal
+          className="flex flex-row items-stretch gap-2 md:gap-3 overflow-x-auto pb-2 snap-none"
+          style={{ scrollbarWidth: "none" }}
+        >
+          {items.map((item, index) => (
+            <AccordionItem
+              key={item.id}
+              item={item}
+              isActive={index === activeIndex}
+              onActivate={() => setActiveIndex(index)}
             />
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );

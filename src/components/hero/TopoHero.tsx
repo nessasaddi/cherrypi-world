@@ -96,7 +96,7 @@ export default function TopoHero() {
       {/* Main content — vertically centered */}
       <div
         ref={contentRef}
-        className="relative z-10 flex flex-col items-center justify-center flex-1 px-6 text-center pb-48"
+        className="relative z-10 flex flex-col items-center justify-center flex-1 px-6 text-center py-32"
       >
         {/* Cherry icon GIF */}
         <div data-animate>
