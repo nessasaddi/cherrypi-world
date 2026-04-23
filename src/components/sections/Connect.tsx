@@ -35,7 +35,7 @@ export default function Connect() {
     <section
       ref={sectionRef}
       id="connect"
-      className="relative py-8 md:py-12 lg:py-16 px-6 md:px-8 lg:px-12"
+      className="relative py-6 md:py-10 lg:py-12 px-6 md:px-8 lg:px-12"
     >
       {/* Ambient glow */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">

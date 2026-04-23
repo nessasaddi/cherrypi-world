@@ -6,7 +6,7 @@ import { LiquidMetalBorder } from "@/components/ui/LiquidMetalBorder";
 
 export default function HomeChat() {
   return (
-    <section id="chat" className="snap-section relative flex flex-col justify-center pt-8 pb-16 md:pt-12 md:pb-20 px-6 overflow-hidden bg-background">
+    <section id="chat" className="snap-section relative flex flex-col justify-center pt-6 pb-10 md:pt-10 md:pb-14 px-6 overflow-hidden bg-background">
       {/* Ambient blobs */}
       <div
         className="absolute pointer-events-none rounded-full"

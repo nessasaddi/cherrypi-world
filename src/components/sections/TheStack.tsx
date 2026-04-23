@@ -6,6 +6,72 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
+const ROW1 = [
+  { name: "Google", slug: "google" },
+  { name: "Google Analytics", slug: "googleanalytics" },
+  { name: "Figma", slug: "figma" },
+  { name: "Canva", slug: "canva" },
+  { name: "Blender", slug: "blender" },
+  { name: "Photoshop", slug: "adobephotoshop" },
+  { name: "Illustrator", slug: "adobeillustrator" },
+];
+
+const ROW2 = [
+  { name: "Cursor", slug: "cursor" },
+  { name: "GitHub", slug: "github" },
+  { name: "Next.js", slug: "nextdotjs" },
+  { name: "React", slug: "react" },
+  { name: "TypeScript", slug: "typescript" },
+  { name: "Tailwind", slug: "tailwindcss" },
+  { name: "Vercel", slug: "vercel" },
+  { name: "Python", slug: "python" },
+  { name: "Notion", slug: "notion" },
+  { name: "Slack", slug: "slack" },
+  { name: "Discord", slug: "discord" },
+  { name: "Telegram", slug: "telegram" },
+  { name: "Signal", slug: "signal" },
+  { name: "Meta", slug: "meta" },
+  { name: "Anthropic", slug: "anthropic" },
+  { name: "Gemini", slug: "googlegemini" },
+];
+
+function repeat<T>(arr: T[], times = 4): T[] {
+  return Array.from({ length: times }).flatMap(() => arr);
+}
+
+function AppIcon({ name, slug }: { name: string; slug: string }) {
+  return (
+    <div
+      className="flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center"
+      style={{ background: "rgba(255,255,255,0.9)", boxShadow: "0 1px 6px rgba(0,0,0,0.07)" }}
+      title={name}
+    >
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={`/icons/${slug}.svg`}
+        alt={name}
+        width={20}
+        height={20}
+        style={{ objectFit: "contain" }}
+        loading="lazy"
+        onError={(e) => {
+          const img = e.currentTarget as HTMLImageElement;
+          if (!img.dataset.fallback) {
+            img.dataset.fallback = "1";
+            img.src = `https://cdn.simpleicons.org/${slug}`;
+          } else {
+            img.style.display = "none";
+            const span = document.createElement("span");
+            span.textContent = name.charAt(0);
+            span.style.cssText = "font-size:13px;font-weight:600;color:#888;";
+            img.parentElement?.appendChild(span);
+          }
+        }}
+      />
+    </div>
+  );
+}
+
 type CardData = {
   number: string;
   title: string;
@@ -274,7 +340,7 @@ export default function TheStack() {
         }}
       >
         {/* Section header */}
-        <div className="relative px-6 md:px-8 pt-6 pb-8 md:pb-10">
+        <div className="relative px-6 md:px-8 pt-4 pb-6 md:pb-8">
           <div className="max-w-[640px] mx-auto md:text-center">
             <p
               className="text-[11px] uppercase tracking-[0.22em] font-body font-medium mb-3"
@@ -311,7 +377,7 @@ export default function TheStack() {
 
         {/* Cards stacking area */}
         <div
-          className="relative px-6 md:px-8 pb-10 md:pb-14 overflow-hidden"
+          className="relative px-6 md:px-8 pb-6 md:pb-8 overflow-hidden"
           style={{ minHeight: "54vh" }}
         >
           <div
@@ -334,6 +400,31 @@ export default function TheStack() {
                 <GlassCard card={card} />
               </div>
             ))}
+          </div>
+        </div>
+        {/* Tool marquee */}
+        <div className="relative overflow-hidden pb-8">
+          <div
+            className="absolute left-0 top-0 bottom-0 w-16 z-10 pointer-events-none"
+            style={{ background: "linear-gradient(to right, var(--color-background), transparent)" }}
+          />
+          <div
+            className="absolute right-0 top-0 bottom-0 w-16 z-10 pointer-events-none"
+            style={{ background: "linear-gradient(to left, var(--color-background), transparent)" }}
+          />
+          <div className="overflow-hidden mb-2.5">
+            <div className="flex gap-2.5 w-max" style={{ animation: "scroll-left 40s linear infinite" }}>
+              {repeat(ROW1, 5).map((app, i) => (
+                <AppIcon key={i} name={app.name} slug={app.slug} />
+              ))}
+            </div>
+          </div>
+          <div className="overflow-hidden">
+            <div className="flex gap-2.5 w-max" style={{ animation: "scroll-right 35s linear infinite" }}>
+              {repeat(ROW2, 4).map((app, i) => (
+                <AppIcon key={i} name={app.name} slug={app.slug} />
+              ))}
+            </div>
           </div>
         </div>
       </div>
