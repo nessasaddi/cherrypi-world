@@ -224,6 +224,65 @@ h1, h2, h3, h4, h5, h6 {
   border-color: #ef5541;
 }
 
+/* ── Short alias vars (used by v3 landing components) ── */
+:root {
+  --cherry: #EF5541;
+  --lavender: #AEBEFF;
+  --lime: #D0DD57;
+  --blush: #EDA599;
+  --pale-lime: #E9F2B1;
+  --bg: #f4f4f4;
+  --surface: #ebebeb;
+  --raised: #e2e2e2;
+  --fg: #242424;
+  --fg-muted: #5c5c5c;
+  --fg-faint: #9a9a9a;
+}
+
+/* ── Main layout offset for left rail ── */
+@media (min-width: 821px) {
+  .cp-main-with-rail {
+    margin-left: 72px;
+  }
+}
+
+/* ── Hide hero wordmark on mobile (top bar takes over) ── */
+@media (max-width: 820px) {
+  .cp-hero-wordmark {
+    display: none !important;
+  }
+}
+
+/* ── Studio keyframes ── */
+@keyframes cp-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.45; }
+}
+
+@keyframes cp-drift {
+  0%, 100% { transform: translate(0, 0); }
+  33% { transform: translate(12px, -18px); }
+  66% { transform: translate(-8px, 10px); }
+}
+
+@keyframes cp-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes cp-shimmer {
+  0%, 100% { background-position: 0% center; }
+  50% { background-position: 100% center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 /* === Gradient border card === */
 @property --border-angle {
   syntax: "<angle>";

@@ -1,23 +1,27 @@
-import StickyHeader from "@/components/layout/StickyHeader";
-import TopoHero from "@/components/hero/TopoHero";
-// import WhatWeBuild from "@/components/sections/WhatWeBuild"; // temporarily hidden — revisit
-import TheStack from "@/components/sections/TheStack";
-import Founder from "@/components/sections/Founder";
-import HomeChat from "@/components/sections/HomeChat";
-import Connect from "@/components/sections/Connect";
+import LeftRail from "@/components/nav/LeftRail";
+import MobileTopBar from "@/components/nav/MobileTopBar";
+import StudioOSHero from "@/components/hero/StudioOSHero";
+import Operator from "@/components/sections/Operator";
+import Stack from "@/components/sections/Stack";
+import WorkLog from "@/components/sections/WorkLog";
+import Lab from "@/components/sections/Lab";
+import Newsletter from "@/components/sections/Newsletter";
 import Footer from "@/components/sections/Footer";
 
 export default function Home() {
   return (
-    <main>
-      <StickyHeader />
-      <TopoHero />
-      {/* <WhatWeBuild /> */}
-      <TheStack />
-      <Founder />
-      <HomeChat />
-      <Connect />
-      <Footer />
-    </main>
+    <>
+      <LeftRail />
+      <MobileTopBar />
+      <main className="cp-main-with-rail">
+        <StudioOSHero />
+        <Operator />
+        <Stack />
+        <WorkLog />
+        <Lab />
+        <Newsletter />
+        <Footer />
+      </main>
+    </>
   );
 }
