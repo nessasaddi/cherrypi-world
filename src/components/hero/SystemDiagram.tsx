@@ -53,7 +53,7 @@ export default function SystemDiagram() {
             </circle>
             <text className="cp-diag-label" x={x} y={y + 28} textAnchor="middle" fontFamily="JetBrains Mono, monospace" fontSize="9.5" fill={C.fgMuted}>
               <tspan x={x}>{n.l1}</tspan>
-              <tspan x={x} dy="11">{n.l2}</tspan>
+              <tspan x={x} dy="11">/ {n.l2}</tspan>
             </text>
           </g>
         );
