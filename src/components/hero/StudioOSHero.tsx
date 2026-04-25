@@ -47,14 +47,6 @@ export default function StudioOSHero() {
       {/* Grid overlay */}
       <div aria-hidden style={{ position: 'absolute', inset: 0, pointerEvents: 'none', backgroundImage: 'linear-gradient(rgba(36,36,36,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(36,36,36,0.08) 1px, transparent 1px)', backgroundSize: '48px 48px', maskImage: 'radial-gradient(ellipse at center, black 40%, transparent 80%)', WebkitMaskImage: 'radial-gradient(ellipse at center, black 40%, transparent 80%)' }} />
 
-      {/* Top meta row */}
-      <div data-reveal style={{ position: 'relative', display: 'flex', justifyContent: 'flex-end', alignItems: 'center', flexWrap: 'wrap', gap: 12, marginBottom: 'clamp(40px, 8vh, 80px)' }}>
-        <span style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '5px 12px', border: '1px solid rgba(36,36,36,0.15)', borderRadius: 6, background: 'rgba(255,255,255,0.5)', fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--fg-muted)' }}>
-          <span style={{ display: 'inline-block', width: 6, height: 6, borderRadius: '50%', background: 'var(--lime)', boxShadow: '0 0 0 3px rgba(208,221,87,0.22)', animation: 'cp-pulse 1.8s ease-in-out infinite' }} />
-          6 agents · running · 2,847 / mo
-        </span>
-      </div>
-
       {/* Two-column grid */}
       <div style={{ position: 'relative', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 380px), 1fr))', gap: 'clamp(28px, 4vw, 60px)', alignItems: 'center' }}>
 
