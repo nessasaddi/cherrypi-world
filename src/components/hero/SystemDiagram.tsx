@@ -4,12 +4,12 @@ const C = {
 };
 
 const NODES = [
-  { a: 0,   l: 'voice',  c: C.cherry },
-  { a: 60,  l: 'gen',    c: C.lavender },
-  { a: 120, l: 'score',  c: C.lime },
-  { a: 180, l: 'comp',   c: C.blush },
-  { a: 240, l: 'sched',  c: C.cherry },
-  { a: 300, l: 'deploy', c: C.lavender },
+  { a: 0,   l1: 'brand voice',        l2: 'copy',           c: C.cherry },
+  { a: 60,  l1: 'generative content', l2: 'image · video',  c: C.lavender },
+  { a: 120, l1: 'quality scoring',    l2: 'evals',          c: C.lime },
+  { a: 180, l1: 'composition',        l2: 'layout',         c: C.blush },
+  { a: 240, l1: 'scheduling',         l2: 'posting',        c: C.cherry },
+  { a: 300, l1: 'shipping',           l2: 'publishing',     c: C.lavender },
 ];
 
 export default function SystemDiagram() {
@@ -17,6 +17,7 @@ export default function SystemDiagram() {
 
   return (
     <svg viewBox="0 0 300 300" style={{ width: '100%', height: '100%' }}>
+      <style>{`@media (max-width: 820px) { .cp-diag-label { font-size: 9px; } }`}</style>
       {/* Concentric dashed rings */}
       {[60, 100, 140].map((r) => (
         <circle key={r} cx={cx} cy={cy} r={r} fill="none" stroke={`${C.fg}26`} strokeDasharray="2 4" />
@@ -50,7 +51,10 @@ export default function SystemDiagram() {
             <circle cx={x} cy={y} r={5} fill={n.c}>
               <animate attributeName="opacity" values="1;0.4;1" dur={`${2 + i * 0.3}s`} repeatCount="indefinite" />
             </circle>
-            <text x={x} y={y + 30} textAnchor="middle" fontFamily="JetBrains Mono, monospace" fontSize="10" fill={C.fgMuted}>{n.l}</text>
+            <text className="cp-diag-label" x={x} y={y + 28} textAnchor="middle" fontFamily="JetBrains Mono, monospace" fontSize="9.5" fill={C.fgMuted}>
+              <tspan x={x}>{n.l1}</tspan>
+              <tspan x={x} dy="11">{n.l2}</tspan>
+            </text>
           </g>
         );
       })}
