@@ -1,14 +1,15 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
+const SUBSTACK_SUBSCRIBE = 'https://ch3rrypi.substack.com/subscribe';
+
 export default function Newsletter() {
   const ref = useRef<HTMLElement>(null);
-  const [email, setEmail] = useState('');
 
   useEffect(() => {
     const el = ref.current;
@@ -43,14 +44,17 @@ export default function Newsletter() {
           <div>
             <pre style={{ fontFamily: 'var(--font-mono)', fontSize: 12, color: 'rgba(244,244,244,0.5)', margin: '0 0 10px' }}>❯ cherry subscribe</pre>
             <form
-              onSubmit={(e) => e.preventDefault()}
+              action={SUBSTACK_SUBSCRIBE}
+              method="GET"
+              target="_blank"
+              rel="noopener"
               style={{ display: 'flex', gap: 8, background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.15)', borderRadius: 10, padding: 6 }}
             >
               <input
                 type="email"
+                name="email"
+                required
                 placeholder="you@domain.com"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
                 style={{ flex: 1, border: 'none', background: 'transparent', padding: '12px 14px', fontFamily: 'var(--font-mono)', fontSize: 13, outline: 'none', color: 'var(--bg)', minWidth: 0 }}
               />
               <button
