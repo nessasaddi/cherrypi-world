@@ -35,10 +35,31 @@ const jetbrainsMono = JetBrains_Mono({
   weight: ["300", "400", "500", "700"],
 });
 
+const SITE_URL = "https://cherrypi.world";
+
 export const metadata: Metadata = {
-  title: "CherryPi — Start a New Project",
+  metadataBase: new URL(SITE_URL),
+  title: "Cherry Pi — AI Creative Studio & Brand Operator",
   description:
-    "CherryPi is a creative technology studio building at the intersection of design and engineering.",
+    "Cherry Pi is a California-based AI creative studio. Brand strategy, design, autonomous content pipelines, and full-stack web — built and run by one operator.",
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    url: SITE_URL,
+    siteName: "Cherry Pi",
+    title: "Cherry Pi — AI Creative Studio & Brand Operator",
+    description:
+      "Brand strategy, design, autonomous content pipelines, and full-stack web — engineered like software. California, est. 2023.",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Cherry Pi" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Cherry Pi — AI Creative Studio & Brand Operator",
+    description:
+      "Brand strategy, design, autonomous content pipelines, and full-stack web — engineered like software.",
+    images: ["/og-image.png"],
+  },
+  robots: { index: true, follow: true },
 };
 
 export const viewport = {
@@ -58,6 +79,29 @@ export default function RootLayout({
         className={`${syne.variable} ${outfit.variable} ${spaceGrotesk.variable} ${dmSans.variable} ${jetbrainsMono.variable} antialiased bg-background text-foreground`}
       >
         {children}
+        <Script
+          id="json-ld"
+          type="application/ld+json"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            name: "Cherry Pi",
+            url: SITE_URL,
+            logo: `${SITE_URL}/logos/cherry-pi-logo.png`,
+            description: "Cherry Pi is a California-based AI creative studio offering brand strategy, design, autonomous content pipelines, custom AI tooling, and full-stack web infrastructure.",
+            founder: { "@type": "Person", name: "Vanessa Saddi" },
+            foundingDate: "2023",
+            areaServed: "Worldwide",
+            address: { "@type": "PostalAddress", addressRegion: "CA", addressCountry: "US" },
+            contactPoint: { "@type": "ContactPoint", email: "hello@cherrypi.world", contactType: "customer service" },
+            sameAs: [
+              "https://www.linkedin.com/company/cherrypi",
+              "https://www.instagram.com/cherrypi.wrld",
+            ],
+            knowsAbout: ["AI branding", "autonomous content pipelines", "brand identity", "web development", "creative AI tooling"],
+          })}}
+        />
         <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="afterInteractive" />
         <Script id="ga-init" strategy="afterInteractive">{`
           window.dataLayer = window.dataLayer || [];
