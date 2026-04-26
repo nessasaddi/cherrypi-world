@@ -6,7 +6,7 @@ export interface CardData {
   n: string;
   title: string;
   body: string;
-  metric: string;
+  metrics: string[];
   accent: string;
 }
 
@@ -39,27 +39,27 @@ export default function GlassSpecimen({ card }: { card: CardData }) {
     >
       {/* Shine stripe */}
       <div style={{ position: 'absolute', top: 0, left: '10%', right: '10%', height: 1, background: 'linear-gradient(to right, transparent, rgba(255,255,255,0.9), transparent)' }} />
-      {/* Accent corner glow */}
-      <div style={{ position: 'absolute', top: -60, right: -60, width: 220, height: 220, background: `radial-gradient(circle, ${card.accent}59 0%, transparent 70%)`, filter: 'blur(10px)', pointerEvents: 'none' }} />
-
       <div style={{ position: 'relative' }}>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 20 }}>
           <span style={{ fontFamily: 'var(--font-mono)', fontSize: 10, letterSpacing: '0.22em', textTransform: 'uppercase', color: textAccent, fontWeight: 500 }}>{card.n}</span>
-          <div style={{ width: 34, height: 34, borderRadius: '50%', background: `${card.accent}40`, border: `1px solid ${card.accent}88`, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <div style={{ width: 7, height: 7, borderRadius: '50%', background: card.accent }} />
+          <div style={{ width: 30, height: 30, borderRadius: '50%', background: `${card.accent}40`, border: `1px solid ${card.accent}88`, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <div style={{ width: 6, height: 6, borderRadius: '50%', background: card.accent }} />
           </div>
         </div>
         <h3 style={{ fontFamily: 'var(--font-heading)', fontWeight: 500, fontSize: 'clamp(22px, 2.4vw, 30px)', lineHeight: 1.05, letterSpacing: '-0.025em', margin: 0, color: 'var(--fg)' }}>
           {card.title}
         </h3>
-        <p style={{ fontFamily: 'var(--font-body)', fontWeight: 300, fontSize: 'clamp(14px, 1.1vw, 15px)', lineHeight: 1.6, color: 'var(--fg-muted)', margin: '16px 0 0' }}>
+        <p style={{ fontFamily: 'var(--font-body)', fontWeight: 300, fontSize: 'clamp(14px, 1.1vw, 15px)', lineHeight: 1.6, color: 'var(--fg-muted)', margin: '16px 0 0', textWrap: 'balance' } as React.CSSProperties}>
           {card.body}
         </p>
       </div>
 
-      <div style={{ position: 'relative', marginTop: 24, display: 'inline-flex', alignSelf: 'flex-start', alignItems: 'center', gap: 8, padding: '8px 14px', borderRadius: 999, background: `${card.accent}38`, border: `1px solid ${card.accent}66` }}>
-        <span style={{ width: 5, height: 5, borderRadius: '50%', background: card.accent, flexShrink: 0 }} />
-        <span style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: textAccent, letterSpacing: '0.1em' }}>{card.metric}</span>
+      <div style={{ position: 'relative', marginTop: 24, display: 'flex', flexWrap: 'wrap', gap: 6, maxWidth: '88%', textWrap: 'balance' } as React.CSSProperties}>
+        {card.metrics.map((m) => (
+          <div key={m} style={{ display: 'inline-flex', alignItems: 'center', gap: 6, padding: '4px 9px', borderRadius: 999, background: 'transparent', border: '1px solid rgba(0,0,0,0.12)' }}>
+            <span style={{ fontFamily: 'var(--font-mono)', fontSize: 9, color: 'var(--fg-muted)', letterSpacing: '0.08em' }}>{m}</span>
+          </div>
+        ))}
       </div>
     </div>
   );

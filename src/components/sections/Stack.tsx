@@ -8,10 +8,10 @@ import GlassSpecimen from './GlassSpecimen';
 gsap.registerPlugin(ScrollTrigger);
 
 const CARDS = [
-  { n: '01', title: 'Autonomous Content Infrastructure', body: 'Brand context in. Thirty days of on-brand content out. End-to-end pipeline, zero manual steps.', metric: '30 days / single input', accent: '#EF5541' },
-  { n: '02', title: 'Studio Operating System', body: 'Unified workspace powering brand context, task routing, and AI orchestration across every engagement.', metric: '90+ tools · one layer', accent: '#AEBEFF' },
-  { n: '03', title: 'Custom AI Tooling', body: 'Purpose-built tools encoding domain methodology — not generic prompts. Workflows with guardrails, voice, production output.', metric: '5 platforms · 0 handoffs', accent: '#D0DD57' },
-  { n: '04', title: 'Web Infrastructure', body: 'Production applications, CI/CD, direct repo access. Full-stack dev, GitHub-native.', metric: 'Next · React · TS · Vercel', accent: '#EDA599' },
+  { n: '01', title: 'Autonomous Content Infrastructure', body: 'Brand context in. Thirty days of on-brand content out. End-to-end pipeline, zero manual steps.', metrics: ['months of content, one input', 'ready to post', 'on-brand, every time', 'visuals + captions included', 'zero back-and-forth'], accent: '#EF5541' },
+  { n: '02', title: 'Studio Operating System', body: 'Unified workspace powering brand context, task routing, and AI orchestration across every engagement.', metrics: ['all your tools, connected', 'tasks handled automatically', 'runs 24/7', 'nothing slips', 'one place, everything'], accent: '#AEBEFF' },
+  { n: '03', title: 'Custom AI Tooling', body: 'Purpose-built tools encoding domain methodology — not generic prompts. Workflows with guardrails, voice, production output.', metrics: ['sounds like your brand', 'not generic AI', 'built for your workflow', 'consistent every time', 'your rules, always'], accent: '#D0DD57' },
+  { n: '04', title: 'Web Infrastructure', body: 'Production applications, CI/CD, direct repo access. Full-stack dev, GitHub-native.', metrics: ['live sites, not mockups', 'updates in hours', 'you own everything', 'never goes down', 'scales with you'], accent: '#EDA599' },
 ];
 
 export default function Stack() {
