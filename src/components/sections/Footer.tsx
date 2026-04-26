@@ -56,7 +56,7 @@ export default function Footer() {
       </div>
 
       <div style={{ marginTop: 36, paddingTop: 20, borderTop: '1px solid rgba(255,255,255,0.08)', display: 'flex', justifyContent: 'space-between', fontFamily: 'var(--font-mono)', fontSize: 10, color: 'rgba(244,244,244,0.4)', letterSpacing: '0.1em', flexWrap: 'wrap', gap: 10 }}>
-        <span>© CHERRY PI · 2023—2026 · CA</span>
+        <span>© 2026 Cherry Pi Creative Studio · DBA of{' '}<a href="http://dvncidigital.com" target="_blank" rel="noopener noreferrer" style={{ color: 'rgba(244,244,244,0.4)', textDecoration: 'underline', textUnderlineOffset: 3 }}>Dvnci Digital LLC</a>{' '}· California</span>
         <span>RUNNING · ∞</span>
       </div>
     </footer>
