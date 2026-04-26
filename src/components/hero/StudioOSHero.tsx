@@ -7,13 +7,6 @@ import SystemDiagram from './SystemDiagram';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const STATS = [
-  { k: 'SHIPPED · 30D', v: '2,847', c: 'var(--cherry)' },
-  { k: 'TOOLS · PROD',  v: '90+',   c: 'var(--lavender)' },
-  { k: 'UPTIME · 90D',  v: '99.97%', c: '#7e8a2a' },
-  { k: 'AVG GEN',       v: '7.2s',  c: 'var(--blush)' },
-];
-
 export default function StudioOSHero() {
   const ref = useRef<HTMLElement>(null);
 
@@ -35,8 +28,8 @@ export default function StudioOSHero() {
       id="hero"
       ref={ref}
       style={{
-        position: 'relative', minHeight: '100vh',
-        padding: 'clamp(80px, 10vh, 120px) clamp(20px, 5vw, 60px) 120px',
+        position: 'relative',
+        padding: 'clamp(80px, 10vh, 120px) clamp(20px, 5vw, 60px) clamp(40px, 5vh, 60px)',
         overflow: 'hidden',
       }}
     >
@@ -101,24 +94,10 @@ export default function StudioOSHero() {
         </div>
       </div>
 
-      {/* Stat strip */}
-      <div data-reveal className="cp-stat-grid" style={{ marginTop: 'clamp(40px, 8vh, 80px)', paddingTop: 24, borderTop: '1px solid rgba(36,36,36,0.12)', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: 'clamp(16px, 3vw, 40px)' }}>
-        {STATS.map((s) => (
-          <div key={s.k}>
-            <div className="cp-stat-label" style={{ fontFamily: 'var(--font-mono)', fontSize: 10, letterSpacing: '0.15em', color: 'var(--fg-muted)', marginBottom: 6 }}>{s.k}</div>
-            <div className="cp-stat-val" style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(22px, 3vw, 32px)', fontWeight: 500, color: s.c, letterSpacing: '-0.02em' }}>{s.v}</div>
-          </div>
-        ))}
-      </div>
-
       <style>{`
-        .cp-stat-grid > div { text-align: center; }
         @media (max-width: 820px) {
           .cp-hero-btns { flex-wrap: nowrap; }
           .cp-hero-btn { flex: 1; min-width: 0; padding: 11px 14px !important; font-size: 12px !important; white-space: nowrap; }
-          .cp-stat-grid { grid-template-columns: repeat(4, minmax(0, 1fr)) !important; gap: 8px !important; }
-          .cp-stat-label { font-size: 7px !important; letter-spacing: 0.05em !important; }
-          .cp-stat-val { font-size: 20px !important; }
         }
       `}</style>
     </section>
