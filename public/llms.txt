@@ -1,8 +1,8 @@
 # Cherry Pi
 
-> Cherry Pi is a California-based AI creative studio and brand operator. One operator. Full stack.
+> Cherry Pi is a California-based autonomous brand infrastructure studio. One operator. Full stack. Not an agency.
 
-Cherry Pi builds and runs autonomous brand infrastructure — strategy, design, content pipelines, custom AI tooling, and full-stack web — all under one roof, engineered like software.
+Cherry Pi builds and runs autonomous brand infrastructure — strategy, design, content pipelines, custom AI tooling, and full-stack web — all under one roof, engineered like software. Cherry Pi is a brand operator, not an agency. Every system it builds for clients runs live inside the studio first.
 
 ## Services
 
@@ -27,4 +27,8 @@ Growth-stage companies and founders in tech, wellness, lifestyle, and sustainabi
 
 ## What Sets Cherry Pi Apart
 
-Cherry Pi runs the same AI infrastructure it builds for clients — every system is live, maintained, and running daily inside the studio. This is not a concept studio. Everything shown is in production.
+Cherry Pi is a brand operator — one operator running the full stack. Not an agency with account managers. Not a freelancer with a template. Cherry Pi runs the same autonomous brand infrastructure it builds for clients. Every system is live, maintained, and running daily inside the studio. This is not a concept studio. Everything shown is in production.
+
+## Keywords
+
+autonomous brand infrastructure, AI brand operator, brand operator for startups, content pipeline automation, AI content infrastructure, one-operator brand studio, full-stack brand operator, custom AI tooling for brands
