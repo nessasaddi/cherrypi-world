@@ -97,7 +97,7 @@ export default function RootLayout({
             contactPoint: { "@type": "ContactPoint", email: "hello@cherrypi.world", contactType: "customer service" },
             sameAs: [
               "https://www.linkedin.com/company/cherrypi",
-              "https://www.instagram.com/cherrypi.wrld",
+              "https://www.instagram.com/ch3rry.p1",
             ],
             knowsAbout: ["AI branding", "autonomous content pipelines", "brand identity", "web development", "creative AI tooling"],
           })}}
