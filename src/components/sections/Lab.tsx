@@ -31,7 +31,7 @@ export default function Lab() {
   }, []);
 
   return (
-    <section id="live" ref={ref} style={{ position: 'relative', padding: 'clamp(80px, 14vh, 160px) clamp(20px, 5vw, 80px)', background: 'var(--fg)', color: 'var(--bg)', overflow: 'hidden', borderTopLeftRadius: 'clamp(24px, 4vw, 48px)', borderTopRightRadius: 'clamp(24px, 4vw, 48px)', marginTop: -1 }}>
+    <section id="live" ref={ref} style={{ position: 'relative', padding: 'clamp(48px, 8vh, 96px) clamp(20px, 5vw, 80px)', background: 'var(--fg)', color: 'var(--bg)', overflow: 'hidden', borderTopLeftRadius: 'clamp(24px, 4vw, 48px)', borderTopRightRadius: 'clamp(24px, 4vw, 48px)', marginTop: -1 }}>
       <div aria-hidden style={{ position: 'absolute', top: '-20%', right: '-10%', width: 700, height: 700, background: 'radial-gradient(circle, rgba(239,85,65,0.35) 0%, transparent 65%)', filter: 'blur(50px)' }} />
       <div aria-hidden style={{ position: 'absolute', bottom: '-20%', left: '-10%', width: 600, height: 600, background: 'radial-gradient(circle, rgba(174,190,255,0.30) 0%, transparent 65%)', filter: 'blur(50px)' }} />
 

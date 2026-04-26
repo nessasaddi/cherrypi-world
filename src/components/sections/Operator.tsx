@@ -38,7 +38,7 @@ export default function Operator() {
       ref={ref}
       style={{
         position: 'relative',
-        padding: 'clamp(80px, 14vh, 160px) clamp(20px, 5vw, 80px)',
+        padding: 'clamp(48px, 8vh, 96px) clamp(20px, 5vw, 80px)',
         background: 'var(--fg)', color: 'var(--bg)', overflow: 'hidden',
         borderTopLeftRadius: 'clamp(24px, 4vw, 48px)',
         borderTopRightRadius: 'clamp(24px, 4vw, 48px)',
@@ -67,7 +67,7 @@ export default function Operator() {
             </span>
           </h2>
           <p style={{ fontFamily: 'var(--font-body)', fontWeight: 300, fontSize: 'clamp(15px, 1.3vw, 17px)', lineHeight: 1.6, color: 'rgba(244,244,244,0.7)', margin: '28px 0 0', maxWidth: 480 }}>
-            A closed-loop studio running on proprietary infrastructure. Brand strategy, content production, and full-stack engineering — designed, built, and shipped without agency overhead or creative middlemen.
+            A closed-loop studio running on proprietary infrastructure. Brand strategy, content production, and full-stack engineering — designed, built, and shipped by Vanessa.
           </p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(120px, 1fr))', gap: 8, marginTop: 28, maxWidth: 480 }}>
             {CAPABILITIES.map(([k, v]) => (

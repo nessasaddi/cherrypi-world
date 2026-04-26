@@ -24,7 +24,7 @@ export default function Newsletter() {
   }, []);
 
   return (
-    <section id="connect" ref={ref} style={{ position: 'relative', padding: 'clamp(80px, 14vh, 160px) clamp(20px, 5vw, 80px)' }}>
+    <section id="connect" ref={ref} style={{ position: 'relative', padding: 'clamp(48px, 8vh, 96px) clamp(20px, 5vw, 80px)' }}>
       <div data-reveal style={{ background: 'var(--fg)', color: 'var(--bg)', borderRadius: 24, padding: 'clamp(32px, 5vw, 72px)', position: 'relative', overflow: 'hidden' }}>
         <div aria-hidden style={{ position: 'absolute', top: '-30%', right: '-20%', width: 500, height: 500, background: 'radial-gradient(circle, rgba(239,85,65,0.45) 0%, transparent 70%)', filter: 'blur(50px)' }} />
         <div aria-hidden style={{ position: 'absolute', bottom: '-30%', left: '-20%', width: 500, height: 500, background: 'radial-gradient(circle, rgba(174,190,255,0.30) 0%, transparent 70%)', filter: 'blur(50px)' }} />

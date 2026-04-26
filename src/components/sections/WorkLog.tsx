@@ -63,7 +63,7 @@ export default function WorkLog() {
   }, []);
 
   return (
-    <section id="work" ref={ref} style={{ position: 'relative', padding: 'clamp(80px, 14vh, 160px) clamp(20px, 5vw, 80px)' }}>
+    <section id="work" ref={ref} style={{ position: 'relative', padding: 'clamp(48px, 8vh, 96px) clamp(20px, 5vw, 80px)' }}>
       <div data-reveal style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: 36, flexWrap: 'wrap', gap: 12 }}>
         <div>
           <span style={{ fontFamily: 'var(--font-mono)', fontSize: 10, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--cherry)', fontWeight: 500 }}>§ 04 · Work</span>
