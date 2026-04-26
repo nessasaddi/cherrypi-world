@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Syne, Outfit, Space_Grotesk, DM_Sans, JetBrains_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
+
+const GA_ID = "G-3S3Q93LXN0";
 
 const syne = Syne({
   variable: "--font-syne",
@@ -55,6 +58,13 @@ export default function RootLayout({
         className={`${syne.variable} ${outfit.variable} ${spaceGrotesk.variable} ${dmSans.variable} ${jetbrainsMono.variable} antialiased bg-background text-foreground`}
       >
         {children}
+        <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="afterInteractive" />
+        <Script id="ga-init" strategy="afterInteractive">{`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', '${GA_ID}');
+        `}</Script>
       </body>
     </html>
   );

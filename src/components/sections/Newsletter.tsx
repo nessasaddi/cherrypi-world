@@ -65,7 +65,7 @@ export default function Newsletter() {
               </button>
             </form>
             <div style={{ marginTop: 14, fontFamily: 'var(--font-mono)', fontSize: 10, color: 'rgba(244,244,244,0.4)', letterSpacing: '0.1em' }}>
-              → 776 readers · → no spam · → unsub anytime
+              → no spam · → unsubscribe anytime
             </div>
           </div>
         </div>
