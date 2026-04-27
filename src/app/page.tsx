@@ -3,8 +3,7 @@ import MobileTopBar from "@/components/nav/MobileTopBar";
 import StudioOSHero from "@/components/hero/StudioOSHero";
 import Operator from "@/components/sections/Operator";
 import Stack from "@/components/sections/Stack";
-import WorkLog from "@/components/sections/WorkLog";
-import Lab from "@/components/sections/Lab";
+import InProduction from "@/components/sections/InProduction";
 import Newsletter from "@/components/sections/Newsletter";
 import Footer from "@/components/sections/Footer";
 
@@ -17,8 +16,7 @@ export default function Home() {
         <StudioOSHero />
         <Operator />
         <Stack />
-        <WorkLog />
-        <Lab />
+        <InProduction />
         <Newsletter />
         <Footer />
       </main>
