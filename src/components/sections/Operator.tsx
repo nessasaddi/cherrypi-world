@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import Image from 'next/image';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -86,8 +87,15 @@ export default function Operator() {
 
         {/* Right column — Portrait placeholder */}
         <div data-reveal style={{ position: 'relative', width: '100%', maxWidth: 420, aspectRatio: '4/5', margin: '0 auto' }}>
-          <div style={{ position: 'absolute', inset: 0, borderRadius: 16, overflow: 'hidden', border: '1px solid rgba(255,255,255,0.12)', background: '#2a2a2a', backgroundImage: 'repeating-linear-gradient(135deg, rgba(255,255,255,0.08) 0 8px, transparent 8px 18px)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'var(--font-mono)', fontSize: 10, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.25)' }}>
-            PORTRAIT · V.SADDI · 2026
+          <div style={{ position: 'absolute', inset: 0, borderRadius: 16, overflow: 'hidden', border: '1px solid rgba(255,255,255,0.12)' }}>
+            <Image
+              src="/portrait-vsaddi.jpg"
+              alt="Vanessa Saddi — founder, Cherry Pi"
+              fill
+              style={{ objectFit: 'cover', objectPosition: 'center top' }}
+              sizes="(max-width: 768px) 100vw, 420px"
+              priority
+            />
           </div>
           {CORNERS.map((p) => (
             <span key={p} style={{ position: 'absolute', width: 18, height: 18, top: p.includes('t') ? -4 : 'auto', bottom: p.includes('b') ? -4 : 'auto', left: p.includes('l') ? -4 : 'auto', right: p.includes('r') ? -4 : 'auto', borderTop: p.includes('t') ? '1px solid var(--cherry)' : 'none', borderBottom: p.includes('b') ? '1px solid var(--cherry)' : 'none', borderLeft: p.includes('l') ? '1px solid var(--cherry)' : 'none', borderRight: p.includes('r') ? '1px solid var(--cherry)' : 'none' }} />

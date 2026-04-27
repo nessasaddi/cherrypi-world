@@ -50,9 +50,8 @@ export default function InProduction() {
       <div data-reveal style={{ position: 'relative', display: 'grid', gridTemplateColumns: '1fr auto', gap: 16, alignItems: 'end', marginBottom: 'clamp(40px, 5vw, 70px)' }}>
         <div>
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: 10 }}>
-            <span style={{ display: 'inline-block', width: 6, height: 6, borderRadius: '50%', background: 'var(--blush)', boxShadow: '0 0 0 3px rgba(237,165,153,0.22)', animation: 'cp-pulse 1.8s ease-in-out infinite' }} />
             <span style={{ fontFamily: 'var(--font-mono)', fontSize: 10, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--blush)', fontWeight: 500 }}>
-              § 04 · In production · live
+              § 04 · Live
             </span>
           </div>
           <GlitchTitle>
