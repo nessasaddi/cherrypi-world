@@ -233,9 +233,6 @@ export default function InProduction() {
 
         {/* ── System 1: The Generator ── */}
         <div style={{ marginBottom: 'clamp(60px, 8vw, 100px)' }}>
-          <div style={{ fontFamily: 'var(--font-mono)', fontSize: 9, color: 'rgba(255,250,240,0.35)', letterSpacing: '0.22em', textTransform: 'uppercase', marginBottom: 20, paddingBottom: 10, borderBottom: '1px dashed rgba(255,250,240,0.1)' }}>
-            system 1 / the_generator
-          </div>
           <div style={{ marginBottom: 'clamp(40px, 6vw, 72px)' }}>
             <FlowChart />
           </div>
