@@ -502,16 +502,13 @@ function FlowChartMobile() {
     <div style={{ color: 'var(--paper)' }}>
 
         {/* header */}
-        <div style={{ paddingBottom: 18, borderBottom: '1px solid rgba(255,250,240,0.08)', marginBottom: 20 }}>
+        <div style={{ paddingBottom: 14, borderBottom: '1px solid rgba(255,250,240,0.08)', marginBottom: 20 }}>
           <div style={{ fontFamily: 'var(--font-mono)', fontSize: 9, color: 'var(--cherry)', letterSpacing: '0.22em', textTransform: 'uppercase', marginBottom: 8 }}>
             frame 01 / generator
           </div>
-          <h3 className="h-display" style={{ fontSize: 28, color: 'var(--paper)', lineHeight: 1.02, margin: 0 }}>
-            How the<br /><em style={{ fontStyle: 'italic', color: 'var(--butter)' }}>engine</em> works.
+          <h3 className="h-display" style={{ fontSize: 26, color: 'var(--paper)', lineHeight: 1.05, margin: 0 }}>
+            How the <em style={{ fontStyle: 'italic', color: 'var(--butter)' }}>engine</em> works.
           </h3>
-          <p style={{ fontFamily: 'var(--font-body)', fontSize: 12, color: 'rgba(255,250,240,0.6)', lineHeight: 1.55, margin: '12px 0 0' }}>
-            Three brands. Three sets of DNA. One generator quietly publishing a week of content for each — without anyone asking.
-          </p>
         </div>
 
         {/* step 1: DNA */}

@@ -22,7 +22,7 @@ export default function Hero() {
             Design, content, code, and fully autonomous pipelines running as one operating system. <span className="marker">One mind. All layers.</span>
           </p>
           <div style={{ display: 'flex', gap: 12, marginTop: 36, flexWrap: 'wrap' }}>
-            <a href="#connect" className="btn primary">→ start a project</a>
+            <a href="#connect" className="btn primary">→ subscribe</a>
             <a href="#stack" className="btn ghost">read the stack</a>
           </div>
         </div>

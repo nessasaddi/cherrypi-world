@@ -49,9 +49,9 @@ function useCountdown(target: number) {
 }
 
 function Countdown() {
-  const target = new Date('2027-05-05T16:00:00Z').getTime();
+  const target = new Date('2026-05-05T07:00:00Z').getTime(); // Tue May 5 midnight PT
   const { d, h, m, s, raw } = useCountdown(target);
-  const total = 60 * 86400000;
+  const total = 8 * 86400000; // 8-day window: Apr 27 → May 5
   const pct = Math.max(0, Math.min(1, 1 - raw / total)) * 100;
 
   const Cell = ({ v, label }: { v: number; label: string }) => (
