@@ -367,10 +367,7 @@ h1, h2, h3, h4, h5, h6 {
 .h-display em { font-style: italic; color: var(--cherry); }
 .h-ui { font-family: var(--font-ui); font-weight: 500; letter-spacing: -0.03em; }
 
-.marker {
-  background: linear-gradient(180deg, transparent 60%, var(--highlight) 60% 92%, transparent 92%);
-  padding: 0 3px;
-}
+.marker {}
 
 /* ── Stickers ── */
 .sticker {
