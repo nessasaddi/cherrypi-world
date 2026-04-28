@@ -43,7 +43,7 @@ export default function TweaksProvider() {
     <>
       <aside className="left-rail" aria-label="primary">
         <div className="logo" style={{ background: 'none' }}>
-          <Image src="/logos/cherry-icon.svg" width={36} height={36} alt="Cherry Pi" />
+          <Image src="/logos/cherry-animated.gif" width={31} height={40} alt="Cherry Pi" unoptimized />
         </div>
         <a className="nav-link" href="#hero">home</a>
         <a className="nav-link" href="#operator">operator</a>
@@ -54,10 +54,20 @@ export default function TweaksProvider() {
       </aside>
 
       <header className="top-bar">
-        <span className="wm">
-          <Image src="/logos/wordmark.svg" width={0} height={22} alt="Cherry Pi" style={{ width: 'auto', height: 22 }} />
-        </span>
-        <a href="#connect" className="btn primary" style={{ padding: '8px 14px', fontSize: 12 }}>→ start</a>
+        <div className="top-bar-row">
+          <span className="wm" style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+            <Image src="/logos/cherry-animated.gif" width={26} height={34} alt="" unoptimized />
+            <Image src="/logos/wordmark.svg" width={0} height={22} alt="Cherry Pi" style={{ width: 'auto', height: 22 }} />
+          </span>
+          <a href="#connect" className="btn primary">→ start</a>
+        </div>
+        <nav className="top-bar-nav">
+          <a href="#hero">home</a>
+          <a href="#operator">operator</a>
+          <a href="#stack">stack</a>
+          <a href="#in-production">in&nbsp;prod</a>
+          <a href="#connect">connect</a>
+        </nav>
       </header>
 
       <main className="with-rail">

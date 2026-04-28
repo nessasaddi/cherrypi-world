@@ -18,6 +18,7 @@ export default function SystemDiagram() {
   return (
     <svg viewBox="0 0 300 300" style={{ width: '100%', height: '100%' }}>
       <style>{`@media (max-width: 820px) { .cp-diag-label { font-size: 9px; } }`}</style>
+      <g transform="translate(150,150) scale(0.9) translate(-150,-150)">
       {/* Concentric dashed rings */}
       {[60, 100, 140].map((r) => (
         <circle key={r} cx={cx} cy={cy} r={r} fill="none" stroke={`${C.fg}26`} strokeDasharray="2 4" />
@@ -73,6 +74,7 @@ export default function SystemDiagram() {
           </circle>
         );
       })}
+      </g>
     </svg>
   );
 }
