@@ -1,6 +1,7 @@
 'use client';
 
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import FlowChart from './FlowChart';
 
 // ── GlitchTitle ──────────────────────────────────────────────────────────────
 
@@ -31,95 +32,6 @@ function GlitchTitle({ children, accent = 'var(--cherry)', alt = 'var(--lavender
   );
 }
 
-// ── ReelCard + ReelCarousel ──────────────────────────────────────────────────
-
-const PALETTES = [
-  { bg: 'linear-gradient(160deg, #FFD97A 0%, #EDA599 100%)', label: 'sunset shop' },
-  { bg: 'linear-gradient(180deg, #AEBEFF 0%, #8a9ce8 100%)', label: 'lavender labs' },
-  { bg: 'linear-gradient(160deg, #B8E3C9 0%, #D0DD57 100%)', label: 'mint notes' },
-  { bg: 'linear-gradient(170deg, #EF5541 0%, #b73a2c 100%)', label: 'cherry co.' },
-  { bg: 'linear-gradient(180deg, #2b2622 0%, #5a4f47 100%)', label: 'ink studio' },
-  { bg: 'linear-gradient(150deg, #FFD97A 0%, #FFF3A8 100%)', label: 'butter lane' },
-  { bg: 'linear-gradient(170deg, #EDA599 0%, #AEBEFF 100%)', label: 'softwear' },
-];
-
-function ReelCard({ p, i, count }: { p: typeof PALETTES[0]; i: number; count: number }) {
-  return (
-    <div style={{ width: 240, aspectRatio: '9/16', borderRadius: 22, background: p.bg, position: 'relative', overflow: 'hidden', border: '1.5px solid rgba(255,250,240,0.08)', flexShrink: 0, boxShadow: '0 30px 50px -25px rgba(0,0,0,0.6)' }}>
-      <div style={{ position: 'absolute', top: 12, left: 12, right: 12, display: 'flex', gap: 4 }}>
-        {Array.from({ length: 4 }).map((_, k) => (
-          <div key={k} style={{ flex: 1, height: 2.5, background: 'rgba(255,255,255,0.3)', borderRadius: 2, overflow: 'hidden' }}>
-            {k < 2 && <div style={{ height: '100%', background: 'rgba(255,255,255,0.95)', width: k === 1 ? '60%' : '100%' }} />}
-          </div>
-        ))}
-      </div>
-      <div style={{ position: 'absolute', top: 32, left: 14, fontFamily: 'var(--font-mono)', fontSize: 9, color: 'rgba(255,255,255,0.85)', letterSpacing: '0.15em', display: 'flex', alignItems: 'center', gap: 6 }}>
-        <span style={{ width: 14, height: 14, borderRadius: '50%', background: 'rgba(255,255,255,0.4)', display: 'inline-block' }} />
-        {p.label}
-      </div>
-      <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', width: 60, height: 60, borderRadius: '50%', background: 'rgba(255,255,255,0.2)', backdropFilter: 'blur(8px)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <div style={{ width: 0, height: 0, borderLeft: '14px solid white', borderTop: '10px solid transparent', borderBottom: '10px solid transparent', marginLeft: 4 }} />
-      </div>
-      <div style={{ position: 'absolute', bottom: 14, left: 14, right: 14, fontFamily: 'var(--font-mono)', fontSize: 9, color: 'rgba(255,255,255,0.85)', letterSpacing: '0.18em', textTransform: 'uppercase', display: 'flex', justifyContent: 'space-between' }}>
-        <span>OUTPUT_{String(i + 1).padStart(2, '0')}/{String(count).padStart(2, '0')}</span>
-        <span>0:09</span>
-      </div>
-    </div>
-  );
-}
-
-function ReelCarousel({ count = 7 }: { count?: number }) {
-  const [active, setActive] = useState(count);
-  const [drag, setDrag] = useState(0);
-  const [anim, setAnim] = useState(true);
-  const data = [...Array(count * 3)].map((_, i) => PALETTES[i % count]);
-  const ptr = useRef({ down: false, x0: 0 });
-
-  useEffect(() => {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    const id = setInterval(() => setActive((a) => a + 1), 3800);
-    return () => clearInterval(id);
-  }, []);
-
-  useEffect(() => {
-    if (active < count * 0.5 || active > count * 2.5) {
-      const t = setTimeout(() => {
-        setAnim(false);
-        setActive(((active % count) + count));
-        requestAnimationFrame(() => requestAnimationFrame(() => setAnim(true)));
-      }, 520);
-      return () => clearTimeout(t);
-    }
-  }, [active, count]);
-
-  const onDown = (e: React.PointerEvent) => { ptr.current = { down: true, x0: e.clientX }; };
-  const onMove = (e: React.PointerEvent) => { if (ptr.current.down) setDrag(e.clientX - ptr.current.x0); };
-  const onUp = () => {
-    if (Math.abs(drag) > 60) setActive((a) => a + (drag < 0 ? 1 : -1));
-    setDrag(0); ptr.current.down = false;
-  };
-
-  const cardW = 240, gap = 24;
-  const offset = -active * (cardW + gap) + drag;
-
-  return (
-    <div style={{ overflow: 'hidden', position: 'relative', padding: '40px 0', userSelect: 'none', cursor: 'grab' }}
-         onPointerDown={onDown} onPointerMove={onMove} onPointerUp={onUp} onPointerLeave={onUp}>
-      <div style={{ display: 'flex', gap, transform: `translateX(calc(50% + ${offset}px - ${cardW / 2}px))`, transition: anim ? 'transform 0.5s cubic-bezier(0.22, 1, 0.36, 1)' : 'none' }}>
-        {data.map((p, i) => (
-          <div key={i} style={{ transform: `scale(${i === active ? 1 : 0.86})`, opacity: i === active ? 1 : 0.55, transition: anim ? 'transform 0.5s, opacity 0.5s' : 'none' }}>
-            <ReelCard p={p} i={i % count} count={count} />
-          </div>
-        ))}
-      </div>
-      <div style={{ display: 'flex', justifyContent: 'center', gap: 8, marginTop: 12 }}>
-        {[...Array(count)].map((_, i) => (
-          <button key={i} onClick={() => setActive(count + i)} style={{ width: 8, height: 8, borderRadius: '50%', border: 'none', background: (active % count) === i ? 'var(--paper)' : 'rgba(255,250,240,0.3)', cursor: 'pointer' }} />
-        ))}
-      </div>
-    </div>
-  );
-}
 
 // ── Countdown ────────────────────────────────────────────────────────────────
 
@@ -191,53 +103,6 @@ function Countdown() {
   );
 }
 
-// ── Sites polaroid grid ──────────────────────────────────────────────────────
-
-const SITES = [
-  { name: 'Lumen Labs', tag: 'Consumer goods · DTC', color: 'linear-gradient(135deg, var(--lavender), var(--lime))', tilt: -2 },
-  { name: 'Cherry Pi v1', tag: 'Studio · this site', color: 'linear-gradient(160deg, var(--cherry), var(--blush))', tilt: 1.5 },
-  { name: 'Softwear', tag: 'Apparel · marketplace', color: 'linear-gradient(180deg, var(--butter), var(--cherry-soft))', tilt: -1 },
-  { name: 'Mint & Co', tag: 'F&B · packaging', color: 'linear-gradient(135deg, var(--mint), var(--lavender))', tilt: 2.5 },
-];
-
-function PolaroidSite({ s }: { s: typeof SITES[0] }) {
-  const [tilt, setTilt] = useState({ x: 0, y: 0, on: false });
-  const ref = useRef<HTMLDivElement>(null);
-  const onMove = (e: React.MouseEvent) => {
-    if (!ref.current) return;
-    const r = ref.current.getBoundingClientRect();
-    setTilt({ x: ((e.clientX - r.left) / r.width - 0.5) * 2, y: ((e.clientY - r.top) / r.height - 0.5) * 2, on: true });
-  };
-  return (
-    <div ref={ref} onMouseMove={onMove} onMouseLeave={() => setTilt({ x: 0, y: 0, on: false })}
-         style={{ background: 'var(--paper)', padding: '14px 14px 56px', boxShadow: tilt.on ? '0 30px 50px -16px rgba(0,0,0,0.45)' : '0 16px 36px -20px rgba(0,0,0,0.4)', transform: `rotate(${s.tilt}deg) perspective(900px) rotateY(${tilt.x * 4}deg) rotateX(${-tilt.y * 4}deg)`, transition: 'transform 0.25s, box-shadow 0.25s', position: 'relative' }}>
-      <span className="tape l" style={{ background: 'rgba(255,217,122,0.65)' }} />
-      <div style={{ width: '100%', aspectRatio: '4/3', background: s.color, position: 'relative', overflow: 'hidden' }}>
-        <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(circle at 30% 25%, rgba(255,255,255,0.4) 0%, transparent 55%)' }} />
-        <div style={{ position: 'absolute', top: 12, left: 12, display: 'flex', gap: 4 }}>
-          <span style={{ width: 7, height: 7, borderRadius: '50%', background: '#ff5f57' }} />
-          <span style={{ width: 7, height: 7, borderRadius: '50%', background: '#febc2e' }} />
-          <span style={{ width: 7, height: 7, borderRadius: '50%', background: '#28c840' }} />
-        </div>
-        <div style={{ position: 'absolute', top: 10, left: '50%', transform: 'translateX(-50%)', fontFamily: 'var(--font-mono)', fontSize: 8, color: 'rgba(255,250,240,0.85)', letterSpacing: '0.15em', background: 'rgba(43,38,34,0.4)', padding: '3px 10px', borderRadius: 999, whiteSpace: 'nowrap' }}>{s.name}.world</div>
-        <div style={{ position: 'absolute', bottom: 14, left: 14, fontFamily: 'var(--font-display)', fontStyle: 'italic', fontSize: 24, color: 'var(--paper)', fontWeight: 500, lineHeight: 1 }}>
-          {s.name}
-        </div>
-      </div>
-      <div style={{ position: 'absolute', bottom: 14, left: 0, right: 0, textAlign: 'center', fontFamily: 'var(--font-hand)', fontSize: 17, color: 'var(--ink)' }}>
-        {s.tag} ✿
-      </div>
-    </div>
-  );
-}
-
-function SitesGrid() {
-  return (
-    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: 'clamp(24px, 3vw, 40px)', padding: '20px 0' }}>
-      {SITES.map((s, i) => <PolaroidSite key={i} s={s} />)}
-    </div>
-  );
-}
 
 // ── CaseStudy ────────────────────────────────────────────────────────────────
 
@@ -379,24 +244,13 @@ export default function InProduction() {
               </em>
             </h2>
             <p style={{ fontFamily: 'var(--font-body)', fontSize: 'clamp(15px, 1.3vw, 18px)', lineHeight: 1.6, color: 'rgba(255,250,240,0.7)', maxWidth: 620, margin: '22px 0 0' }}>
-              What the studio actually ships, in three frames &mdash; the engine running, the websites it powers, and the open-source drop coming for product-led founders.
+              What the studio actually ships &mdash; how the engine works, the open-source drop, and real results from the field.
             </p>
           </div>
         </div>
 
         <div style={{ marginBottom: 'clamp(60px, 8vw, 100px)' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 260px), 1fr))', gap: 'clamp(20px, 3vw, 48px)', alignItems: 'start', marginBottom: 12 }}>
-            <div>
-              <div style={{ fontFamily: 'var(--font-mono)', fontSize: 9, color: 'var(--cherry)', letterSpacing: '0.22em', textTransform: 'uppercase', marginBottom: 10 }}>frame 01 / generator</div>
-              <h3 className="h-display" style={{ fontSize: 'clamp(1.5rem, 2.6vw, 2.4rem)', color: 'var(--paper)', lineHeight: 1.05 }}>
-                7 stories.<br/><em style={{ fontStyle: 'italic', color: 'var(--butter)' }}>Same engine.</em>
-              </h3>
-            </div>
-            <div style={{ fontFamily: 'var(--font-body)', fontSize: 14, color: 'rgba(255,250,240,0.65)', maxWidth: 520, lineHeight: 1.65, paddingTop: 6 }}>
-              Swipe through real outputs the autonomous content generator produced this week &mdash; across seven brands, all 9:16, all on-brand. <span style={{ color: 'var(--paper)' }}>No prompt-wrangling. No design hours.</span>
-            </div>
-          </div>
-          <ReelCarousel count={7} />
+          <FlowChart />
         </div>
 
         <div style={{ marginBottom: 'clamp(60px, 8vw, 100px)' }}>
@@ -405,21 +259,6 @@ export default function InProduction() {
         </div>
 
         <Marquee />
-
-        <div style={{ marginBottom: 'clamp(60px, 8vw, 100px)' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', flexWrap: 'wrap', gap: 12, marginBottom: 18 }}>
-            <div>
-              <div style={{ fontFamily: 'var(--font-mono)', fontSize: 9, color: 'var(--cherry)', letterSpacing: '0.22em', textTransform: 'uppercase', marginBottom: 8 }}>frame 03 / in_the_wild</div>
-              <h3 className="h-display" style={{ fontSize: 'clamp(1.5rem, 3vw, 2.6rem)', color: 'var(--paper)' }}>
-                Sites running on the <em style={{ fontStyle: 'italic', color: 'var(--mint)' }}>same engine</em>.
-              </h3>
-            </div>
-            <div style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: 'rgba(255,250,240,0.4)', letterSpacing: '0.18em' }}>
-              UPTIME · 99.97 · 4 of 11 SHOWN
-            </div>
-          </div>
-          <SitesGrid />
-        </div>
 
         <div>
           <div style={{ fontFamily: 'var(--font-mono)', fontSize: 9, color: 'var(--cherry)', letterSpacing: '0.22em', textTransform: 'uppercase', marginBottom: 14 }}>frame 04 / case_study</div>
