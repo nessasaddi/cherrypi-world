@@ -22,10 +22,10 @@ function StackCard({ c, i }: { c: StackCardData; i: number }) {
       </div>
       <h3 className="h-display" style={{ fontSize: 'clamp(1.5rem, 2.6vw, 2.2rem)', color: 'var(--ink)', lineHeight: 1.05, fontWeight: 500 }}>{c.title}</h3>
       <p style={{ fontFamily: 'var(--font-body)', fontSize: 14, lineHeight: 1.6, color: 'var(--ink-soft)', margin: '14px 0 22px' }}>{c.body}</p>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 7 }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
         {c.metrics.map((m, j) => (
-          <div key={j} style={{ display: 'flex', alignItems: 'center', gap: 10, fontFamily: 'var(--font-mono)', fontSize: 12, color: 'var(--ink-soft)' }}>
-            <span style={{ width: 6, height: 6, borderRadius: '50%', background: c.accent, flexShrink: 0 }} />
+          <div key={j} style={{ display: 'flex', alignItems: 'center', gap: 8, fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--ink-soft)' }}>
+            <span style={{ width: 5, height: 5, borderRadius: '50%', background: c.accent, flexShrink: 0 }} />
             {m}
           </div>
         ))}
@@ -36,10 +36,10 @@ function StackCard({ c, i }: { c: StackCardData; i: number }) {
 
 export default function Stack() {
   const cards: StackCardData[] = [
-    { n: '01', title: 'autonomous content infrastructure', body: 'brand context in. thirty days of on-brand content out. end-to-end pipeline, zero manual steps.', metrics: ['months of content, one input','ready to post','on-brand, every time'], accent: 'var(--cherry)', emoji: '✦' },
-    { n: '02', title: 'studio operating system', body: 'unified workspace powering brand context, task routing, and AI orchestration across every engagement.', metrics: ['all your tools, connected','tasks handled automatically','runs 24/7'], accent: 'var(--lavender)', emoji: '◌' },
-    { n: '03', title: 'custom AI tooling', body: 'purpose-built tools encoding domain methodology — not generic prompts. workflows with guardrails, voice, production output.', metrics: ['sounds like your brand','not generic AI','built for your workflow'], accent: 'var(--lime)', emoji: '✿' },
-    { n: '04', title: 'web infrastructure', body: 'production applications, CI/CD, direct repo access. full-stack dev, GitHub-native.', metrics: ['live sites, not mockups','updates in hours','you own everything'], accent: 'var(--blush)', emoji: '❀' },
+    { n: '01', title: 'Autonomous content infrastructure', body: 'Brand context in. Thirty days of on-brand content out. End-to-end pipeline, zero manual steps.', metrics: ['Months of content, one input','Ready to post','On-brand, every time'], accent: 'var(--cherry)', emoji: '✦' },
+    { n: '02', title: 'Studio operating system', body: 'Unified workspace powering brand context, task routing, and AI orchestration across every engagement.', metrics: ['All your tools, connected','Tasks handled automatically','Runs 24/7'], accent: 'var(--lavender)', emoji: '◌' },
+    { n: '03', title: 'Custom AI tooling', body: 'Purpose-built tools encoding domain methodology — not generic prompts. Workflows with guardrails, voice, production output.', metrics: ['Sounds like your brand','Not generic AI','Built for your workflow'], accent: 'var(--lime)', emoji: '✿' },
+    { n: '04', title: 'Web infrastructure', body: 'Production applications, CI/CD, direct repo access. Full-stack dev, GitHub-native.', metrics: ['Live sites, not mockups','Updates in hours','You own everything'], accent: 'var(--blush)', emoji: '❀' },
   ];
 
   return (
@@ -51,14 +51,14 @@ export default function Stack() {
           <div>
             <div className="section-tag" style={{ marginBottom: 18 }}>
               <span className="num">§ 03</span>
-              <span className="hand" style={{ color: 'var(--cherry)', fontSize: 26, transform: 'rotate(-3deg)', display: 'inline-block' }}>the stack ✿</span>
+              <span className="hand" style={{ color: 'var(--cherry)', fontSize: 26, transform: 'rotate(-3deg)', display: 'inline-block' }}>The stack ✿</span>
             </div>
             <h2 className="h-display" style={{ fontSize: 'clamp(2.4rem, 6vw, 5rem)', color: 'var(--ink)' }}>
-              built for <em style={{ fontStyle: 'italic', color: 'var(--cherry)' }}>real</em><br/>work.
+              Built for <em style={{ fontStyle: 'italic', color: 'var(--cherry)' }}>real</em><br/>work.
             </h2>
           </div>
           <p style={{ fontFamily: 'var(--font-body)', fontSize: 'clamp(15px, 1.3vw, 17px)', lineHeight: 1.6, color: 'var(--ink-soft)', margin: 0, maxWidth: 460 }}>
-            live infrastructure. not demos. not concepts. every system below is <span className="marker">built, maintained, and running daily</span> inside the studio.
+            Live infrastructure. Not demos. Not concepts. Every system below is <span className="marker">built, maintained, and running daily</span> inside the studio.
           </p>
         </div>
 

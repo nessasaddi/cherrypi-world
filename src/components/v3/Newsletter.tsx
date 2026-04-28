@@ -10,14 +10,14 @@ export default function Newsletter() {
             <div>
               <div className="section-tag" style={{ marginBottom: 18 }}>
                 <span className="num" style={{ color: 'rgba(255,250,240,0.5)' }}>§ 06</span>
-                <span className="hand" style={{ color: 'var(--butter)', fontSize: 26 }}>field notes ✿</span>
+                <span className="hand" style={{ color: 'var(--butter)', fontSize: 26 }}>Field notes ✿</span>
               </div>
               <h3 className="h-display" style={{ fontSize: 'clamp(2rem, 4.4vw, 3.6rem)', color: 'var(--paper)', lineHeight: 1 }}>
-                field notes.<br/>
-                <em style={{ fontStyle: 'italic', color: 'rgba(255,250,240,0.55)' }}>monthly.</em>
+                Field notes.<br/>
+                <em style={{ fontStyle: 'italic', color: 'rgba(255,250,240,0.55)' }}>Monthly.</em>
               </h3>
               <p style={{ fontFamily: 'var(--font-body)', fontSize: 'clamp(14px, 1.2vw, 16px)', lineHeight: 1.6, color: 'rgba(255,250,240,0.7)', margin: '18px 0 0', maxWidth: 380 }}>
-                what&apos;s actually working in autonomous systems and creative infrastructure. <span style={{ color: 'var(--paper)' }}>nothing else.</span>
+                What&apos;s actually working in autonomous systems and creative infrastructure. <span style={{ color: 'var(--paper)' }}>Nothing else.</span>
               </p>
             </div>
             <div>
@@ -27,7 +27,7 @@ export default function Newsletter() {
                 <button type="submit" className="btn primary" style={{ padding: '12px 22px', borderColor: 'var(--paper)', boxShadow: '3px 3px 0 var(--paper)' }}>→ enter</button>
               </form>
               <div style={{ marginTop: 14, fontFamily: 'var(--font-hand)', fontSize: 18, color: 'var(--butter)' }}>
-                no spam, pinky promise ✿
+                No spam, pinky promise ✿
               </div>
             </div>
           </div>

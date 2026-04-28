@@ -43,6 +43,7 @@
 }
 
 html {
+  font-size: 90%;
   color-scheme: light;
   scrollbar-color: #c8c8c8 transparent;
   scroll-behavior: smooth;

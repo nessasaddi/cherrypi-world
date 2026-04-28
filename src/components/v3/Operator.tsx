@@ -33,13 +33,13 @@ export default function Operator() {
 → role · founder · operator · all-layers`}
           </pre>
           <h2 className="h-display" style={{ fontSize: 'clamp(2.4rem, 5.5vw, 5rem)', color: 'var(--paper)', lineHeight: 0.98 }}>
-            one mind.<br/>
+            One mind.<br/>
             <em style={{ fontStyle: 'italic', backgroundImage: 'linear-gradient(100deg, var(--cherry), var(--blush), var(--lavender), var(--cherry))', backgroundSize: '300% auto', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', animation: 'cp-shimmer 8s ease-in-out infinite' }}>
-              all layers.
+              All layers.
             </em>
           </h2>
           <p style={{ fontFamily: 'var(--font-body)', fontSize: 'clamp(15px, 1.3vw, 17px)', lineHeight: 1.65, color: 'rgba(255,250,240,0.72)', margin: '28px 0 0', maxWidth: 480 }}>
-            a closed-loop studio running on proprietary infrastructure. brand strategy, content production, and full-stack engineering &mdash; <span style={{ color: 'var(--paper)' }}>designed, built, and shipped by vanessa.</span>
+            A closed-loop studio running on proprietary infrastructure. Brand strategy, content production, and full-stack engineering &mdash; <span style={{ color: 'var(--paper)' }}>designed, built, and shipped by Vanessa.</span>
           </p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))', gap: 10, marginTop: 30, maxWidth: 480 }}>
             {caps.map(([k, v]) => (
@@ -61,7 +61,6 @@ export default function Operator() {
             <span className="tape l" style={{ background: 'rgba(255,217,122,0.7)' }} />
             <div style={{ width: '100%', aspectRatio: '4/5', position: 'relative', overflow: 'hidden' }}>
               <Image src="/portrait-vsaddi.jpg" alt="Vanessa Saddi" fill sizes="(max-width: 768px) 100vw, 380px" style={{ objectFit: 'cover' }} />
-              <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(circle at 35% 30%, rgba(255,255,255,0.4) 0%, transparent 50%)' }} />
               <div style={{ position: 'absolute', bottom: 16, left: 16, fontFamily: 'var(--font-mono)', fontSize: 9, color: 'var(--ink)', letterSpacing: '0.15em', background: 'rgba(255,250,240,0.85)', padding: '4px 8px', borderRadius: 4 }}>FIG · 01 · V.SADDI</div>
             </div>
             <div style={{ position: 'absolute', bottom: 14, left: 0, right: 0, textAlign: 'center', fontFamily: 'var(--font-hand)', fontSize: 22, color: 'var(--ink)' }}>

@@ -14,12 +14,12 @@ export default function Hero() {
           </div>
           <h1 className="h-display" style={{ fontFamily: 'var(--font-display)', fontWeight: 400, lineHeight: 0.96, letterSpacing: '-0.025em', margin: 0 }}>
             <span style={{ display: 'block', whiteSpace: 'nowrap', fontSize: 'clamp(2.4rem, 4.5vw, 3.6rem)' }}>One operator.</span>
-            <em style={{ display: 'block', whiteSpace: 'nowrap', fontSize: 'clamp(3.65rem, 6.85vw, 5.5rem)', fontStyle: 'italic', backgroundImage: 'linear-gradient(100deg, var(--cherry), var(--blush), var(--lavender), var(--lime), var(--cherry))', backgroundSize: '300% auto', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', animation: 'cp-shimmer 8s ease-in-out infinite' }}>
+            <em style={{ display: 'block', whiteSpace: 'nowrap', fontSize: 'clamp(3.65rem, 6.85vw, 5.5rem)', fontStyle: 'italic', backgroundImage: 'linear-gradient(100deg, var(--cherry), var(--blush), var(--lavender), var(--lime), var(--cherry))', backgroundSize: '300% auto', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', animation: 'cp-shimmer 4s ease-in-out infinite' }}>
               Full stack.
             </em>
           </h1>
           <p style={{ fontFamily: 'var(--font-body)', fontSize: 'clamp(15px, 1.4vw, 18px)', lineHeight: 1.6, color: 'var(--ink-soft)', margin: '28px 0 0', maxWidth: 520 }}>
-            design, content, code, and fully autonomous pipelines running as one operating system. <span className="marker">one mind. all layers.</span>
+            Design, content, code, and fully autonomous pipelines running as one operating system. <span className="marker">One mind. All layers.</span>
           </p>
           <div style={{ display: 'flex', gap: 12, marginTop: 36, flexWrap: 'wrap' }}>
             <a href="#connect" className="btn primary">→ start a project</a>
@@ -27,8 +27,8 @@ export default function Hero() {
           </div>
         </div>
 
-        <div style={{ position: 'relative', justifySelf: 'center' }}>
-          <div className="panel" style={{ padding: '14px 14px 52px', width: 'min(420px, 90vw)', borderRadius: 6, transform: 'rotate(-1.5deg)', boxShadow: '0 20px 50px -16px rgba(43,38,34,0.3)', position: 'relative' }}>
+        <div style={{ position: 'relative', justifySelf: 'center', width: '100%', maxWidth: 420 }}>
+          <div className="panel" style={{ padding: '14px 14px 52px', width: '100%', borderRadius: 6, transform: 'rotate(-1.5deg)', boxShadow: '0 20px 50px -16px rgba(43,38,34,0.3)', position: 'relative' }}>
             <span className="tape r" />
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
               <span style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: 'var(--cherry)', letterSpacing: '0.18em' }}>LIVE · STUDIO MAP</span>

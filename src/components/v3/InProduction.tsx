@@ -157,11 +157,11 @@ function Countdown() {
         <span className="sticker lime" style={{ '--tilt': '1.5deg' } as React.CSSProperties}>⌥ free · open-source</span>
       </div>
       <h3 className="h-display" style={{ fontSize: 'clamp(1.8rem, 4vw, 3.2rem)', color: 'var(--paper)', lineHeight: 1.02, position: 'relative' }}>
-        we&apos;re <em style={{ fontStyle: 'italic', color: 'var(--lime)' }}>open-sourcing</em><br/>
+        We&apos;re <em style={{ fontStyle: 'italic', color: 'var(--lime)' }}>open-sourcing</em><br/>
         the autonomous content generator.
       </h3>
       <p style={{ fontFamily: 'var(--font-body)', fontSize: 'clamp(14px, 1.2vw, 16px)', lineHeight: 1.6, color: 'rgba(255,250,240,0.7)', margin: '18px 0 0', maxWidth: 580, position: 'relative' }}>
-        the same engine running in the reels above. free repo, public on github. plug your product in, ship a month of on-brand content in an afternoon.
+        The same engine running in the reels above. Free repo, public on GitHub. Plug your product in, ship a month of on-brand content in an afternoon.
       </p>
       <div style={{ display: 'flex', marginTop: 32, borderTop: '1px solid rgba(255,250,240,0.12)', borderBottom: '1px solid rgba(255,250,240,0.12)', position: 'relative' }}>
         <Cell v={d} label="DAYS" />
@@ -183,9 +183,9 @@ function Countdown() {
       <div style={{ marginTop: 28, display: 'flex', gap: 12, flexWrap: 'wrap', alignItems: 'center', position: 'relative' }}>
         <a className="btn primary" href="#connect" style={{ background: 'var(--lime)', color: 'var(--ink)', borderColor: 'var(--ink)' }}>
           <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
-          notify me on drop
+          Notify me on drop
         </a>
-        <span className="hand" style={{ fontSize: 22, color: 'var(--butter)' }}>or just bookmark this →</span>
+        <span className="hand" style={{ fontSize: 22, color: 'var(--butter)' }}>Or just bookmark this →</span>
       </div>
     </div>
   );
@@ -194,10 +194,10 @@ function Countdown() {
 // ── Sites polaroid grid ──────────────────────────────────────────────────────
 
 const SITES = [
-  { name: 'lumen labs', tag: 'consumer goods · DTC', color: 'linear-gradient(135deg, var(--lavender), var(--lime))', tilt: -2 },
-  { name: 'cherry pi v1', tag: 'studio · this site', color: 'linear-gradient(160deg, var(--cherry), var(--blush))', tilt: 1.5 },
-  { name: 'softwear', tag: 'apparel · marketplace', color: 'linear-gradient(180deg, var(--butter), var(--cherry-soft))', tilt: -1 },
-  { name: 'mint & co', tag: 'F&B · packaging', color: 'linear-gradient(135deg, var(--mint), var(--lavender))', tilt: 2.5 },
+  { name: 'Lumen Labs', tag: 'Consumer goods · DTC', color: 'linear-gradient(135deg, var(--lavender), var(--lime))', tilt: -2 },
+  { name: 'Cherry Pi v1', tag: 'Studio · this site', color: 'linear-gradient(160deg, var(--cherry), var(--blush))', tilt: 1.5 },
+  { name: 'Softwear', tag: 'Apparel · marketplace', color: 'linear-gradient(180deg, var(--butter), var(--cherry-soft))', tilt: -1 },
+  { name: 'Mint & Co', tag: 'F&B · packaging', color: 'linear-gradient(135deg, var(--mint), var(--lavender))', tilt: 2.5 },
 ];
 
 function PolaroidSite({ s }: { s: typeof SITES[0] }) {
@@ -311,11 +311,11 @@ function CaseStudy() {
         <span className="sticker mint" style={{ '--tilt': '1.5deg' } as React.CSSProperties}>meta ads · auto-publish</span>
       </div>
       <h3 className="h-display" style={{ fontSize: 'clamp(1.6rem, 3.4vw, 2.8rem)', color: 'var(--ink)', lineHeight: 1.05 }}>
-        we bolted the engine into <em style={{ fontStyle: 'italic', color: 'var(--cherry)' }}>meta ads</em>.<br/>
-        <span style={{ color: 'var(--ink-soft)', fontSize: '0.7em' }}>the campaigns now ship themselves.</span>
+        We bolted the engine into <em style={{ fontStyle: 'italic', color: 'var(--cherry)' }}>Meta Ads</em>.<br/>
+        <span style={{ color: 'var(--ink-soft)', fontSize: '0.7em' }}>The campaigns now ship themselves.</span>
       </h3>
       <p style={{ fontFamily: 'var(--font-body)', fontSize: 15, lineHeight: 1.6, color: 'var(--ink-soft)', maxWidth: 640, margin: '18px 0 28px' }}>
-        when the system spots ad fatigue it briefs new creative, generates it, QAs it, and pushes the next round to meta &mdash; without a person in the loop. <span className="marker">your ads refresh themselves before they get tired.</span>
+        When the system spots ad fatigue it briefs new creative, generates it, QAs it, and pushes the next round to Meta &mdash; without a person in the loop. <span className="marker">Your ads refresh themselves before they get tired.</span>
       </p>
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 220px), 1fr))', gap: 18, marginBottom: 30 }}>
         <MetricCard label="CPA · cost / acquisition" plain="it costs less to get a customer." from={58} to={38} format={(v) => `$${v.toFixed(2)}`} delta="-34%" color="var(--lime)" trigger={trigger} />
@@ -340,7 +340,7 @@ function CaseStudy() {
 // ── Marquee ──────────────────────────────────────────────────────────────────
 
 function Marquee() {
-  const items = ['less prompt-wrangling', 'more shipping', 'on-brand by default', 'agents don\'t sleep', 'autopilot for founders'];
+  const items = ['Less prompt-wrangling', 'More shipping', 'On-brand by default', 'Agents don\'t sleep', 'Autopilot for founders'];
   const all = [...items, ...items, ...items, ...items];
   return (
     <div style={{ overflow: 'hidden', borderTop: '1px dashed rgba(255,250,240,0.12)', borderBottom: '1px dashed rgba(255,250,240,0.12)', padding: '18px 0', margin: 'clamp(40px,5vw,60px) 0' }}>
@@ -369,16 +369,16 @@ export default function InProduction() {
             <div className="section-tag" style={{ marginBottom: 18 }}>
               <span className="dot" />
               <span className="num" style={{ color: 'rgba(255,250,240,0.5)' }}>§ 04</span>
-              <span className="hand" style={{ color: 'var(--butter)', fontSize: 26, transform: 'rotate(-2deg)' }}>in production · live ✿</span>
+              <span className="hand" style={{ color: 'var(--butter)', fontSize: 26, transform: 'rotate(-2deg)' }}>In production · live ✿</span>
             </div>
             <h2 className="h-display" style={{ fontSize: 'clamp(2.6rem, 7vw, 5.6rem)', color: 'var(--paper)', lineHeight: 0.96 }}>
-              <GlitchTitle>built. shipped.</GlitchTitle><br/>
+              <GlitchTitle>Built. Shipped.</GlitchTitle><br/>
               <em style={{ fontStyle: 'italic', color: 'var(--lime)', position: 'relative', display: 'inline-block' }}>
-                <GlitchTitle accent="var(--cherry)" alt="var(--lavender)">open-sourcing.</GlitchTitle>
+                <GlitchTitle accent="var(--cherry)" alt="var(--lavender)">Open-sourcing.</GlitchTitle>
               </em>
             </h2>
             <p style={{ fontFamily: 'var(--font-body)', fontSize: 'clamp(15px, 1.3vw, 18px)', lineHeight: 1.6, color: 'rgba(255,250,240,0.7)', maxWidth: 620, margin: '22px 0 0' }}>
-              what the studio actually ships, in three frames &mdash; the engine running, the websites it powers, and the open-source drop coming for product-led founders.
+              What the studio actually ships, in three frames &mdash; the engine running, the websites it powers, and the open-source drop coming for product-led founders.
             </p>
           </div>
         </div>
@@ -388,11 +388,11 @@ export default function InProduction() {
             <div>
               <div style={{ fontFamily: 'var(--font-mono)', fontSize: 9, color: 'var(--cherry)', letterSpacing: '0.22em', textTransform: 'uppercase', marginBottom: 10 }}>frame 01 / generator</div>
               <h3 className="h-display" style={{ fontSize: 'clamp(1.5rem, 2.6vw, 2.4rem)', color: 'var(--paper)', lineHeight: 1.05 }}>
-                7 stories.<br/><em style={{ fontStyle: 'italic', color: 'var(--butter)' }}>same engine.</em>
+                7 stories.<br/><em style={{ fontStyle: 'italic', color: 'var(--butter)' }}>Same engine.</em>
               </h3>
             </div>
             <div style={{ fontFamily: 'var(--font-body)', fontSize: 14, color: 'rgba(255,250,240,0.65)', maxWidth: 520, lineHeight: 1.65, paddingTop: 6 }}>
-              swipe through real outputs the autonomous content generator produced this week &mdash; across seven brands, all 9:16, all on-brand. <span style={{ color: 'var(--paper)' }}>no prompt-wrangling. no design hours.</span>
+              Swipe through real outputs the autonomous content generator produced this week &mdash; across seven brands, all 9:16, all on-brand. <span style={{ color: 'var(--paper)' }}>No prompt-wrangling. No design hours.</span>
             </div>
           </div>
           <ReelCarousel count={7} />
@@ -410,7 +410,7 @@ export default function InProduction() {
             <div>
               <div style={{ fontFamily: 'var(--font-mono)', fontSize: 9, color: 'var(--cherry)', letterSpacing: '0.22em', textTransform: 'uppercase', marginBottom: 8 }}>frame 03 / in_the_wild</div>
               <h3 className="h-display" style={{ fontSize: 'clamp(1.5rem, 3vw, 2.6rem)', color: 'var(--paper)' }}>
-                sites running on the <em style={{ fontStyle: 'italic', color: 'var(--mint)' }}>same engine</em>.
+                Sites running on the <em style={{ fontStyle: 'italic', color: 'var(--mint)' }}>same engine</em>.
               </h3>
             </div>
             <div style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: 'rgba(255,250,240,0.4)', letterSpacing: '0.18em' }}>
