@@ -10,7 +10,7 @@ export default function Hero() {
       <div className="container" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 380px), 1fr))', gap: 'clamp(32px, 4vw, 64px)', alignItems: 'center', position: 'relative' }}>
         <div>
           <div className="section-tag" style={{ marginBottom: 24 }}>
-            <span className="num"><span style={{ color: 'var(--cherry)' }}>CHERRY PI · STUDIO OS</span> <span style={{ textTransform: 'none' }}>/home</span></span>
+            <span className="num"><span style={{ color: 'var(--cherry)' }}>CHERRY PI</span> · § 01 <span style={{ textTransform: 'none' }}>/home</span></span>
           </div>
           <h1 className="h-display" style={{ fontFamily: 'var(--font-display)', fontWeight: 400, lineHeight: 0.96, letterSpacing: '-0.025em', margin: 0 }}>
             <span style={{ display: 'block', whiteSpace: 'nowrap', fontSize: 'clamp(2.4rem, 4.5vw, 3.6rem)' }}>One operator.</span>

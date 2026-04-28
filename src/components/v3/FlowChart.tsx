@@ -328,7 +328,7 @@ function FlowChartDesktop() {
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 10, flexWrap: 'wrap', gap: 12 }}>
           <div>
             <div style={{ fontFamily: 'var(--font-mono)', fontSize: 9, color: 'var(--cherry)', letterSpacing: '0.22em', textTransform: 'uppercase', marginBottom: 8 }}>
-              frame 01 / generator
+              system 1 / generator
             </div>
             <h3 className="h-display" style={{ fontSize: 'clamp(2rem, 3.4vw, 2.8rem)', color: 'var(--paper)', lineHeight: 1, margin: 0 }}>
               How the <em style={{ fontStyle: 'italic', color: 'var(--butter)' }}>engine</em> works.<br />
@@ -504,7 +504,7 @@ function FlowChartMobile() {
         {/* header */}
         <div style={{ paddingBottom: 14, borderBottom: '1px solid rgba(255,250,240,0.08)', marginBottom: 20 }}>
           <div style={{ fontFamily: 'var(--font-mono)', fontSize: 9, color: 'var(--cherry)', letterSpacing: '0.22em', textTransform: 'uppercase', marginBottom: 8 }}>
-            frame 01 / generator
+            system 1 / generator
           </div>
           <h3 className="h-display" style={{ fontSize: 26, color: 'var(--paper)', lineHeight: 1.05, margin: 0 }}>
             How the <em style={{ fontStyle: 'italic', color: 'var(--butter)' }}>engine</em> works.

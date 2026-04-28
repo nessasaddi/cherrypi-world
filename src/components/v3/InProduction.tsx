@@ -231,17 +231,23 @@ export default function InProduction() {
           </div>
         </div>
 
+        {/* ── System 1: The Generator ── */}
         <div style={{ marginBottom: 'clamp(60px, 8vw, 100px)' }}>
-          <FlowChart />
-        </div>
-
-        <div style={{ marginBottom: 'clamp(60px, 8vw, 100px)' }}>
-          <div style={{ fontFamily: 'var(--font-mono)', fontSize: 9, color: 'var(--cherry)', letterSpacing: '0.22em', textTransform: 'uppercase', marginBottom: 14 }}>frame 02 / open-source_launch</div>
+          <div style={{ fontFamily: 'var(--font-mono)', fontSize: 9, color: 'rgba(255,250,240,0.35)', letterSpacing: '0.22em', textTransform: 'uppercase', marginBottom: 20, paddingBottom: 10, borderBottom: '1px dashed rgba(255,250,240,0.1)' }}>
+            system 1 / the_generator
+          </div>
+          <div style={{ marginBottom: 'clamp(40px, 6vw, 72px)' }}>
+            <FlowChart />
+          </div>
+          <div style={{ fontFamily: 'var(--font-mono)', fontSize: 9, color: 'var(--cherry)', letterSpacing: '0.22em', textTransform: 'uppercase', marginBottom: 14 }}>system 1 / open-source_launch</div>
           <Countdown />
         </div>
 
+        {/* ── System 2: Case Study ── */}
         <div>
-          <div style={{ fontFamily: 'var(--font-mono)', fontSize: 9, color: 'var(--cherry)', letterSpacing: '0.22em', textTransform: 'uppercase', marginBottom: 14 }}>frame 04 / case_study</div>
+          <div style={{ fontFamily: 'var(--font-mono)', fontSize: 9, color: 'rgba(255,250,240,0.35)', letterSpacing: '0.22em', textTransform: 'uppercase', marginBottom: 20, paddingBottom: 10, borderBottom: '1px dashed rgba(255,250,240,0.1)' }}>
+            system 2 / case_study
+          </div>
           <CaseStudy />
         </div>
       </div>

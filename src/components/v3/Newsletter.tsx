@@ -9,7 +9,7 @@ export default function Newsletter() {
           <div style={{ position: 'relative', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))', gap: 'clamp(28px, 4vw, 60px)', alignItems: 'center' }}>
             <div>
               <div className="section-tag" style={{ marginBottom: 18 }}>
-                <span className="num" style={{ color: 'rgba(255,250,240,0.5)' }}>§ 06</span>
+                <span className="num" style={{ color: 'rgba(255,250,240,0.5)' }}>§ 05</span>
                 <span className="hand" style={{ color: 'var(--butter)', fontSize: 22 }}>Field notes ✿</span>
               </div>
               <h3 className="h-display" style={{ fontSize: 'clamp(2rem, 4.4vw, 3.6rem)', color: 'var(--paper)', lineHeight: 1 }}>
