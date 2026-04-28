@@ -3,12 +3,14 @@
 import { useEffect } from 'react';
 import Image from 'next/image';
 import { useTweaks, TweaksPanel, TweakSection, TweakSlider, TweakColor, TweakToggle, TweakRadio } from './TweaksPanel';
+import dynamic from 'next/dynamic';
 import Hero from './Hero';
 import Operator from './Operator';
 import Stack from './Stack';
-import InProduction from './InProduction';
 import Newsletter from './Newsletter';
 import Footer from './Footer';
+
+const InProduction = dynamic(() => import('./InProduction'), { ssr: false });
 
 const TWEAK_DEFAULTS = {
   creamLevel: 30,
@@ -43,7 +45,7 @@ export default function TweaksProvider() {
     <>
       <aside className="left-rail" aria-label="primary">
         <div className="logo" style={{ background: 'none' }}>
-          <Image src="/logos/cherry-animated.gif" width={31} height={40} alt="Cherry Pi" unoptimized />
+          <Image src="/logos/cherry-icon.svg" width={31} height={40} alt="Cherry Pi" />
         </div>
         <a className="nav-link" href="#hero">home</a>
         <a className="nav-link" href="#operator">operator</a>
@@ -56,7 +58,7 @@ export default function TweaksProvider() {
       <header className="top-bar">
         <div className="top-bar-row">
           <span className="wm" style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-            <Image src="/logos/cherry-animated.gif" width={26} height={34} alt="" unoptimized />
+            <Image src="/logos/cherry-icon.svg" width={26} height={34} alt="" priority />
             <Image src="/logos/wordmark.svg" width={0} height={22} alt="Cherry Pi" style={{ width: 'auto', height: 22 }} />
           </span>
           <a href="#connect" className="btn primary">→ start</a>

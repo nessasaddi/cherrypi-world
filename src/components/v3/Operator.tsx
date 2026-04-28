@@ -60,7 +60,7 @@ export default function Operator() {
           <div style={{ background: 'var(--paper)', padding: '14px 14px 50px', boxShadow: '0 20px 50px -16px rgba(0,0,0,0.5)', transform: 'rotate(-2.5deg)', position: 'relative' }}>
             <span className="tape l" style={{ background: 'rgba(255,217,122,0.7)' }} />
             <div style={{ width: '100%', aspectRatio: '4/5', position: 'relative', overflow: 'hidden' }}>
-              <Image src="/portrait-vsaddi.jpg" alt="Vanessa Saddi" fill style={{ objectFit: 'cover' }} />
+              <Image src="/portrait-vsaddi.jpg" alt="Vanessa Saddi" fill sizes="(max-width: 768px) 100vw, 380px" style={{ objectFit: 'cover' }} />
               <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(circle at 35% 30%, rgba(255,255,255,0.4) 0%, transparent 50%)' }} />
               <div style={{ position: 'absolute', bottom: 16, left: 16, fontFamily: 'var(--font-mono)', fontSize: 9, color: 'var(--ink)', letterSpacing: '0.15em', background: 'rgba(255,250,240,0.85)', padding: '4px 8px', borderRadius: 4 }}>FIG · 01 · V.SADDI</div>
             </div>
