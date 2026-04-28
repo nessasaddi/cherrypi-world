@@ -203,24 +203,6 @@ function CaseStudy() {
   );
 }
 
-// ── Marquee ──────────────────────────────────────────────────────────────────
-
-function Marquee() {
-  const items = ['Less prompt-wrangling', 'More shipping', 'On-brand by default', 'Agents don\'t sleep', 'Autopilot for founders'];
-  const all = [...items, ...items, ...items, ...items];
-  return (
-    <div style={{ overflow: 'hidden', borderTop: '1px dashed rgba(255,250,240,0.12)', borderBottom: '1px dashed rgba(255,250,240,0.12)', padding: '18px 0', margin: 'clamp(40px,5vw,60px) 0' }}>
-      <div style={{ display: 'flex', gap: 36, animation: 'marquee-l 90s linear infinite', whiteSpace: 'nowrap' }}>
-        {all.map((it, i) => (
-          <span key={i} style={{ display: 'inline-flex', alignItems: 'center', gap: 36, fontFamily: 'var(--font-display)', fontStyle: 'italic', fontSize: 24, color: 'var(--paper)', fontWeight: 400 }}>
-            {it} <span style={{ color: 'var(--cherry)' }}>✦</span>
-          </span>
-        ))}
-      </div>
-    </div>
-  );
-}
-
 // ── InProduction (main export) ───────────────────────────────────────────────
 
 export default function InProduction() {
@@ -257,8 +239,6 @@ export default function InProduction() {
           <div style={{ fontFamily: 'var(--font-mono)', fontSize: 9, color: 'var(--cherry)', letterSpacing: '0.22em', textTransform: 'uppercase', marginBottom: 14 }}>frame 02 / open-source_launch</div>
           <Countdown />
         </div>
-
-        <Marquee />
 
         <div>
           <div style={{ fontFamily: 'var(--font-mono)', fontSize: 9, color: 'var(--cherry)', letterSpacing: '0.22em', textTransform: 'uppercase', marginBottom: 14 }}>frame 04 / case_study</div>
