@@ -185,7 +185,7 @@ function Countdown() {
           <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
           Notify me on drop
         </a>
-        <span className="hand" style={{ fontSize: 22, color: 'var(--butter)' }}>Or just bookmark this →</span>
+        <span className="hand" style={{ fontSize: 19, color: 'var(--butter)' }}>Or just bookmark this →</span>
       </div>
     </div>
   );
@@ -224,7 +224,7 @@ function PolaroidSite({ s }: { s: typeof SITES[0] }) {
           {s.name}
         </div>
       </div>
-      <div style={{ position: 'absolute', bottom: 14, left: 0, right: 0, textAlign: 'center', fontFamily: 'var(--font-hand)', fontSize: 20, color: 'var(--ink)' }}>
+      <div style={{ position: 'absolute', bottom: 14, left: 0, right: 0, textAlign: 'center', fontFamily: 'var(--font-hand)', fontSize: 17, color: 'var(--ink)' }}>
         {s.tag} ✿
       </div>
     </div>
@@ -266,15 +266,15 @@ function MetricCard({ label, plain, from, to, format, delta, color, trigger }: {
   delta: string; color: string; trigger: boolean;
 }) {
   return (
-    <div className="panel" style={{ padding: 24, position: 'relative' }}>
-      <div style={{ fontFamily: 'var(--font-mono)', fontSize: 9, letterSpacing: '0.18em', color: 'var(--ink-soft)', textTransform: 'uppercase', marginBottom: 8 }}>{label}</div>
-      <div style={{ fontFamily: 'var(--font-display)', fontStyle: 'italic', fontWeight: 400, fontSize: 38, color: 'var(--ink)', lineHeight: 1, fontVariantNumeric: 'tabular-nums' }}>
+    <div style={{ padding: 24, position: 'relative', background: 'rgba(255,250,240,0.06)', border: '1px solid rgba(255,250,240,0.1)', borderRadius: 16 }}>
+      <div style={{ fontFamily: 'var(--font-mono)', fontSize: 9, letterSpacing: '0.18em', color: 'rgba(255,250,240,0.5)', textTransform: 'uppercase', marginBottom: 8 }}>{label}</div>
+      <div style={{ fontFamily: 'var(--font-display)', fontWeight: 400, fontSize: 38, color: 'var(--paper)', lineHeight: 1, fontVariantNumeric: 'tabular-nums' }}>
         <AnimatedNum from={from} to={to} format={format} trigger={trigger} />
       </div>
       <div style={{ marginTop: 8, display: 'flex', gap: 10, alignItems: 'center', flexWrap: 'wrap' }}>
-        <span className="sticker" style={{ background: color, fontSize: 11, padding: '4px 10px', '--tilt': '-1deg', boxShadow: '2px 2px 0 var(--ink)' } as React.CSSProperties}>{delta}</span>
+        <span className="sticker" style={{ background: color, fontSize: 11, padding: '4px 10px', '--tilt': '-1deg', boxShadow: '2px 2px 0 rgba(0,0,0,0.4)' } as React.CSSProperties}>{delta}</span>
       </div>
-      <div style={{ fontFamily: 'var(--font-hand)', fontSize: 18, color: 'var(--ink-soft)', marginTop: 12, lineHeight: 1.2 }}>{plain}</div>
+      <div style={{ fontFamily: 'var(--font-hand)', fontSize: 15, color: 'rgba(255,250,240,0.55)', marginTop: 12, lineHeight: 1.2 }}>{plain}</div>
     </div>
   );
 }
@@ -305,17 +305,16 @@ function CaseStudy() {
   };
 
   return (
-    <div ref={ref} className="panel" style={{ padding: 'clamp(28px, 4vw, 48px)', position: 'relative' }}>
+    <div ref={ref} style={{ padding: 'clamp(28px, 4vw, 48px)', position: 'relative', background: 'rgba(255,250,240,0.04)', border: '1px solid rgba(255,250,240,0.12)', borderRadius: 22, overflow: 'hidden' }}>
       <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginBottom: 18 }}>
         <span className="sticker lav" style={{ '--tilt': '-2deg' } as React.CSSProperties}>case study</span>
         <span className="sticker mint" style={{ '--tilt': '1.5deg' } as React.CSSProperties}>meta ads · auto-publish</span>
       </div>
-      <h3 className="h-display" style={{ fontSize: 'clamp(1.6rem, 3.4vw, 2.8rem)', color: 'var(--ink)', lineHeight: 1.05 }}>
-        We bolted the engine into <em style={{ fontStyle: 'italic', color: 'var(--cherry)' }}>Meta Ads</em>.<br/>
-        <span style={{ color: 'var(--ink-soft)', fontSize: '0.7em' }}>The campaigns now ship themselves.</span>
+      <h3 className="h-display" style={{ fontSize: 'clamp(1.6rem, 3.4vw, 2.8rem)', color: 'var(--paper)', lineHeight: 1.05 }}>
+        <em style={{ fontStyle: 'italic', color: 'var(--cherry)' }}>Meta Ads</em>, on autopilot.
       </h3>
-      <p style={{ fontFamily: 'var(--font-body)', fontSize: 15, lineHeight: 1.6, color: 'var(--ink-soft)', maxWidth: 640, margin: '18px 0 28px' }}>
-        When the system spots ad fatigue it briefs new creative, generates it, QAs it, and pushes the next round to Meta &mdash; without a person in the loop. <span className="marker">Your ads refresh themselves before they get tired.</span>
+      <p style={{ fontFamily: 'var(--font-body)', fontSize: 15, lineHeight: 1.6, color: 'rgba(255,250,240,0.7)', maxWidth: 640, margin: '18px 0 28px' }}>
+        When the system spots ad fatigue it briefs new creative, generates it, QAs it, and pushes the next round to Meta &mdash; without a person in the loop. <span style={{ color: 'var(--paper)', fontWeight: 500 }}>Your ads refresh themselves before they get tired.</span>
       </p>
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 220px), 1fr))', gap: 18, marginBottom: 30 }}>
         <MetricCard label="CPA · cost / acquisition" plain="it costs less to get a customer." from={58} to={38} format={(v) => `$${v.toFixed(2)}`} delta="-34%" color="var(--lime)" trigger={trigger} />
@@ -323,12 +322,14 @@ function CaseStudy() {
         <MetricCard label="creative / wk" plain="variants tested per week." from={4} to={42} format={(v) => String(Math.round(v))} delta="+10.5×" color="var(--cherry)" trigger={trigger} />
         <MetricCard label="human_touch" plain="hours of manual work per cycle." from={18} to={1.5} format={(v) => `${v.toFixed(1)}h`} delta="-92%" color="var(--blush)" trigger={trigger} />
       </div>
-      <div style={{ background: 'var(--bg-deep)', borderRadius: 14, padding: 20, fontFamily: 'var(--font-mono)', fontSize: 11.5, lineHeight: 1.9, color: 'var(--ink-soft)' }}>
-        <div style={{ color: 'var(--ink)', marginBottom: 10, letterSpacing: '0.2em', fontSize: 9 }}>EVENT_LOG · 60d WINDOW · LIVE</div>
+      <div style={{ background: 'rgba(0,0,0,0.25)', borderRadius: 14, padding: 20, fontFamily: 'var(--font-mono)', fontSize: 11.5, lineHeight: 1.9, color: 'rgba(255,250,240,0.65)' }}>
+        <div style={{ color: 'var(--paper)', marginBottom: 10, letterSpacing: '0.2em', fontSize: 9 }}>EVENT_LOG · 60d WINDOW · LIVE</div>
         {events.map(([t, c, d], i) => (
-          <div key={i} style={{ display: 'grid', gridTemplateColumns: '60px 80px 1fr', gap: 12, padding: '4px 0', borderBottom: '1px dashed rgba(43,38,34,0.1)' }}>
-            <span style={{ color: 'var(--ink-faint)' }}>{t}</span>
-            <span style={{ color: eventColor(c) }}>[{c}]</span>
+          <div key={i} style={{ padding: '6px 0', borderBottom: '1px dashed rgba(255,250,240,0.1)' }}>
+            <div style={{ display: 'flex', gap: 12, marginBottom: 2 }}>
+              <span style={{ color: 'rgba(255,250,240,0.35)' }}>{t}</span>
+              <span style={{ color: eventColor(c) }}>[{c}]</span>
+            </div>
             <span>{d}</span>
           </div>
         ))}
@@ -369,7 +370,7 @@ export default function InProduction() {
             <div className="section-tag" style={{ marginBottom: 18 }}>
               <span className="dot" />
               <span className="num" style={{ color: 'rgba(255,250,240,0.5)' }}>§ 04</span>
-              <span className="hand" style={{ color: 'var(--butter)', fontSize: 26, transform: 'rotate(-2deg)' }}>In production · live ✿</span>
+              <span className="hand" style={{ color: 'var(--butter)', fontSize: 22, transform: 'rotate(-2deg)' }}>In production · live ✿</span>
             </div>
             <h2 className="h-display" style={{ fontSize: 'clamp(2.6rem, 7vw, 5.6rem)', color: 'var(--paper)', lineHeight: 0.96 }}>
               <GlitchTitle>Built. Shipped.</GlitchTitle><br/>

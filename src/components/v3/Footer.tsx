@@ -13,7 +13,7 @@ export default function Footer() {
           <span className="h-display" style={{ fontSize: 56, color: 'var(--paper)', fontStyle: 'italic', backgroundImage: 'linear-gradient(90deg, var(--cherry), var(--blush), var(--lavender), var(--lime), var(--cherry))', backgroundSize: '300% 100%', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', animation: 'cp-shimmer 8s ease-in-out infinite' }}>
             Cherry Pi
           </span>
-          <span className="hand signoff-hand" style={{ fontSize: 24, color: 'var(--butter)', transform: 'rotate(-2deg)' }}>That&apos;s a wrap ✿</span>
+          <span className="hand signoff-hand" style={{ fontSize: 20, color: 'var(--butter)', transform: 'rotate(-2deg)' }}>That&apos;s a wrap ✿</span>
         </div>
 
         <pre style={{ fontFamily: 'var(--font-mono)', fontSize: 'clamp(11px, 1vw, 13px)', color: 'rgba(255,250,240,0.5)', margin: '0 0 24px' }}>

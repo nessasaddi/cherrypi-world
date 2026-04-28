@@ -85,6 +85,7 @@ body::after {
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading), sans-serif;
   letter-spacing: -0.03em;
+  text-wrap: balance;
 }
 
 ::selection { background: var(--cherry); color: var(--paper); }
@@ -358,6 +359,7 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: -0.025em;
   line-height: 1;
   margin: 0;
+  text-wrap: balance;
 }
 .h1 { font-size: clamp(3rem, 8vw, 6.4rem); line-height: 0.96; }
 .h2 { font-size: clamp(2.2rem, 5.4vw, 4.4rem); }
@@ -529,7 +531,7 @@ body.hand-light .signoff-hand { opacity: 0.55; transform: rotate(-1deg) scale(0.
 
 /* ── Left rail ── */
 .with-rail { padding-left: 40px; }
-@media (min-width: 821px) { .with-rail { padding-left: 88px; } }
+@media (min-width: 821px) { .with-rail { padding-left: 76px; } }
 .left-rail {
   position: fixed;
   left: 0; top: 0; bottom: 0;

@@ -37,7 +37,7 @@ function StackCard({ c, i }: { c: StackCardData; i: number }) {
 export default function Stack() {
   const cards: StackCardData[] = [
     { n: '01', title: 'Autonomous content infrastructure', body: 'Brand context in. Thirty days of on-brand content out. End-to-end pipeline, zero manual steps.', metrics: ['Months of content, one input','Ready to post','On-brand, every time'], accent: 'var(--cherry)', emoji: '✦' },
-    { n: '02', title: 'Studio operating system', body: 'Unified workspace powering brand context, task routing, and AI orchestration across every engagement.', metrics: ['All your tools, connected','Tasks handled automatically','Runs 24/7'], accent: 'var(--lavender)', emoji: '◌' },
+    { n: '02', title: 'Studio operating system', body: 'Unified workspace powering brand context, task routing, and AI orchestration across every engagement.', metrics: ['All your tools, connected','Tasks handled automatically','Runs 24/7'], accent: 'var(--lavender)', emoji: '○' },
     { n: '03', title: 'Custom AI tooling', body: 'Purpose-built tools encoding domain methodology — not generic prompts. Workflows with guardrails, voice, production output.', metrics: ['Sounds like your brand','Not generic AI','Built for your workflow'], accent: 'var(--lime)', emoji: '✿' },
     { n: '04', title: 'Web infrastructure', body: 'Production applications, CI/CD, direct repo access. Full-stack dev, GitHub-native.', metrics: ['Live sites, not mockups','Updates in hours','You own everything'], accent: 'var(--blush)', emoji: '❀' },
   ];
@@ -51,10 +51,10 @@ export default function Stack() {
           <div>
             <div className="section-tag" style={{ marginBottom: 18 }}>
               <span className="num">§ 03</span>
-              <span className="hand" style={{ color: 'var(--cherry)', fontSize: 26, transform: 'rotate(-3deg)', display: 'inline-block' }}>The stack ✿</span>
+              <span className="hand" style={{ color: 'var(--cherry)', fontSize: 22, transform: 'rotate(-3deg)', display: 'inline-block' }}>The stack ✿</span>
             </div>
-            <h2 className="h-display" style={{ fontSize: 'clamp(2.4rem, 6vw, 5rem)', color: 'var(--ink)' }}>
-              Built for <em style={{ fontStyle: 'italic', color: 'var(--cherry)' }}>real</em><br/>work.
+            <h2 className="h-display" style={{ fontSize: 'clamp(3.2rem, 6vw, 5rem)', color: 'var(--ink)' }}>
+              Built for <em style={{ fontStyle: 'italic', color: 'var(--cherry)' }}>real</em> work.
             </h2>
           </div>
           <p style={{ fontFamily: 'var(--font-body)', fontSize: 'clamp(15px, 1.3vw, 17px)', lineHeight: 1.6, color: 'var(--ink-soft)', margin: 0, maxWidth: 460 }}>

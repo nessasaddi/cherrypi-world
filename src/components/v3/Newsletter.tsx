@@ -10,7 +10,7 @@ export default function Newsletter() {
             <div>
               <div className="section-tag" style={{ marginBottom: 18 }}>
                 <span className="num" style={{ color: 'rgba(255,250,240,0.5)' }}>§ 06</span>
-                <span className="hand" style={{ color: 'var(--butter)', fontSize: 26 }}>Field notes ✿</span>
+                <span className="hand" style={{ color: 'var(--butter)', fontSize: 22 }}>Field notes ✿</span>
               </div>
               <h3 className="h-display" style={{ fontSize: 'clamp(2rem, 4.4vw, 3.6rem)', color: 'var(--paper)', lineHeight: 1 }}>
                 Field notes.<br/>
@@ -26,7 +26,7 @@ export default function Newsletter() {
                 <input type="email" name="email" required placeholder="you@domain.com" style={{ flex: 1, border: 'none', background: 'transparent', padding: '14px 16px', fontFamily: 'var(--font-mono)', fontSize: 13, outline: 'none', color: 'var(--paper)', minWidth: 0 }} />
                 <button type="submit" className="btn primary" style={{ padding: '12px 22px', borderColor: 'var(--paper)', boxShadow: '3px 3px 0 var(--paper)' }}>→ enter</button>
               </form>
-              <div style={{ marginTop: 14, fontFamily: 'var(--font-hand)', fontSize: 18, color: 'var(--butter)' }}>
+              <div style={{ marginTop: 14, fontFamily: 'var(--font-hand)', fontSize: 15, color: 'var(--butter)' }}>
                 No spam, pinky promise ✿
               </div>
             </div>

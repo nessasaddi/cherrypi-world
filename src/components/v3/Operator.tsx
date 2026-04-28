@@ -23,7 +23,7 @@ export default function Operator() {
         <div>
           <div className="section-tag" style={{ marginBottom: 22 }}>
             <span className="num" style={{ color: 'rgba(255,250,240,0.5)' }}>§ 02</span>
-            <span className="hand" style={{ color: 'var(--butter)', fontSize: 26, transform: 'rotate(-2deg)' }}>whoami ✿</span>
+            <span className="hand" style={{ color: 'var(--butter)', fontSize: 22, transform: 'rotate(-2deg)' }}>whoami ✿</span>
           </div>
           <pre style={{ fontFamily: 'var(--font-mono)', fontSize: 'clamp(11px, 1vw, 13px)', color: 'rgba(255,250,240,0.55)', margin: '0 0 28px', lineHeight: 1.85 }}>
 {`❯ whoami
@@ -49,9 +49,9 @@ export default function Operator() {
               </div>
             ))}
           </div>
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10, marginTop: 28 }}>
+          <div style={{ display: 'flex', flexWrap: 'nowrap', gap: 6, marginTop: 28, overflow: 'hidden' }}>
             {stickers.map((t, i) => (
-              <span key={t} className="sticker" style={{ background: 'transparent', color: 'var(--lavender)', borderColor: 'rgba(174,190,255,0.4)', boxShadow: 'none', fontSize: 10, '--tilt': STICKER_TILTS[i] } as React.CSSProperties}>{t}</span>
+              <span key={t} className="sticker" style={{ background: 'transparent', color: 'var(--lavender)', borderColor: 'rgba(174,190,255,0.4)', boxShadow: 'none', fontSize: 9, padding: '4px 8px', '--tilt': STICKER_TILTS[i] } as React.CSSProperties}>{t}</span>
             ))}
           </div>
         </div>
@@ -61,10 +61,9 @@ export default function Operator() {
             <span className="tape l" style={{ background: 'rgba(255,217,122,0.7)' }} />
             <div style={{ width: '100%', aspectRatio: '4/5', position: 'relative', overflow: 'hidden' }}>
               <Image src="/portrait-vsaddi.jpg" alt="Vanessa Saddi" fill sizes="(max-width: 768px) 100vw, 380px" style={{ objectFit: 'cover' }} />
-              <div style={{ position: 'absolute', bottom: 16, left: 16, fontFamily: 'var(--font-mono)', fontSize: 9, color: 'var(--ink)', letterSpacing: '0.15em', background: 'rgba(255,250,240,0.85)', padding: '4px 8px', borderRadius: 4 }}>FIG · 01 · V.SADDI</div>
             </div>
-            <div style={{ position: 'absolute', bottom: 14, left: 0, right: 0, textAlign: 'center', fontFamily: 'var(--font-hand)', fontSize: 22, color: 'var(--ink)' }}>
-              hi, i&apos;m nessa →
+            <div style={{ position: 'absolute', bottom: 14, left: 0, right: 0, textAlign: 'center', fontFamily: 'var(--font-hand)', fontSize: 19, color: 'var(--ink)' }}>
+              mom of 3 · sees in systems ✿
             </div>
           </div>
         </div>
