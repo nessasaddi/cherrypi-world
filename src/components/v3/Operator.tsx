@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 const STICKER_TILTS = ['-1.8deg', '0.7deg', '-1.2deg', '1.5deg', '-0.4deg'];
 
@@ -14,7 +15,7 @@ export default function Operator() {
   const stickers = ['cannabis', 'tech', 'collectibles', 'lifestyle', 'food'];
 
   return (
-    <section id="operator" className="section invert">
+    <section id="operator" className="section dark-section">
       <div aria-hidden style={{ position: 'absolute', top: '-20%', right: '-10%', width: 700, height: 700, background: 'radial-gradient(circle, rgba(239,85,65,0.32) 0%, transparent 65%)', filter: 'blur(50px)', pointerEvents: 'none' }} />
       <div aria-hidden style={{ position: 'absolute', bottom: '-20%', left: '-10%', width: 600, height: 600, background: 'radial-gradient(circle, rgba(174,190,255,0.22) 0%, transparent 65%)', filter: 'blur(50px)', pointerEvents: 'none' }} />
 
@@ -58,7 +59,8 @@ export default function Operator() {
         <div style={{ position: 'relative', justifySelf: 'center', maxWidth: 380, width: '100%' }}>
           <div style={{ background: 'var(--paper)', padding: '14px 14px 50px', boxShadow: '0 20px 50px -16px rgba(0,0,0,0.5)', transform: 'rotate(-2.5deg)', position: 'relative' }}>
             <span className="tape l" style={{ background: 'rgba(255,217,122,0.7)' }} />
-            <div style={{ width: '100%', aspectRatio: '4/5', background: 'linear-gradient(135deg, var(--cherry-soft) 0%, var(--lavender) 50%, var(--butter) 100%)', position: 'relative', overflow: 'hidden' }}>
+            <div style={{ width: '100%', aspectRatio: '4/5', position: 'relative', overflow: 'hidden' }}>
+              <Image src="/portrait-vsaddi.jpg" alt="Vanessa Saddi" fill style={{ objectFit: 'cover' }} />
               <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(circle at 35% 30%, rgba(255,255,255,0.4) 0%, transparent 50%)' }} />
               <div style={{ position: 'absolute', bottom: 16, left: 16, fontFamily: 'var(--font-mono)', fontSize: 9, color: 'var(--ink)', letterSpacing: '0.15em', background: 'rgba(255,250,240,0.85)', padding: '4px 8px', borderRadius: 4 }}>FIG · 01 · V.SADDI</div>
             </div>

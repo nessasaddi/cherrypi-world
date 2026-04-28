@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
+import Image from 'next/image';
 import { useTweaks, TweaksPanel, TweakSection, TweakSlider, TweakColor, TweakToggle, TweakRadio } from './TweaksPanel';
 import Hero from './Hero';
 import Operator from './Operator';
@@ -41,7 +42,9 @@ export default function TweaksProvider() {
   return (
     <>
       <aside className="left-rail" aria-label="primary">
-        <div className="logo">c</div>
+        <div className="logo" style={{ background: 'none' }}>
+          <Image src="/logos/cherry-icon.svg" width={36} height={36} alt="Cherry Pi" />
+        </div>
         <a className="nav-link" href="#hero">home</a>
         <a className="nav-link" href="#operator">operator</a>
         <a className="nav-link" href="#stack">stack</a>
@@ -51,7 +54,9 @@ export default function TweaksProvider() {
       </aside>
 
       <header className="top-bar">
-        <span className="wm">cherry <em>pi</em></span>
+        <span className="wm">
+          <Image src="/logos/wordmark.svg" width={0} height={22} alt="Cherry Pi" style={{ width: 'auto', height: 22 }} />
+        </span>
         <a href="#connect" className="btn primary" style={{ padding: '8px 14px', fontSize: 12 }}>→ start</a>
       </header>
 

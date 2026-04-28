@@ -493,16 +493,16 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
   padding: clamp(60px, 10vh, 120px) clamp(20px, 5vw, 80px);
 }
-.section.invert {
+.section.dark-section {
   background: var(--ink);
   color: var(--paper);
   border-top-left-radius: clamp(24px, 4vw, 48px);
   border-top-right-radius: clamp(24px, 4vw, 48px);
   margin-top: -1px;
 }
-.section.invert .section-tag .num { color: rgba(255,250,240,0.5); }
-.section.invert .section-tag .name { color: var(--butter); }
-.section.invert .panel {
+.section.dark-section .section-tag .num { color: rgba(255,250,240,0.5); }
+.section.dark-section .section-tag .name { color: var(--butter); }
+.section.dark-section .panel {
   background: rgba(255,250,240,0.04);
   border: 1px solid rgba(255,250,240,0.12);
   color: var(--paper);

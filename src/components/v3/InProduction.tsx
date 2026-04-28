@@ -359,7 +359,7 @@ function Marquee() {
 
 export default function InProduction() {
   return (
-    <section id="in-production" className="section invert">
+    <section id="in-production" className="section dark-section">
       <div aria-hidden style={{ position: 'absolute', top: '-15%', right: '-10%', width: 720, height: 720, background: 'radial-gradient(circle, rgba(239,85,65,0.28) 0%, transparent 65%)', filter: 'blur(60px)', pointerEvents: 'none' }} />
       <div aria-hidden style={{ position: 'absolute', bottom: '10%', left: '-15%', width: 600, height: 600, background: 'radial-gradient(circle, rgba(184,227,201,0.20) 0%, transparent 65%)', filter: 'blur(60px)', pointerEvents: 'none' }} />
 
