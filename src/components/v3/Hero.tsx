@@ -14,7 +14,7 @@ export default function Hero() {
           </div>
           <h1 className="h-display" style={{ fontFamily: 'var(--font-display)', fontWeight: 400, lineHeight: 0.96, letterSpacing: '-0.025em', margin: 0 }}>
             <span style={{ display: 'block', whiteSpace: 'nowrap', fontSize: 'clamp(2.4rem, 4.5vw, 3.6rem)' }}>One operator.</span>
-            <em style={{ display: 'block', whiteSpace: 'nowrap', fontSize: 'clamp(3.65rem, 6.85vw, 5.5rem)', fontStyle: 'italic', backgroundImage: 'linear-gradient(100deg, var(--cherry), var(--blush), var(--lavender), var(--lime), var(--cherry))', backgroundSize: '300% auto', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', animation: 'cp-shimmer 4s ease-in-out infinite' }}>
+            <em style={{ display: 'block', whiteSpace: 'nowrap', fontSize: 'clamp(3.65rem, 6.85vw, 5.5rem)', fontStyle: 'italic', backgroundImage: 'linear-gradient(100deg, var(--cherry), var(--cherry-soft), var(--lavender), var(--blush), var(--cherry))', backgroundSize: '300% auto', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', animation: 'cp-shimmer 4s ease-in-out infinite' }}>
               Full stack.
             </em>
           </h1>
