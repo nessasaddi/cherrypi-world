@@ -1,9 +1,24 @@
 import type { Metadata } from "next";
-import { Syne, Outfit, Space_Grotesk, DM_Sans, JetBrains_Mono } from "next/font/google";
+import { Syne, Outfit, Space_Grotesk, DM_Sans, JetBrains_Mono, Fraunces, Caveat } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 
 const GA_ID = "G-3S3Q93LXN0";
+
+const fraunces = Fraunces({
+  variable: "--font-fraunces",
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  style: ["normal", "italic"],
+  display: "swap",
+});
+
+const caveat = Caveat({
+  variable: "--font-caveat",
+  subsets: ["latin"],
+  weight: ["500", "600"],
+  display: "swap",
+});
 
 const syne = Syne({
   variable: "--font-syne",
@@ -81,7 +96,7 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${GA_ID}');` }} />
       </head>
       <body
-        className={`${syne.variable} ${outfit.variable} ${spaceGrotesk.variable} ${dmSans.variable} ${jetbrainsMono.variable} antialiased bg-background text-foreground`}
+        className={`${fraunces.variable} ${caveat.variable} ${syne.variable} ${outfit.variable} ${spaceGrotesk.variable} ${dmSans.variable} ${jetbrainsMono.variable} antialiased`}
       >
         {children}
         <Script
