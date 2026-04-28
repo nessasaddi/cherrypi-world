@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { useTweaks, TweaksPanel, TweakSection, TweakSlider, TweakColor, TweakToggle, TweakRadio } from './TweaksPanel';
 import dynamic from 'next/dynamic';
@@ -23,6 +23,11 @@ const TWEAK_DEFAULTS = {
 
 export default function TweaksProvider() {
   const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
+  const [logoSrc, setLogoSrc] = useState('/logos/cherry-icon.svg');
+
+  useEffect(() => {
+    setLogoSrc('/logos/cherry-animated.gif');
+  }, []);
 
   useEffect(() => {
     const root = document.documentElement;
@@ -45,7 +50,7 @@ export default function TweaksProvider() {
     <>
       <aside className="left-rail" aria-label="primary">
         <div className="logo" style={{ background: 'none' }}>
-          <Image src="/logos/cherry-icon.svg" width={31} height={40} alt="Cherry Pi" />
+          <Image src={logoSrc} width={31} height={40} alt="Cherry Pi" unoptimized={logoSrc.endsWith('.gif')} />
         </div>
         <a className="nav-link" href="#hero">home</a>
         <a className="nav-link" href="#operator">operator</a>
@@ -58,7 +63,7 @@ export default function TweaksProvider() {
       <header className="top-bar">
         <div className="top-bar-row">
           <span className="wm" style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-            <Image src="/logos/cherry-icon.svg" width={26} height={34} alt="" priority />
+            <Image src={logoSrc} width={26} height={34} alt="" priority unoptimized={logoSrc.endsWith('.gif')} />
             <Image src="/logos/wordmark.svg" width={0} height={22} alt="Cherry Pi" style={{ width: 'auto', height: 22 }} />
           </span>
           <a href="#connect" className="btn primary">→ start</a>
