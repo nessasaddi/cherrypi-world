@@ -71,8 +71,7 @@ export default function Hero() {
       <div className="container" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 380px), 1fr))', gap: 'clamp(32px, 4vw, 64px)', alignItems: 'center', position: 'relative' }}>
         <div>
           <div className="section-tag" style={{ marginBottom: 24 }}>
-            <span className="dot" />
-            <span className="num">CHERRY PI · STUDIO OS · /home</span>
+            <span className="num">CHERRY PI · STUDIO OS · <span style={{ textTransform: 'none' }}>/home</span></span>
           </div>
           <h1 className="h-display" style={{ fontFamily: 'var(--font-display)', fontWeight: 400, fontSize: 'clamp(2.8rem, 7.5vw, 6rem)', lineHeight: 0.96, letterSpacing: '-0.025em', margin: 0 }}>
             one operator.<br/>
