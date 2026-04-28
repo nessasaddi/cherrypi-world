@@ -47,6 +47,7 @@ html {
   color-scheme: light;
   scrollbar-color: #c8c8c8 transparent;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 /* .snap-section is left for semantic reference; no min-height so sections size to content */
