@@ -21,14 +21,20 @@ export default function Newsletter() {
               </p>
             </div>
             <div>
-              <pre style={{ fontFamily: 'var(--font-mono)', fontSize: 12, color: 'rgba(255,250,240,0.5)', margin: '0 0 12px' }}>❯ cherry subscribe</pre>
-              <form action="https://ch3rrypi.substack.com/subscribe" method="GET" target="_blank" rel="noopener" style={{ display: 'flex', gap: 8, background: 'rgba(255,250,240,0.06)', border: '1px solid rgba(255,250,240,0.18)', borderRadius: 14, padding: 6 }}>
-                <input type="email" name="email" required placeholder="you@domain.com" style={{ flex: 1, border: 'none', background: 'transparent', padding: '14px 16px', fontFamily: 'var(--font-mono)', fontSize: 13, outline: 'none', color: 'var(--paper)', minWidth: 0 }} />
-                <button type="submit" className="btn primary" style={{ padding: '12px 22px', borderColor: 'var(--paper)', boxShadow: '3px 3px 0 var(--paper)' }}>→ enter</button>
+              <form action="https://ch3rrypi.substack.com/subscribe" method="GET" target="_blank" rel="noopener" style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+                <pre style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'rgba(255,250,240,0.4)', margin: '0 0 4px', letterSpacing: '0.1em' }}>❯ cherry subscribe</pre>
+                <input
+                  type="email" name="email" required placeholder="you@domain.com"
+                  style={{ border: '1px solid rgba(255,250,240,0.22)', background: 'rgba(255,250,240,0.06)', borderRadius: 12, padding: '16px 20px', fontFamily: 'var(--font-mono)', fontSize: 14, outline: 'none', color: 'var(--paper)', width: '100%', boxSizing: 'border-box' }}
+                />
+                <button type="submit" className="btn primary" style={{ width: '100%', justifyContent: 'center', padding: '16px 24px', background: 'var(--cherry)', borderColor: 'var(--cherry)', color: 'var(--paper)', fontSize: 14, letterSpacing: '0.04em', whiteSpace: 'nowrap' }}>
+                  join the list →
+                </button>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginTop: 2 }}>
+                  <span style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--lime)', flexShrink: 0, display: 'inline-block' }} />
+                  <span style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: 'rgba(255,250,240,0.38)', letterSpacing: '0.12em' }}>monthly · no spam · unsubscribe anytime</span>
+                </div>
               </form>
-              <div style={{ marginTop: 14, fontFamily: 'var(--font-hand)', fontSize: 15, color: 'var(--butter)' }}>
-                No spam, pinky promise ✿
-              </div>
             </div>
           </div>
         </div>

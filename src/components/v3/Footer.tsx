@@ -10,7 +10,7 @@ export default function Footer() {
     <footer className="footer">
       <div className="container" style={{ position: 'relative' }}>
         <div style={{ display: 'flex', alignItems: 'baseline', gap: 16, marginBottom: 36, flexWrap: 'wrap' }}>
-          <span className="h-display" style={{ fontSize: 56, color: 'var(--paper)', fontStyle: 'italic', backgroundImage: 'linear-gradient(90deg, var(--cherry), var(--blush), var(--lavender), var(--lime), var(--cherry))', backgroundSize: '300% 100%', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', animation: 'cp-shimmer 8s ease-in-out infinite' }}>
+          <span className="h-display" style={{ fontSize: 'clamp(4.5rem, 14vw, 10rem)', color: 'var(--paper)', fontStyle: 'italic', fontWeight: 500, letterSpacing: '-0.02em', lineHeight: 0.92, backgroundImage: 'linear-gradient(100deg, var(--cherry) 0%, var(--blush) 28%, var(--lavender) 52%, var(--lime) 76%, var(--cherry) 100%)', backgroundSize: '250% 100%', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', animation: 'cp-shimmer 6s ease-in-out infinite' }}>
             Cherry Pi
           </span>
           <span className="hand signoff-hand" style={{ fontSize: 20, color: 'var(--butter)', transform: 'rotate(-2deg)' }}>That&apos;s a wrap ✿</span>
