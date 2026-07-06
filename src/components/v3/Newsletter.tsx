@@ -9,7 +9,7 @@ export default function Newsletter() {
           <div style={{ position: 'relative', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))', gap: 'clamp(28px, 4vw, 60px)', alignItems: 'center' }}>
             <div>
               <div className="section-tag" style={{ marginBottom: 18 }}>
-                <span className="num" style={{ color: 'rgba(255,250,240,0.5)' }}>§ 05</span>
+                <span className="num" style={{ color: 'rgba(255,250,240,0.5)' }}>§ 04</span>
                 <span className="hand" style={{ color: 'var(--butter)', fontSize: 22 }}>Field notes ✿</span>
               </div>
               <h3 className="h-display" style={{ fontSize: 'clamp(2rem, 4.4vw, 3.6rem)', color: 'var(--paper)', lineHeight: 1 }}>
@@ -17,12 +17,12 @@ export default function Newsletter() {
                 <em style={{ fontStyle: 'italic', color: 'rgba(255,250,240,0.55)' }}>Monthly.</em>
               </h3>
               <p style={{ fontFamily: 'var(--font-body)', fontSize: 'clamp(14px, 1.2vw, 16px)', lineHeight: 1.6, color: 'rgba(255,250,240,0.7)', margin: '18px 0 0', maxWidth: 380 }}>
-                What&apos;s actually working in autonomous systems and creative infrastructure. <span style={{ color: 'var(--paper)' }}>Nothing else.</span>
+                Monthly, on running a studio like software. <span style={{ color: 'var(--paper)' }}>No spam.</span>
               </p>
             </div>
             <div>
               <form action="https://ch3rrypi.substack.com/subscribe" method="GET" target="_blank" rel="noopener" style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-                <pre style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'rgba(255,250,240,0.4)', margin: '0 0 4px', letterSpacing: '0.1em' }}>❯ cherry subscribe</pre>
+                <span style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'rgba(255,250,240,0.4)', margin: '0 0 4px', letterSpacing: '0.1em' }}>field notes ✿</span>
                 <input
                   type="email" name="email" required placeholder="you@domain.com"
                   style={{ border: '1px solid rgba(255,250,240,0.22)', background: 'rgba(255,250,240,0.06)', borderRadius: 12, padding: '16px 20px', fontFamily: 'var(--font-mono)', fontSize: 14, outline: 'none', color: 'var(--paper)', width: '100%', boxSizing: 'border-box' }}

@@ -45,24 +45,24 @@ const SITE_URL = "https://cherrypi.world";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "Cherry Pi — Autonomous Brand Infrastructure. One Operator.",
+  title: "Cherry Pi — Creative Studio. Built by Hand, Shipped Like Software.",
   description:
-    "Autonomous brand infrastructure, built and run by one operator. Strategy, design, AI content pipelines, and full-stack web — engineered like software. California, est. 2023.",
+    "A one-person creative studio: brand strategy, design, and full-stack engineering under one roof. California, est. 2023.",
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     url: SITE_URL,
     siteName: "Cherry Pi",
-    title: "Cherry Pi — Autonomous Brand Infrastructure. One Operator.",
+    title: "Cherry Pi — Creative Studio. Built by Hand, Shipped Like Software.",
     description:
-      "Strategy, design, autonomous content pipelines, custom AI tooling, and full-stack web — built and run by one operator. Not an agency. A brand operator.",
+      "A one-person creative studio: brand strategy, design, and full-stack engineering under one roof. California, est. 2023.",
     images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Cherry Pi" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Cherry Pi — Autonomous Brand Infrastructure. One Operator.",
+    title: "Cherry Pi — Creative Studio. Built by Hand, Shipped Like Software.",
     description:
-      "Strategy, design, autonomous content pipelines, custom AI tooling, and full-stack web — built and run by one operator. Not an agency. A brand operator.",
+      "A one-person creative studio: brand strategy, design, and full-stack engineering under one roof. California, est. 2023.",
     images: ["/og-image.png"],
   },
   robots: { index: true, follow: true },
@@ -101,7 +101,7 @@ export default function RootLayout({
             name: "Cherry Pi",
             url: SITE_URL,
             logo: `${SITE_URL}/logos/cherry-pi-logo.png`,
-            description: "Cherry Pi builds and runs autonomous brand infrastructure — strategy, design, AI content pipelines, custom AI tooling, and full-stack web. One operator. Full stack. Not an agency. A brand operator.",
+            description: "Cherry Pi is a one-person creative studio — brand strategy, design, and full-stack engineering under one roof. Built by hand, shipped like software. California, est. 2023.",
             founder: { "@type": "Person", name: "Vanessa Saddi" },
             foundingDate: "2023",
             areaServed: "Worldwide",
@@ -111,7 +111,7 @@ export default function RootLayout({
               "https://www.linkedin.com/company/cherrypi",
               "https://www.instagram.com/ch3rry.p1",
             ],
-            knowsAbout: ["autonomous brand infrastructure", "AI brand operator", "content pipeline automation", "brand identity", "full-stack web development", "custom AI tooling", "brand operator for startups"],
+            knowsAbout: ["brand strategy", "brand identity", "art direction", "design systems", "full-stack web development", "creative studio"],
           })}}
         />
       </body>

@@ -3,14 +3,11 @@
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { useTweaks, TweaksPanel, TweakSection, TweakSlider, TweakColor, TweakToggle, TweakRadio } from './TweaksPanel';
-import dynamic from 'next/dynamic';
 import Hero from './Hero';
-import Operator from './Operator';
-import Stack from './Stack';
+import Studio from './Studio';
+import Process from './Process';
 import Newsletter from './Newsletter';
 import Footer from './Footer';
-
-const InProduction = dynamic(() => import('./InProduction'), { ssr: false });
 
 const TWEAK_DEFAULTS = {
   creamLevel: 30,
@@ -53,11 +50,10 @@ export default function TweaksProvider() {
           <Image src={logoSrc} width={31} height={40} alt="Cherry Pi" unoptimized={logoSrc.endsWith('.gif')} />
         </div>
         <a className="nav-link" href="#hero">home</a>
-        <a className="nav-link" href="#operator">operator</a>
-        <a className="nav-link" href="#stack">stack</a>
-        <a className="nav-link" href="#in-production">in&nbsp;prod</a>
-        <a className="nav-link" href="#connect">connect</a>
-        <div className="vert">cherry pi · v3.2</div>
+        <a className="nav-link" href="#studio">studio</a>
+        <a className="nav-link" href="#process">process</a>
+        <a className="nav-link" href="#connect">contact</a>
+        <div className="vert">cherry pi · v4</div>
       </aside>
 
       <header className="top-bar">
@@ -66,22 +62,20 @@ export default function TweaksProvider() {
             <Image src={logoSrc} width={26} height={34} alt="" priority unoptimized={logoSrc.endsWith('.gif')} />
             <Image src="/logos/wordmark.svg" width={0} height={22} alt="Cherry Pi" style={{ width: 'auto', height: 22 }} />
           </span>
-          <a href="#connect" className="btn primary">→ start</a>
+          <a href="#connect" className="btn primary">→ get in touch</a>
         </div>
         <nav className="top-bar-nav">
           <a href="#hero">home</a>
-          <a href="#operator">operator</a>
-          <a href="#stack">stack</a>
-          <a href="#in-production">in&nbsp;prod</a>
-          <a href="#connect">connect</a>
+          <a href="#studio">studio</a>
+          <a href="#process">process</a>
+          <a href="#connect">contact</a>
         </nav>
       </header>
 
       <main className="with-rail">
         <Hero />
-        <Operator />
-        <Stack />
-        <InProduction />
+        <Studio />
+        <Process />
         <Newsletter />
         <Footer />
       </main>
