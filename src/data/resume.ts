@@ -10,7 +10,7 @@ export const person = {
   location: "Los Angeles, California · travels to the office as needed",
   email: "nessasaddi@gmail.com",
   links: [
-    { label: "cherrypi.world/resume", href: "https://cherrypi.world/resume" },
+    { label: "cherrypi.world", href: "https://cherrypi.world" },
     { label: "github.com/nessasaddi", href: "https://github.com/nessasaddi" },
     { label: "linkedin", href: "https://www.linkedin.com/company/cherrypi" },
   ],
@@ -149,7 +149,7 @@ export const work: Project[] = [
     url: "https://cherrypi.world",
     stack: "Next.js 16 · React 19 · Tailwind v4",
     year: "2023 to now",
-    body: "The studio site, four versions in. v4 cut 7,200 lines and three heavy libraries. This resume lives at /resume on the same codebase, with a print stylesheet so the page is also the PDF.",
+    body: "The studio site, four versions in. v4 cut 7,200 lines and three heavy libraries. This resume is the current home page, with a print stylesheet so the page is also the PDF.",
   },
 ];
 
