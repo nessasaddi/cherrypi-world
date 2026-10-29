@@ -700,6 +700,8 @@ body.hand-light .signoff-hand { opacity: 0.55; transform: rotate(-1deg) scale(0.
 @media (max-width: 820px) {
   .hero-grid { grid-template-columns: 1fr; }
   .hero-grid .portrait-wrap { order: -1; max-width: 170px; justify-self: start; }
+  .hero-grid .portrait { padding-bottom: 12px; }
+  .hero-grid .portrait .hand { display: none; }
 }
 .portrait-wrap { position: relative; justify-self: center; width: 100%; max-width: 300px; }
 .portrait {
