@@ -175,7 +175,9 @@ export const experience = [
   {
     when: "2026",
     role: "Brand operator, two multi-brand portfolios",
-    where: "Alpine Vapor, Swiitch, House Money, Sherbinskis, Common Kings, Uncle Ed's, Boutiq",
+    // Off the page by Vanessa's call (2026-10-29), kept for the record:
+    // Alpine Vapor, Swiitch, House Money, Sherbinskis, Common Kings, Uncle Ed's, Boutiq.
+    where: "Seven brands across cannabis, spirits, streetwear and lifestyle",
     body: "Websites, catalogs, packaging, trade-show booths, email, decks and social, on task-based retainers where speed is the deliverable.",
   },
   {
