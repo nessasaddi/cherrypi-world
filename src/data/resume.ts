@@ -31,27 +31,27 @@ export const fit: FitItem[] = [
     tag: "core",
     ask: "Modern frameworks. Next.js and React, inside a design system.",
     proof:
-      "Five production sites live today. Next.js 15 and 16 with React 19 and Tailwind v4 where the site earns it (swiitchglobal.com, this page); plain HTML, CSS and JS where that was the right size (alpinevapor.com, housemoney.com landing pages, timothyvanessa.com). Every brand ships with a written kit the code reads first: tokens, type with PostScript names, logo rules, page furniture.",
+      "Five production sites live today: Next.js and React where the site earns it, plain HTML, CSS and JS where that was the right size. Every brand ships with a written kit the code reads first: tokens, type with PostScript names, logo rules, page furniture.",
     evidence: ["Next.js 15/16", "React 19", "Tailwind v4", "TypeScript", "Vercel"],
   },
   {
     tag: "core",
     ask: "CSS for complex layouts, animation and interaction.",
     proof:
-      "This page: fluid clamp() type scale, 12-column panel grid, gradient wordmark through a CSS mask, film grain overlay, reduced-motion fallbacks. Swiitch: 21+ age gate, auto-scrolling gallery carousel, native share sheet on photo tiles. House Money: mobile sticky CTA bar that appears once the hero leaves the viewport. Alpine: nav that flips colour over dark and light sections, store locator with a map.",
+      "This page: fluid clamp() type scale, 12-column panel grid, gradient wordmark through a CSS mask, film grain overlay, reduced-motion fallbacks. Across client sites: age gates, auto-scrolling galleries, native share sheets on photo tiles, sticky mobile calls to action, navs that flip colour over dark and light sections, map-based store locators.",
   },
   {
     tag: "core",
     ask: "Headless content. Modeling, structured data, the publishing experience.",
     proof:
-      "Swell headless commerce behind the Swiitch store: products modeled in Swell, storefront rendered in Next.js through swell-js, ten pods live. Typed content layers drive the rest: one artists file renders four /art/<slug> pages with the artists' exact words; one events data file renders events, past events and per-event galleries; a COA list renders the certificate library. Notion databases run operations as a CMS through MCP: three task boards and a client hub that a skill populates from a discovery call. Straight talk: no Sanity or Contentful in production yet.",
-    evidence: ["Swell", "typed content files", "Notion via MCP", "Webflow embeds", "Apps Script + Sheets"],
+      "A headless commerce platform behind a live store: products modeled in the platform, storefront rendered in Next.js. Typed content layers drive the rest: one data file renders a set of artist pages in the artists' own words, another renders events and galleries, a third renders a document library. Notion databases run studio operations as a CMS through MCP: task boards and a client hub that a skill populates from a discovery call. Straight talk: no Sanity or Contentful in production yet.",
+    evidence: ["headless commerce", "typed content files", "Notion via MCP", "Webflow embeds", "Apps Script + Sheets"],
   },
   {
     tag: "core",
     ask: "Design to interactive. Static designs into working web experiences.",
     proof:
-      "I am the designer and the engineer, so the handoff happens inside one head. Every site above started as my own art direction (brand decks, style locks, UI direction docs) and I carried it to code. When the design came from someone else, as with House Money's seven-page copy PDF and five comps, it became two A/B landing pages in a day, with a ?review=1 mode that outlines every block and labels where its copy came from.",
+      "I am the designer and the engineer, so the handoff happens inside one head. Every site above started as my own art direction (brand decks, style locks, UI direction docs) and I carried it to code. When the design and copy came from a client team, they became two landing-page variants in a day, with a review mode that outlines every block and labels where its copy came from.",
   },
   {
     tag: "core",
@@ -64,13 +64,13 @@ export const fit: FitItem[] = [
     tag: "core",
     ask: "Migrations and site architecture, on a defined scope.",
     proof:
-      "Swiitch: migrated a static site to a Next.js and Swell store on the same repo, two Vercel projects watching two branches, a one-minute rollback by moving the domain, temporary redirects flipped to permanent after cutover, and a runbook written after a shared project broke production. October 2026: branched a minimal CBD-mode site for a payment-processor review with the full site parked and nothing deleted. Cherry Pi v4: removed 7,200 lines and three heavy dependencies.",
+      "Migrated a client's static site to a Next.js storefront on the same repo: one deployment per branch, a one-minute rollback, redirects flipped from temporary to permanent after cutover, and a runbook written for the next person. Carved a trimmed version of a site for a third-party review without deleting anything. Cherry Pi v4: removed 7,200 lines and three heavy dependencies.",
   },
   {
     tag: "core",
     ask: "Concept to working prototype, quickly.",
     proof:
-      "Wedding site: designed, built, RSVP pipeline wired to a spreadsheet and verified end to end, deployed to Vercel, in one session. Alpine Vapor: site planned September 17, live for The Network Show on September 23. House Money: two landing pages September 30, Webflow package October 1. Cherry Pi v4: spec July 4, approved and merged July 6.",
+      "Wedding site: designed, built, RSVP pipeline wired to a spreadsheet and verified end to end, deployed, in one session. A client brand site planned on a Thursday and live for a trade show six days later. Two landing pages in a day, packaged for the client's CMS the next. Cherry Pi v4: spec July 4, approved and merged July 6.",
   },
   {
     tag: "core",
@@ -112,33 +112,33 @@ export const work: Project[] = [
     name: "swiitchglobal.com",
     client: "Swiitch Global",
     url: "https://swiitchglobal.com",
-    stack: "Next.js 15 · React 19 · Swell · Vercel",
+    stack: "Next.js · React · headless commerce",
     year: "2026",
-    body: "Headless store and culture site: age gate, team lock middleware, events with a Google Sheets signup, photo galleries with native share, ComplexCon artist pages that plaque QR codes point at, and a certificate library. Two Vercel projects, one repo, branch per site.",
+    body: "Brand site and online store for a lifestyle brand: products, events, artist features and a document library.",
   },
   {
     name: "alpinevapor.com",
     client: "Alpine Vapor",
     url: "https://alpinevapor.com",
-    stack: "HTML · CSS · JS · Vercel",
+    stack: "HTML · CSS · JS",
     year: "2026",
-    body: "Brand site launched for a trade show in six days: chrome hero, flower drop, store locator with map, sorted signup list, nav that flips colour by section. Locked and unlocked by middleware as the team asked.",
+    body: "Brand site launched for a trade show in six days: product lineup, store locator and email signup.",
   },
   {
     name: "housemoney.com/lp/membership",
     client: "House Money",
     url: "https://www.housemoney.com/lp/membership",
-    stack: "Static site · Webflow embeds · Python build",
+    stack: "Static site · Webflow",
     year: "2026",
-    body: "Two paid-traffic landing pages with A/B variants, UTM passthrough, mobile sticky bar and a review mode. Packaged for Webflow as thirteen embeds by a build script, under page-only rules so the developer's site stayed untouched.",
+    body: "Paid-traffic landing page for a subscription product, built static and delivered into the client's Webflow site.",
   },
   {
     name: "timothyvanessa.com",
     client: "Personal",
     url: "https://www.timothyvanessa.com",
-    stack: "Single-file site · Apps Script · Sheets",
+    stack: "Single-file site · Apps Script",
     year: "2026",
-    body: "Wedding site with access code, countdown, RSVP form writing to a spreadsheet and a timed email signup. Built and verified end to end in one session.",
+    body: "Wedding site with access code, countdown and an RSVP form that writes to a spreadsheet. Built and verified end to end in one session.",
   },
   {
     name: "cherrypi.world",
@@ -160,7 +160,7 @@ export const tools = [
   { name: "worksheet-designer", what: "print-ready learning packs on a ReportLab design system" },
   { name: "compass · plan-my-week · council", what: "advisor, ledger and multi-agent review for the operator" },
   { name: "photo-prep.sh", what: "batch event photos, cap size, auto-brighten, print the data block" },
-  { name: "alpine content pipeline", what: "queue, generate, caption agent, score, Slack notify" },
+  { name: "batch content pipeline", what: "queue, generate, caption agent, score, Slack notify" },
   { name: "signup pipelines", what: "site form to Apps Script to Google Sheet, three sites" },
   { name: "CLAUDE.md workspace", what: "memory, decision log, brand standard, loaded every session" },
 ];
@@ -240,7 +240,7 @@ export const education: Education[] = [
 ];
 
 export const stack: { group: string; items: string[] }[] = [
-  { group: "web", items: ["Next.js 15/16", "React 19", "TypeScript", "Tailwind v4", "CSS", "HTML", "Vercel", "GitHub", "Swell", "Webflow", "Apps Script", "Python", "Node"] },
+  { group: "web", items: ["Next.js 15/16", "React 19", "TypeScript", "Tailwind v4", "CSS", "HTML", "Vercel", "GitHub", "headless commerce", "Webflow", "Apps Script", "Python", "Node"] },
   { group: "design", items: ["Illustrator", "Photoshop", "Figma", "Canva", "brand systems", "art direction", "print production"] },
   { group: "ai", items: ["Claude Code", "MCP servers", "custom skills", "subagents", "Higgsfield", "Nano Banana Pro", "ElevenLabs"] },
   { group: "ops", items: ["Notion as OS", "Slack", "Google Workspace", "analytics (GA4, Search Console)", "SEO, JSON-LD, sitemaps"] },
