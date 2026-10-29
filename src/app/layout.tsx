@@ -45,24 +45,24 @@ const SITE_URL = "https://cherrypi.world";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "Vanessa Saddi: Front End Engineer, Marketing. Designer first, engineer by necessity.",
+  title: "Cherry Pi — Creative Studio. Built by Hand, Shipped Like Software.",
   description:
-    "Resume of Vanessa Saddi: designer-engineer with six live production sites, Next.js and React, headless content systems, internal tooling and AI-assisted workflows. Built for the Anthropic Brand Web team.",
+    "A one-person creative studio: brand strategy, design, and full-stack engineering under one roof. California, est. 2023.",
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     url: SITE_URL,
     siteName: "Cherry Pi",
-    title: "Vanessa Saddi: Front End Engineer, Marketing. Designer first, engineer by necessity.",
+    title: "Cherry Pi — Creative Studio. Built by Hand, Shipped Like Software.",
     description:
-      "Resume of Vanessa Saddi: designer-engineer with six live production sites, Next.js and React, headless content systems, internal tooling and AI-assisted workflows. Built for the Anthropic Brand Web team.",
+      "A one-person creative studio: brand strategy, design, and full-stack engineering under one roof. California, est. 2023.",
     images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Cherry Pi" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Vanessa Saddi: Front End Engineer, Marketing. Designer first, engineer by necessity.",
+    title: "Cherry Pi — Creative Studio. Built by Hand, Shipped Like Software.",
     description:
-      "Resume of Vanessa Saddi: designer-engineer with six live production sites, Next.js and React, headless content systems, internal tooling and AI-assisted workflows. Built for the Anthropic Brand Web team.",
+      "A one-person creative studio: brand strategy, design, and full-stack engineering under one roof. California, est. 2023.",
     images: ["/og-image.png"],
   },
   robots: { index: true, follow: true },
@@ -97,19 +97,21 @@ export default function RootLayout({
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{ __html: JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "Person",
-            name: "Vanessa Saddi",
+            "@type": "Organization",
+            name: "Cherry Pi",
             url: SITE_URL,
-            image: `${SITE_URL}/portrait-vsaddi.jpg`,
-            jobTitle: "Designer and Front End Engineer",
-            worksFor: { "@type": "Organization", name: "Cherry Pi Creative Studio", url: SITE_URL },
-            email: "mailto:hello@cherrypi.world",
-            address: { "@type": "PostalAddress", addressLocality: "Los Angeles", addressRegion: "CA", addressCountry: "US" },
+            logo: `${SITE_URL}/logos/cherry-pi-logo.png`,
+            description: "Cherry Pi is a one-person creative studio — brand strategy, design, and full-stack engineering under one roof. Built by hand, shipped like software. California, est. 2023.",
+            founder: { "@type": "Person", name: "Vanessa Saddi" },
+            foundingDate: "2023",
+            areaServed: "Worldwide",
+            address: { "@type": "PostalAddress", addressRegion: "CA", addressCountry: "US" },
+            contactPoint: { "@type": "ContactPoint", email: "hello@cherrypi.world", contactType: "customer service" },
             sameAs: [
-              "https://github.com/nessasaddi",
               "https://www.linkedin.com/company/cherrypi",
+              "https://www.instagram.com/ch3rry.p1",
             ],
-            knowsAbout: ["Next.js", "React", "TypeScript", "CSS", "design systems", "headless CMS", "brand identity", "art direction", "AI-assisted development", "Claude Code"],
+            knowsAbout: ["brand strategy", "brand identity", "art direction", "design systems", "full-stack web development", "creative studio"],
           })}}
         />
       </body>
