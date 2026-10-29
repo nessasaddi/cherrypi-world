@@ -13,7 +13,7 @@ export default function Work() {
               <span className="hand" style={{ color: 'var(--cherry)', fontSize: 22, transform: 'rotate(-3deg)', display: 'inline-block' }}>in production ✿</span>
             </div>
             <h2 className="h-display" style={{ fontSize: 'clamp(2.4rem, 5.5vw, 5rem)', color: 'var(--ink)' }}>
-              Six properties. <em>All live.</em>
+              Five properties. <em>All live.</em>
             </h2>
           </div>
           <p className="lede" style={{ maxWidth: 440 }}>

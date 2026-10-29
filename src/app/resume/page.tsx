@@ -12,7 +12,7 @@ import { person } from '@/data/resume';
 const SITE_URL = 'https://cherrypi.world';
 const TITLE = 'Vanessa Saddi: Front End Engineer, Marketing. Designer first, engineer by necessity.';
 const DESC =
-  'Resume of Vanessa Saddi: designer-engineer with six live production sites, Next.js and React, headless content systems, internal tooling and AI-assisted workflows. Built for the Anthropic Brand Web team.';
+  'Resume of Vanessa Saddi: designer-engineer with five live production sites, Next.js and React, headless content systems, internal tooling and AI-assisted workflows. Built for the Anthropic Brand Web team.';
 
 export const metadata: Metadata = {
   title: TITLE,

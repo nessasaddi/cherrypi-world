@@ -6,7 +6,7 @@ export const person = {
   role: "Front End Engineer, Marketing",
   headline: ["Designer first.", "Engineer by necessity."],
   summary:
-    "Thirteen years of client-facing craft, three years shipping production web, and a daily practice of building with Claude in the loop. I design the system, write the code, and run the tooling that keeps it moving. Six live properties, one operator.",
+    "Thirteen years of client-facing craft, three years shipping production web, and a daily practice of building with Claude in the loop. I design the system, write the code, and run the tooling that keeps it moving. Five live properties, one operator.",
   location: "Los Angeles, California · travels to the office as needed",
   email: "nessasaddi@gmail.com",
   links: [
@@ -34,7 +34,7 @@ export const fit: FitItem[] = [
     tag: "core",
     ask: "Modern frameworks like Next.js and React, comfortable working inside a design system.",
     proof:
-      "Six production sites live today. Next.js 15 and 16 with React 19 and Tailwind v4 where the site earns it (swiitchglobal.com, speerscollective.com, this page); plain HTML, CSS and JS where that was the right size (alpinevapor.com, housemoney.com landing pages, timothyvanessa.com). Every brand ships with a written kit the code reads first: tokens, type with PostScript names, logo rules, page furniture.",
+      "Five production sites live today. Next.js 15 and 16 with React 19 and Tailwind v4 where the site earns it (swiitchglobal.com, this page); plain HTML, CSS and JS where that was the right size (alpinevapor.com, housemoney.com landing pages, timothyvanessa.com). Every brand ships with a written kit the code reads first: tokens, type with PostScript names, logo rules, page furniture.",
     evidence: ["Next.js 15/16", "React 19", "Tailwind v4", "TypeScript", "Vercel"],
   },
   {
@@ -134,14 +134,6 @@ export const work: Project[] = [
     stack: "Static site · Webflow embeds · Python build",
     year: "2026",
     body: "Two paid-traffic landing pages with A/B variants, UTM passthrough, mobile sticky bar and a review mode. Packaged for Webflow as thirteen embeds by a build script, under page-only rules so the developer's site stayed untouched.",
-  },
-  {
-    name: "speerscollective.com",
-    client: "In Light Collective",
-    url: "https://www.speerscollective.com",
-    stack: "Next.js 16 · Framer Motion · Tailwind v4",
-    year: "2026",
-    body: "Website and branding for a wellness collective: identity, type, motion and build in one engagement.",
   },
   {
     name: "timothyvanessa.com",
