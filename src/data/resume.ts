@@ -213,8 +213,32 @@ export const experience = [
   },
 ];
 
-export const education = [
-  { when: "2023", what: "SheCodes, front-end development", detail: "HTML, CSS, JavaScript, React, APIs" },
+export const shecodes = {
+  label: "SheCodes Hall of Fame graduate",
+  href: "#certificates",
+};
+
+export type Education = {
+  when: string;
+  what: string;
+  detail: string;
+  certs?: { name: string; src: string }[];
+};
+
+export const education: Education[] = [
+  {
+    when: "2023",
+    what: "SheCodes, front-end development",
+    detail: "HTML, CSS, JavaScript, React, APIs. Six certificates, Hall of Fame graduate.",
+    certs: [
+      { name: "Basics", src: "/certificates/basics.png" },
+      { name: "Basics Add-on", src: "/certificates/basics-add-on.png" },
+      { name: "Plus", src: "/certificates/plus.png" },
+      { name: "Plus Add-on", src: "/certificates/plus-add-on.png" },
+      { name: "Responsive", src: "/certificates/responsive.png" },
+      { name: "Responsive Add-on", src: "/certificates/responsive-add-on.png" },
+    ],
+  },
   { when: "ongoing", what: "Self-taught beyond that", detail: "Next.js, TypeScript, Python, agentic tooling, shipped on real client work" },
 ];
 

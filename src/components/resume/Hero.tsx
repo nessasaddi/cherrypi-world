@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { person } from '@/data/resume';
+import { person, shecodes } from '@/data/resume';
 import PrintButton from './PrintButton';
 
 export default function Hero() {
@@ -13,9 +13,10 @@ export default function Hero() {
             <span className="num"><span style={{ color: 'var(--cherry)' }}>{person.name}</span> · § 01 <span style={{ textTransform: 'none' }}>/resume</span></span>
           </div>
 
-          <p className="mono" style={{ color: 'var(--ink-soft)', margin: '0 0 14px' }}>
-            {person.target.title}
-          </p>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 14, flexWrap: 'wrap', margin: '0 0 16px' }}>
+            <p className="mono" style={{ color: 'var(--ink-soft)', margin: 0 }}>{person.target.title}</p>
+            <a href={shecodes.href} className="sticker lime hero-badge">✦ {shecodes.label} ↓</a>
+          </div>
 
           <h1 className="h-display" style={{ margin: 0, lineHeight: 1.02 }}>
             <span style={{ display: 'block', fontSize: 'clamp(2.6rem, 6vw, 4.8rem)' }}>{person.headline[0]}</span>

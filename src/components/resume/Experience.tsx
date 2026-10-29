@@ -1,4 +1,5 @@
 import { experience, education, stack } from '@/data/resume';
+import Certificates from './Certificates';
 
 export default function Experience() {
   return (
@@ -31,10 +32,11 @@ export default function Experience() {
           <div className="panel" style={{ padding: 'clamp(20px, 2.5vw, 28px)' }}>
             <div className="mono" style={{ color: 'var(--ink-soft)', marginBottom: 14 }}>education</div>
             {education.map((ed) => (
-              <div key={ed.what} style={{ marginBottom: 14 }}>
+              <div key={ed.what} style={{ marginBottom: 16 }}>
                 <div className="mono" style={{ color: 'var(--cherry)', textTransform: 'none', letterSpacing: '0.1em' }}>{ed.when}</div>
                 <div className="h-ui" style={{ fontSize: 15, marginTop: 2 }}>{ed.what}</div>
                 <div style={{ fontSize: 13, color: 'var(--ink-soft)', marginTop: 2 }}>{ed.detail}</div>
+                {ed.certs && <Certificates certs={ed.certs} />}
               </div>
             ))}
           </div>
