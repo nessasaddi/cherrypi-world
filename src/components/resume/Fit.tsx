@@ -45,7 +45,6 @@ export default function Fit() {
         </ol>
 
         <div className="panel straight" >
-          <span className="tape r" />
           <div className="mono" style={{ color: 'var(--butter)', marginBottom: 10 }}>straight talk</div>
           <p style={{ margin: 0 }}>{straightTalk}</p>
         </div>

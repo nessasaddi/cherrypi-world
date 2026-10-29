@@ -5,7 +5,6 @@ export default function Tools() {
     <section id="tools" className="section scrollspy-anchor" style={{ paddingTop: 0 }}>
       <div className="container">
         <div className="panel tools-panel">
-          <span className="tape l" style={{ background: 'rgba(174,190,255,0.5)' }} />
           <div className="section-head" style={{ marginBottom: 'clamp(24px, 4vh, 40px)' }}>
             <div>
               <div className="section-tag" style={{ marginBottom: 14 }}>

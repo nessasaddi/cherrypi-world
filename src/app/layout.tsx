@@ -47,7 +47,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: "Vanessa Saddi: Front End Engineer, Marketing. Designer first, engineer by necessity.",
   description:
-    "Resume of Vanessa Saddi: designer-engineer with six live production sites, Next.js and React, headless content systems, internal tooling and AI-assisted workflows. Built for the Anthropic Brand Web team.",
+    "Resume of Vanessa Saddi: designer-engineer with six live production sites, Next.js and React, headless content systems, internal tooling and AI-assisted workflows.",
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
@@ -55,14 +55,14 @@ export const metadata: Metadata = {
     siteName: "Cherry Pi",
     title: "Vanessa Saddi: Front End Engineer, Marketing. Designer first, engineer by necessity.",
     description:
-      "Resume of Vanessa Saddi: designer-engineer with six live production sites, Next.js and React, headless content systems, internal tooling and AI-assisted workflows. Built for the Anthropic Brand Web team.",
+      "Resume of Vanessa Saddi: designer-engineer with six live production sites, Next.js and React, headless content systems, internal tooling and AI-assisted workflows.",
     images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Cherry Pi" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Vanessa Saddi: Front End Engineer, Marketing. Designer first, engineer by necessity.",
     description:
-      "Resume of Vanessa Saddi: designer-engineer with six live production sites, Next.js and React, headless content systems, internal tooling and AI-assisted workflows. Built for the Anthropic Brand Web team.",
+      "Resume of Vanessa Saddi: designer-engineer with six live production sites, Next.js and React, headless content systems, internal tooling and AI-assisted workflows.",
     images: ["/og-image.png"],
   },
   robots: { index: true, follow: true },
