@@ -38,9 +38,8 @@ export default function Hero() {
           </ul>
 
           <div className="no-print" style={{ display: 'flex', gap: 12, marginTop: 30, flexWrap: 'wrap' }}>
-            <a href="#fit" className="btn primary">→ why this role fits</a>
+            <a href="#fit" className="btn primary">→ see the fit</a>
             <PrintButton />
-            <a href={person.target.href} target="_blank" rel="noopener" className="btn ghost">→ the listing</a>
           </div>
         </div>
 

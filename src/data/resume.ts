@@ -15,10 +15,7 @@ export const person = {
     { label: "linkedin", href: "https://www.linkedin.com/company/cherrypi" },
   ],
   target: {
-    company: "Anthropic",
-    team: "Brand Web",
     title: "Front End Engineer, Marketing",
-    href: "https://job-boards.greenhouse.io/anthropic/jobs/5386971008",
   },
 };
 
@@ -32,52 +29,52 @@ export type FitItem = {
 export const fit: FitItem[] = [
   {
     tag: "core",
-    ask: "Modern frameworks like Next.js and React, comfortable working inside a design system.",
+    ask: "Modern frameworks. Next.js and React, inside a design system.",
     proof:
       "Five production sites live today. Next.js 15 and 16 with React 19 and Tailwind v4 where the site earns it (swiitchglobal.com, this page); plain HTML, CSS and JS where that was the right size (alpinevapor.com, housemoney.com landing pages, timothyvanessa.com). Every brand ships with a written kit the code reads first: tokens, type with PostScript names, logo rules, page furniture.",
     evidence: ["Next.js 15/16", "React 19", "Tailwind v4", "TypeScript", "Vercel"],
   },
   {
     tag: "core",
-    ask: "CSS for complex layouts, animations and interactions.",
+    ask: "CSS for complex layouts, animation and interaction.",
     proof:
       "This page: fluid clamp() type scale, 12-column panel grid, gradient wordmark through a CSS mask, film grain overlay, reduced-motion fallbacks. Swiitch: 21+ age gate, auto-scrolling gallery carousel, native share sheet on photo tiles. House Money: mobile sticky CTA bar that appears once the hero leaves the viewport. Alpine: nav that flips colour over dark and light sections, store locator with a map.",
   },
   {
     tag: "core",
-    ask: "Headless CMS experience: content modeling, structured data, the publishing experience.",
+    ask: "Headless content. Modeling, structured data, the publishing experience.",
     proof:
       "Swell headless commerce behind the Swiitch store: products modeled in Swell, storefront rendered in Next.js through swell-js, ten pods live. Typed content layers drive the rest: one artists file renders four /art/<slug> pages with the artists' exact words; one events data file renders events, past events and per-event galleries; a COA list renders the certificate library. Notion databases run operations as a CMS through MCP: three task boards and a client hub that a skill populates from a discovery call. Straight talk: no Sanity or Contentful in production yet.",
     evidence: ["Swell", "typed content files", "Notion via MCP", "Webflow embeds", "Apps Script + Sheets"],
   },
   {
     tag: "core",
-    ask: "Partner with designers to turn static designs into interactive web experiences.",
+    ask: "Design to interactive. Static designs into working web experiences.",
     proof:
       "I am the designer and the engineer, so the handoff happens inside one head. Every site above started as my own art direction (brand decks, style locks, UI direction docs) and I carried it to code. When the design came from someone else, as with House Money's seven-page copy PDF and five comps, it became two A/B landing pages in a day, with a ?review=1 mode that outlines every block and labels where its copy came from.",
   },
   {
     tag: "core",
-    ask: "Build internal tools that help teams author, manage and publish content at scale.",
+    ask: "Internal tools. Helping a team author, manage and publish content at scale.",
     proof:
       "Eighteen custom Claude skills in daily use, among them a task manager that routes work to three Notion boards, a file organizer that enforces one brand folder standard, an Illustrator template builder that turns SVG plus a spec.json into editable catalogs, labels and decks, and brand-locked image pipelines. Shell and Python tools where they fit: a photo prep script that processed 274 event photos in about 17 minutes and prints the data block to paste, a batch content pipeline with a caption agent, scoring and Slack notify, and signup pipelines (site form to Apps Script to Sheet) on three sites.",
     evidence: ["Claude skills", "Python", "shell", "Apps Script", "Notion MCP"],
   },
   {
     tag: "core",
-    ask: "Take defined scopes in migrations and site architecture projects.",
+    ask: "Migrations and site architecture, on a defined scope.",
     proof:
       "Swiitch: migrated a static site to a Next.js and Swell store on the same repo, two Vercel projects watching two branches, a one-minute rollback by moving the domain, temporary redirects flipped to permanent after cutover, and a runbook written after a shared project broke production. October 2026: branched a minimal CBD-mode site for a payment-processor review with the full site parked and nothing deleted. Cherry Pi v4: removed 7,200 lines and three heavy dependencies.",
   },
   {
     tag: "core",
-    ask: "Move quickly from concept to working prototype.",
+    ask: "Concept to working prototype, quickly.",
     proof:
       "Wedding site: designed, built, RSVP pipeline wired to a spreadsheet and verified end to end, deployed to Vercel, in one session. Alpine Vapor: site planned September 17, live for The Network Show on September 23. House Money: two landing pages September 30, Webflow package October 1. Cherry Pi v4: spec July 4, approved and merged July 6.",
   },
   {
     tag: "core",
-    ask: "Improve tooling and workflows, contribute to documentation and knowledge sharing.",
+    ask: "Tooling, workflows, documentation and knowledge sharing.",
     proof:
       "Every repo ships a README written for the next person, including the three build failures that actually happened and their fixes. The studio runs on a CLAUDE.md workspace with a memory layer, a decision log and a brand folder standard that any session loads. A skills registry in Notion stays in sync with what is installed.",
   },
@@ -90,13 +87,13 @@ export const fit: FitItem[] = [
   },
   {
     tag: "preferred",
-    ask: "Interest in generative or programmatic design.",
+    ask: "Generative and programmatic design.",
     proof:
       "Illustrator files generated from SVG and a spec file: a catalog rebuilt from a menu JSON, label batches, an eleven-artboard sales deck. A worksheet design system in ReportLab. Brand-locked Higgsfield generation with reusable prompt blocks and composite scripts, under one rule: brand art is placed exact, never regenerated.",
   },
   {
     tag: "preferred",
-    ask: "Localization or internationalization systems.",
+    ask: "Localization and internationalization.",
     proof: "Not yet. Closer to the typed content layers I build daily than it looks, and a defined scope I would take on gladly.",
   },
 ];

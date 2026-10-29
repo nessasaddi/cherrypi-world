@@ -14,12 +14,12 @@ export default function Fit() {
               <span className="hand" style={{ color: 'var(--butter)', fontSize: 22, transform: 'rotate(-2deg)', display: 'inline-block' }}>the fit ✿</span>
             </div>
             <h2 className="h-display" style={{ fontSize: 'clamp(2.4rem, 5.5vw, 5rem)', color: 'var(--paper)', lineHeight: 0.98 }}>
-              What you asked for.<br />
+              What the work needs.<br />
               <em className="shimmer" style={{ fontStyle: 'italic' }}>What I have shipped.</em>
             </h2>
           </div>
           <p className="lede" style={{ color: 'rgba(255,250,240,0.72)', maxWidth: 440 }}>
-            Each line of the listing, answered with work that is live today. Where the answer is not yet, it says so.
+            What a front-end role on a brand team usually asks for, answered with work that is live today. Where the answer is not yet, it says so.
           </p>
         </div>
 
@@ -28,7 +28,7 @@ export default function Fit() {
             <li key={f.ask} className="fit-row">
               <div className="fit-ask">
                 <span className="mono" style={{ color: f.tag === 'core' ? 'var(--lime)' : 'var(--lavender)' }}>
-                  {String(i + 1).padStart(2, '0')} · {f.tag === 'core' ? 'listed' : 'nice to have'}
+                  {String(i + 1).padStart(2, '0')} · {f.tag === 'core' ? 'core' : 'plus'}
                 </span>
                 <p>{f.ask}</p>
               </div>
