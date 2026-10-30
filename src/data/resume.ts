@@ -6,7 +6,7 @@ export const person = {
   role: "Front End Engineer, Marketing",
   headline: ["Designer first.", "Engineer by necessity."],
   summary:
-    "Thirteen years of client-facing craft, three years shipping production web, and a daily practice of building with Claude in the loop. I design the system, write the code, and run the tooling that keeps it moving. Five live properties, one operator.",
+    "Thirteen years of client-facing craft, three years shipping production web, and a daily habit of building with Claude in the loop. Vanessa designs the system, writes the code and runs the tooling that keeps it all moving. Five live properties, one operator, a lot of care.",
   location: "Los Angeles, California · travels to the office as needed",
   email: "nessasaddi@gmail.com",
   links: [
@@ -51,7 +51,7 @@ export const fit: FitItem[] = [
     tag: "core",
     ask: "Design to interactive. Static designs into working web experiences.",
     proof:
-      "I am the designer and the engineer, so the handoff happens inside one head. Every site above started as my own art direction (brand decks, style locks, UI direction docs) and I carried it to code. When the design and copy came from a client team, they became two landing-page variants in a day, with a review mode that outlines every block and labels where its copy came from.",
+      "Designer and engineer in one seat, so nothing gets lost in the handoff. Every site above began as Vanessa's own art direction, brand decks, style locks and UI direction docs, then went to code with the same hands. When a client team supplied the design and copy, it became two landing-page variants in a day, with a review mode that outlines every block and notes where its copy came from.",
   },
   {
     tag: "core",
@@ -94,7 +94,7 @@ export const fit: FitItem[] = [
   {
     tag: "preferred",
     ask: "Localization and internationalization.",
-    proof: "Not yet. Closer to the typed content layers I build daily than it looks, and a defined scope I would take on gladly.",
+    proof: "Not yet. Closer to the typed content layers already in daily use than it looks, and a defined scope she would take on gladly.",
   },
 ];
 
@@ -250,4 +250,4 @@ export const stack: { group: string; items: string[] }[] = [
 ];
 
 export const straightTalk =
-  "Not on this page: a Sanity or Contentful class CMS in production, localization systems, and a team larger than one. I have owned whole properties end to end for seven brands this year. Owning a defined scope inside a senior team is the step I want next.";
+  "Not on this page: a Sanity or Contentful class CMS in production, localization systems, and a team larger than one. Vanessa has owned whole properties end to end for seven brands this year. Owning a defined scope inside a senior team is the step she wants next, and the part she is most looking forward to.";

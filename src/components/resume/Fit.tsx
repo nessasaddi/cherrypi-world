@@ -15,7 +15,7 @@ export default function Fit() {
             </div>
             <h2 className="h-display" style={{ fontSize: 'clamp(2.4rem, 5.5vw, 5rem)', color: 'var(--paper)', lineHeight: 0.98 }}>
               What the work needs.<br />
-              <em className="shimmer" style={{ fontStyle: 'italic' }}>What I have shipped.</em>
+              <em className="shimmer" style={{ fontStyle: 'italic' }}>What has shipped.</em>
             </h2>
           </div>
           <p className="lede" style={{ color: 'rgba(255,250,240,0.72)', maxWidth: 440 }}>
