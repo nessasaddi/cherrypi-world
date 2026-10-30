@@ -51,7 +51,7 @@ export const fit: FitItem[] = [
     tag: "core",
     ask: "Design to interactive. Static designs into working web experiences.",
     proof:
-      "Designer and engineer in one seat, so nothing gets lost in the handoff. Every site above began as Vanessa's own art direction, brand decks, style locks and UI direction docs, then went to code with the same hands. When a client team supplied the design and copy, it became two landing-page variants in a day, with a review mode that outlines every block and notes where its copy came from.",
+      "Designer and engineer in one seat, so nothing gets lost in the handoff. Brand decks, style locks and UI direction docs go to code with the same hands that helped shape them. When a client team supplied the design and copy, it became two landing-page variants in a day, with a review mode that outlines every block and notes where its copy came from.",
   },
   {
     tag: "core",
